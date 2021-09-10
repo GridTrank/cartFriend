@@ -30,8 +30,7 @@
             "path" : "pages/Exchange/Exchange",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "兑换",
-                "enablePullDownRefresh": false
+                "navigationBarTitleText": "兑换"
             }
             
         }
@@ -40,6 +39,34 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "我的",
+                "enablePullDownRefresh": false,
+				"navigationStyle":"custom"
+            }
+            
+        }
+        ,{
+            "path" : "pages/Search/Search",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "搜索"
+            }
+            
+        }
+        ,{
+            "path" : "pages/SearchResult/SearchResult",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "搜索结果",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        
+        ,{
+            "path" : "pages/Release/Release",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "发布",
                 "enablePullDownRefresh": false
             }
             
@@ -66,7 +93,7 @@
 			{
 				"pagePath": "pages/Circle/Circle",
 				"iconPath": "static/image/quanzi.png",
-				"selectedIconPath": "static/image/quanzi-s.png ",
+				"selectedIconPath": "static/image/quanzi-s.png",
 				"text": "圈子"
 			},
 			{

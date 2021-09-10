@@ -1,10 +1,10 @@
 <template>
 	<view class="page-wrap">
-		<view class="page-top">
-			<view class="search-wrap">
+		<view class="page-top" :class="fixed && 'fixed'"> 
+			<navigator url="../Search/Search" class="search-wrap">
 				<u-icon name="search"  size="32"></u-icon>
 				<text  class="s-txt">请输入关键词搜索</text>
-			</view>
+			</navigator>
 		</view>
 		<view class="my-circle">
 			<view class="my-circle-top">
@@ -12,9 +12,12 @@
 				<view class="circle-m">更多推荐<u-icon name="arrow-right"  size="28"></u-icon></view>
 			</view>
 			<scroll-view class="cirlce-list" scroll-x="true">
-				<view class="circle-item" v-for="(item,index) in 9">
+				<view class="circle-item" 
+					v-for="(item,index) in 9" 
+					:class="selectIndex==index && 'select-item'"
+					@click="selectCircleItem(item,index)"
+				>
 					<view class="circle-img">
-						
 					</view>
 					<view class="circle-name">
 						圈子名称
@@ -23,6 +26,7 @@
 			</scroll-view>
 		</view>
 		<circle-list :item="item"></circle-list>
+		<release></release>
 	</view>
 </template>
 
@@ -30,6 +34,8 @@
 	export default {
 		data() {
 			return {
+				selectIndex:0,
+				fixed:false,
 				item:[
 					{
 						image:'https://cdn.uviewui.com/uview/swiper/1.jpg',
@@ -42,6 +48,20 @@
 					}
 				]
 			};
+		},
+		onPageScroll(res) {
+			if(res.scrollTop>=100){
+				this.fixed=true
+			}else{
+				this.fixed=false
+			}
+		},
+		created(){
+		},
+		methods:{
+			selectCircleItem(item,index){
+				this.selectIndex=index
+			},
 		}
 	}
 </script>
@@ -49,7 +69,6 @@
 <style lang="scss" scoped>
 .page-wrap{
 	position: relative;
-	
 	.page-top{
 		// background-color: #18B566;
 		width: 100%;
@@ -71,10 +90,17 @@
 			}
 		}
 	}
+	.fixed{
+		position: fixed;
+		width: 100%;
+		top: 0;
+		background-color: #fff;
+		z-index: 999;
+		border-bottom: 1px solid #e2e2e2;
+	}
 	.my-circle{
 		padding: 40upx 20upx;
-		margin-top: 20upx;
-		background-color: #e2e2e2;
+		background-color: #f2f2f2;
 		.my-circle-top{
 			display: flex;
 			justify-content: space-between;
@@ -98,8 +124,19 @@
 					width: 100upx;
 					height: 100upx;
 					border-radius: 50%;
-					background-color: #f59a23;
+					background-color: #fff;
 					margin: auto;
+				}
+				.circle-name{
+					color: #999;
+				}
+			}
+			.select-item{
+				.circle-img{
+					border: 2upx solid $default-color;
+				}
+				.circle-name{
+					color: #333;
 				}
 			}
 		}

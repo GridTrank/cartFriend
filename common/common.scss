@@ -22,4 +22,74 @@
 	line-clamp: 3;
 	-webkit-box-orient: vertical;
 }
+.page-wrap{
+	background-color: #f2f2f2;
+}
+.model-wrap{
+	background-color: #fff;
+	border-radius: 24upx;
+	padding: 40upx;
+}
 
+.xflex-list{
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	.xflex-list-item{
+		flex-shrink: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		background-color: #fff;
+		border-radius: 24upx;
+	}
+	.xflex-list-item-row{
+		flex-shrink: 0;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		background-color: #fff;
+		border-radius: 24upx;
+	}
+}
+.jc-sb{
+	justify-content: space-between;
+}
+
+.mt20{
+	margin-top: 20upx;
+}
+.mt30{
+	margin-top: 30upx;
+}
+.mt40{
+	margin-top: 40upx;
+}
+.pd40-region{
+	padding:0 40upx 20upx 40upx;
+}
+
+.f32-c333{
+	font-size: 32upx;
+	color: #333;
+}
+.f28-c666{
+	font-size: 28upx;
+	color: #666;
+}
+.fwb{
+	font-weight: bold;
+}
+
+.btnStyle1{
+	background-color: #666;
+	border-radius: 50upx;
+	color: #fff;
+}
+.btnStyle2{
+	background-color:$default-color;
+	border-radius: 50upx;
+	color: #fff;
+}

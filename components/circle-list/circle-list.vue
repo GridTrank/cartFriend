@@ -78,7 +78,7 @@
 		}
 		.info-center{
 			.info-title{
-				font-size: 32upx;
+				font-size: 30upx;
 				font-weight: 600;
 			}
 			.note-info{
@@ -88,6 +88,8 @@
 				align-items: center;
 				.note{
 					width: 58%;
+					color: #666;
+					font-size: 28upx;
 				}
 			}
 		}
