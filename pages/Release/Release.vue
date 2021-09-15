@@ -18,8 +18,13 @@
 				{{item.name}}
 			</view>
 		</view>
-		<u-input class="title mt30" type="" v-model="title" placeholder="请输入标题" />
-		<u-input class="content mt30" type="textarea" v-model="content" />
+        <view class="input-wrap mt30">
+            <u-input class="title " type="" v-model="title" placeholder="请输入标题" />
+        </view>
+        
+        <view class="input-wrap mt30">
+            <u-input class="content " type="textarea" v-model="content" />
+        </view>
 		
 		<u-select v-model="showList" :list="list" @confirm="confirm"></u-select>
 	</view>
@@ -90,7 +95,13 @@
 			color: #fff;
 		}
 	}
-	.title{
+	
+    .input-wrap {
+        background-color: #fff;
+        border-radius: 16upx;
+        padding: 4upx 10upx 4upx 20upx;
+    }
+    .title{
 		background-color: #fff;
 		border-radius: 16upx;
 	}

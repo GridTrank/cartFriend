@@ -71,6 +71,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/Detail/Detail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "圈子详情",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
