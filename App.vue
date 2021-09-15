@@ -6,7 +6,12 @@
 		
 		},
 		onLaunch() {
-			Login(this)
+			uni.getStorage({
+				key:'token',
+				fail: (err) => {
+					Login()
+				}
+			})
 			
 		},
 		methods:{

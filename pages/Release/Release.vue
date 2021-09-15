@@ -18,7 +18,10 @@
 				{{item.name}}
 			</view>
 		</view>
-		<u-input class="title mt30" type="" v-model="title" placeholder="请输入标题" />
+		<view class="input-wrap">
+			<u-input class="title mt30" type="" v-model="title" placeholder="请输入标题" />
+		</view>
+		
 		<u-input class="content mt30" type="textarea" v-model="content" />
 		
 		<u-select v-model="showList" :list="list" @confirm="confirm"></u-select>
