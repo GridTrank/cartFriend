@@ -19,3 +19,10 @@ $default-color:#f59a23;
 	flex-direction: column;
 }
 
+@mixin defBtn ($x) {
+	padding: 10upx 30upx;
+	border-radius: 42upx;
+	background-color: #f59a23;
+	color: $x;
+}
+

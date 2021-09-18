@@ -35,6 +35,24 @@
           "pathName": "pages/Release/Release",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "详情",
+          "pathName": "pages/Detail/Detail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "编辑或者添加",
+          "pathName": "pages/EditDetail/EditDetail",
+          "query": "type=add",
+          "scene": null
+        },
+        {
+          "name": "帖子详情",
+          "pathName": "pages/InvitationDetail/InvitationDetail",
+          "query": "",
+          "scene": null
         }
       ]
     }

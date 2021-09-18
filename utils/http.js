@@ -10,8 +10,7 @@ export const http=(url,data,method)=>{
 			url:baseUrl+url,
 			data:data,
 			header:{
-				'Authorization': 'Basic aW90OmlvdA==',
-				'token':uni.getStorage('token') || ''
+				'Authorization':uni.getStorageSync('token')? 'Bearer '+uni.getStorageSync('token'): 'Basic aW90OmlvdA==',
 			},
 			method:method || 'get',
 			success: (res) => {
@@ -25,6 +24,8 @@ export const http=(url,data,method)=>{
 						Login()
 						
 					}
+				}else{
+					resolve(res.data)
 				}
 				
 			},

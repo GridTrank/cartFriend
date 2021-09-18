@@ -1,6 +1,6 @@
 <template>
 	<view class="list-wrap">
-		<view class="info" v-for="(item,index) in item" :key="index">
+		<view class="info" v-for="(item,index) in item" :key="index" @click="toDetail(item)">
 			<view class="info-top">
 				<view class="info-user">
 					<view class="user-avatar"></view>
@@ -13,10 +13,10 @@
 				</view>
 			</view>
 			<view class="info-center">
-				<view class="info-title twoHidden" >帖子名称帖子名称帖子名称帖子名称帖子名称帖子名称帖子名称帖子名称帖子名称帖子名称帖子名称帖子名称帖子名称帖子名称帖子名称帖子名称帖子名称帖子名称帖子名称帖子名称</view>
+				<view class="info-title twoHidden" >圈子名称圈子名称圈子名称圈子名称圈子名称圈子名称圈子名称圈子名称圈子名称圈子名称圈子名称圈子名称圈子名称圈子名称圈子名称圈子名称圈子名称圈子名称圈子名称圈子名称圈子名称</view>
 				<view class="note-info">
 					<view class="note threeHidden">
-						帖子详情帖子详情帖子详情帖子详情帖子详情帖子详情帖子详情帖子详情帖子详情帖子详情帖子详情帖子详情帖子详情帖子详情
+						圈子详情圈子详情圈子详情圈子详情圈子详情圈子详情圈子详情圈子详情圈子详情圈子详情圈子详情圈子详情圈子详情圈子详情圈子详情圈子详情圈子详情圈子详情圈子详情圈子详情圈子详情圈子详情
 					</view>
 					<view class="note-img"></view>
 				</view>
@@ -42,6 +42,13 @@
 			return {
 				
 			};
+		},
+		methods:{
+			toDetail(item){
+				uni.navigateTo({
+					url:'/pages/Detail/Detail'
+				})
+			}
 		}
 	}
 </script>

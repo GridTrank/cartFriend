@@ -1,0 +1,104 @@
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * 使用的时候，请将下面的一行复制到您的uniapp项目根目录的uni.scss中即可
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+.page-wrap {
+  padding-bottom: 130rpx;
+}
+.page-wrap .swiper-wrap {
+  position: relative;
+}
+.page-wrap .swiper-wrap .more {
+  position: absolute;
+  z-index: 9999;
+  background-color: #f59a23;
+  padding: 10rpx 30rpx;
+  border-radius: 50rpx;
+  color: #fff;
+  top: 30rpx;
+  right: 64rpx;
+}
+.page-wrap .content {
+  background-color: #fff;
+  padding: 40rpx;
+}
+.page-wrap .content .user-info {
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+}
+.page-wrap .content .user-info .user .user-img {
+  width: 80rpx;
+  margin-right: 20rpx;
+}
+.page-wrap .content .user-info .zan .z-left {
+  padding: 6rpx;
+  background-color: #ddd;
+  border-radius: 8rpx;
+}
+.page-wrap .evaluate {
+  padding: 40rpx;
+  background-color: #fff;
+}
+.page-wrap .evaluate .top {
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+}
+.page-wrap .evaluate .u-input {
+  background-color: #fff;
+  width: 150rpx;
+}
+.page-wrap .more-list-wrap {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0);
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+.page-wrap .more-list-wrap .more-list {
+  position: absolute;
+  z-index: 9999;
+  top: 100rpx;
+  right: 30rpx;
+  background-color: #fff;
+  border-radius: 8rpx;
+  padding: 20rpx;
+}
+.page-wrap .more-list-wrap .more-list .list {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+}
+.page-wrap .more-list-wrap .more-list .list .item {
+  height: 65rpx;
+  line-height: 65rpx;
+  width: 150rpx;
+  text-align: center;
+}
+.page-wrap .foot-tool {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #f2f2f2;
+  z-index: 999;
+}
+.page-wrap .foot-tool .foot-list {
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
+  padding: 40rpx 0;
+}
+.page-wrap .foot-tool .foot-list .foot-item {
+  background-color: #f2f2f2;
+}
+.page-wrap .foot-tool .foot-list .foot-item .t1 {
+  padding: 6rpx 18rpx;
+  background-color: #f59a23;
+  border-radius: 12rpx;
+  color: #fff;
+  margin-right: 10rpx;
+}
+

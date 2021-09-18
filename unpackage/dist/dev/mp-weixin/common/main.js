@@ -127,12 +127,9 @@ var _util = __webpack_require__(/*! @/utils/util.js */ 8);var _default =
 
 
   onLaunch: function onLaunch() {
-    uni.getStorage({
-      key: 'token',
-      fail: function fail(err) {
-        (0, _util.Login)();
-      } });
-
+    if (!uni.getStorageSync('token')) {
+      (0, _util.Login)();
+    }
 
   },
   methods: {} };exports.default = _default;

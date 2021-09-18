@@ -51,7 +51,7 @@
 				<view class="circle-t">加入圈子</view>
 			</view>
 			<view class="circle-wrap xflex-list">
-				<view class="xflex-list-item">
+				<view class="xflex-list-item" @click="create">
 					<u-icon name="plus-circle" color="#666" size="56"></u-icon>
 					<view class="creat-circle">
 						创建新圈子
@@ -102,6 +102,11 @@
 		methods:{
 			selectCircleItem(item,index){
 				this.selectIndex=index
+			},
+			create(){
+				uni.navigateTo({
+					url:'/pages/EditDetail/EditDetail?type='+'add'
+				})
 			}
 		}
 	}

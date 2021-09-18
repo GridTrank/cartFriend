@@ -6,7 +6,10 @@
     "pages/MyCenter/MyCenter",
     "pages/Search/Search",
     "pages/SearchResult/SearchResult",
-    "pages/Release/Release"
+    "pages/Release/Release",
+    "pages/Detail/Detail",
+    "pages/EditDetail/EditDetail",
+    "pages/InvitationDetail/InvitationDetail"
   ],
   "subPackages": [],
   "window": {

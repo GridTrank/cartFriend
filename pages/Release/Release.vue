@@ -18,13 +18,37 @@
 				{{item.name}}
 			</view>
 		</view>
-		<view class="input-wrap">
-			<u-input class="title mt30" type="" v-model="title" placeholder="请输入标题" />
+
+        <view class="input-content mt30">
+			<view class="input-title">标题</view>
+			<view class="input-wrap mt20">
+				<u-input class="title " type="" v-model="title" placeholder="请输入标题" />
+			</view>
+        </view>
+        
+        <view class="input-content mt30">
+			<view class="input-title ">内容</view>
+			<view class="input-wrap mt20">
+				<u-input class="content " type="textarea" v-model="content" />
+			</view>
+        </view>
+		
+		<view class="input-content mt30">
+			<view class="input-title">悬赏金额(余额500元)</view>
+			<view class="input-wrap mt20">
+				<u-input class="title " type="" v-model="money" placeholder="请输入悬赏金额" />
+			</view>
 		</view>
 		
-		<u-input class="content mt30" type="textarea" v-model="content" />
+		<view class="foot-btn mt40">
+			<view class="submit">
+				发布
+			</view>
+		</view>
+		
 		
 		<u-select v-model="showList" :list="list" @confirm="confirm"></u-select>
+		
 	</view>
 </template>
 
@@ -46,7 +70,8 @@
 					{name:'视频',value:'video'},
 				],
 				title:'',
-				content:''
+				content:'',
+				money:'',
 			};
 		},
 		methods:{
@@ -93,13 +118,32 @@
 			color: #fff;
 		}
 	}
-	.title{
+	
+    .input-wrap {
+        background-color: #fff;
+        border-radius: 16upx;
+        padding: 4upx 10upx 4upx 20upx;
+		
+    }
+	.foot-btn{
+		width: 100%;
+		.submit{
+			width: 25%;
+			text-align: center;
+			padding: 10upx 30upx;
+			background-color: $default-color;
+			border-radius: 32upx;
+			float: right;
+			color: #fff;
+		}
+	}
+    .title{
 		background-color: #fff;
 		border-radius: 16upx;
 	}
 	.content{
 		background-color: #fff;
-		min-height: 400upx;
+		min-height: 600upx;
 		border-radius: 16upx;
 	}
 }

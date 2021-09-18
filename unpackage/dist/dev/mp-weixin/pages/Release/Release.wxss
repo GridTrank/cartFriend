@@ -30,13 +30,30 @@
   background-color: #f59a23;
   color: #fff;
 }
+.page-wrap .input-wrap.data-v-ab2bd254 {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 4rpx 10rpx 4rpx 20rpx;
+}
+.page-wrap .foot-btn.data-v-ab2bd254 {
+  width: 100%;
+}
+.page-wrap .foot-btn .submit.data-v-ab2bd254 {
+  width: 25%;
+  text-align: center;
+  padding: 10rpx 30rpx;
+  background-color: #f59a23;
+  border-radius: 32rpx;
+  float: right;
+  color: #fff;
+}
 .page-wrap .title.data-v-ab2bd254 {
   background-color: #fff;
   border-radius: 16rpx;
 }
 .page-wrap .content.data-v-ab2bd254 {
   background-color: #fff;
-  min-height: 400rpx;
+  min-height: 600rpx;
   border-radius: 16rpx;
 }
 
