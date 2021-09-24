@@ -1,0 +1,1 @@
+<view data-event-opts="{{[['tap',[['toPage',['$event']]]]]}}" class="release" bindtap="__e">发布</view>

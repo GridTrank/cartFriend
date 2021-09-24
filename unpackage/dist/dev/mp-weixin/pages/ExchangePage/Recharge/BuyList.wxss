@@ -1,0 +1,39 @@
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * 使用的时候，请将下面的一行复制到您的uniapp项目根目录的uni.scss中即可
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+.page-wrap.data-v-db7000a0 {
+  min-height: 100vh;
+}
+.page-wrap .xflex-list.data-v-db7000a0 {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+.page-wrap .xflex-list .xflex-list-item.data-v-db7000a0 {
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 2rpx solid #ddd;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+          align-items: flex-start;
+  padding: 30rpx;
+  border-radius: 0;
+  position: relative;
+}
+.page-wrap .xflex-list .xflex-list-item .money.data-v-db7000a0 {
+  font-size: 30rpx;
+  color: #333;
+  font-weight: bold;
+  position: absolute;
+  right: 30rpx;
+  top: 46rpx;
+}
+

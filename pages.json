@@ -98,6 +98,48 @@
             }
             
         }
+        ,{
+            "path" : "pages/CommentList/CommentList",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "评论列表",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/ExchangePage/Recharge/Recharge",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "充值付费",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/ExchangePage/Recharge/Cash",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "提现",
+                "enablePullDownRefresh": false
+            }
+        },
+        {
+            "path" : "pages/ExchangePage/Recharge/OpenVip",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "开通月卡",
+                "enablePullDownRefresh": false
+            }
+        },
+        {
+            "path" : "pages/ExchangePage/Recharge/BuyList",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "购买记录",
+                "enablePullDownRefresh": false
+            }
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

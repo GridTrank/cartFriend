@@ -14,6 +14,7 @@
 			<scroll-view class="cirlce-list" scroll-x="true">
 				<view class="circle-item" 
 					v-for="(item,index) in 9" 
+                    :key="index"
 					:class="selectIndex==index && 'select-item'"
 					@click="selectCircleItem(item,index)"
 				>
@@ -57,6 +58,7 @@
 			}
 		},
 		created(){
+           
 		},
 		methods:{
 			selectCircleItem(item,index){

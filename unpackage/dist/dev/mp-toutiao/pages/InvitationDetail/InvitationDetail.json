@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "帖子详情",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "u-swiper": "/uview-ui/components/u-swiper/u-swiper",
+    "u-select": "/uview-ui/components/u-select/u-select",
+    "u-input": "/uview-ui/components/u-input/u-input"
+  }
+}

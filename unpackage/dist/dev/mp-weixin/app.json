@@ -9,7 +9,12 @@
     "pages/Release/Release",
     "pages/Detail/Detail",
     "pages/EditDetail/EditDetail",
-    "pages/InvitationDetail/InvitationDetail"
+    "pages/InvitationDetail/InvitationDetail",
+    "pages/CommentList/CommentList",
+    "pages/ExchangePage/Recharge/Recharge",
+    "pages/ExchangePage/Recharge/Cash",
+    "pages/ExchangePage/Recharge/OpenVip",
+    "pages/ExchangePage/Recharge/BuyList"
   ],
   "subPackages": [],
   "window": {
@@ -50,6 +55,5 @@
       }
     ]
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap.json"
+  "usingComponents": {}
 }

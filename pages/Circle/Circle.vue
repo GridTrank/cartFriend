@@ -88,7 +88,6 @@
 			};
 		},
 		onPageScroll(res) {
-			console.log(res.scrollTop)
 			
 			if(res.scrollTop>=100){
 				this.fixed=true
@@ -97,7 +96,6 @@
 			}
 		},
 		created(){
-			console.log(this.$u)
 		},
 		methods:{
 			selectCircleItem(item,index){

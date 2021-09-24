@@ -1,10 +1,10 @@
 // 登录
 import {http} from '@/utils/http.js'
+import store from '@/store';
+
 export const Login=()=>{
 	getCode().then(code=>{
-		
 		http("/member/openId",{code:code}).then(res=>{
-			console.log(111111111,res)
 			getToken(res.data)
 		}).catch(err=>{
 		})
@@ -13,15 +13,44 @@ export const Login=()=>{
 	})
 }
 
+
 export const  getToken=(id)=>{
 	return new Promise((resolve,reject)=>{
 		http("/auth/mobile/wechat_login",{openid:id,tenantId:2}).then(res=>{
 			uni.setStorageSync('token',res.access_token)
 			uni.setStorageSync('user_id',res.user_id)
+            getUserInfo(res.user_id)
 		}).catch(err=>{
 			console.log(err)
 		})
 	})
+}
+
+function getUserInfo(userId){
+    http("/member/info").then(res=>{
+        if(res){
+            uni.setStorageSync("userInfo",res.data)
+        }
+    }).catch(err=>{
+    	console.log(err)
+    })
+}
+
+// 更新用户信息
+function updateUnserInfo(userInfo){
+    let data={
+        userId:uni.getStorageSync('user_id'),
+        nickName:userInfo.nickName,
+        // photo:userInfo.avatarUrl,
+        description:111
+    }
+    store.commit('$uStore',{name:'showLoginPop',value:false})
+    http("/member/update",data,'post').then(res=>{
+    	console.log(res)
+        
+    }).catch(err=>{
+    	console.log(err)
+    })
 }
 
 function getCode(){
@@ -32,7 +61,6 @@ function getCode(){
 				uni.login({
 					provider:res.provider[0],
 					success:function(result){
-						
 						resolve(result.code)
 					},
 					fail:function(err){
@@ -45,14 +73,29 @@ function getCode(){
 	
 }
 
+// 授权后的用户信息
+export const getUserProfile=()=>{
+    uni.getUserProfile({
+        desc:'登陆',
+        success:(res)=>{
+            console.log('授权后的用户信息',res)
+            uni.setStorageSync('userInfo',res.userInfo)
+            
+        },
+        fail:(err)=>{
+            console.log(222,err)
+        }
+    })
+}
+
 
 // 上传
-export const uploadFile=()=>{
+export const uploadFile=(url,fileKey,data)=>{
 	uni.chooseImage({
 	    success: (chooseImageRes) => {
 	        const tempFilePaths = chooseImageRes.tempFilePaths;
 	        uni.uploadFile({
-	            url: 'http://8.134.100.47/api/member/update',
+	            url: 'http://8.134.100.47/api'+url,
 	            filePath: tempFilePaths[0],
 	            name: 'photo',
 				header:{
@@ -60,7 +103,8 @@ export const uploadFile=()=>{
 					'Content-Type': 'multipart/form-data'
 				},
 	            formData: {
-	                'userId': uni.getStorageSync('user_id')
+	                'userId': uni.getStorageSync('user_id'),
+                    ...data
 	            },
 	            success: (uploadFileRes) => {
 	                console.log(uploadFileRes.data);

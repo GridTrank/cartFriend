@@ -1,0 +1,52 @@
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * 使用的时候，请将下面的一行复制到您的uniapp项目根目录的uni.scss中即可
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+.page-wrap.data-v-a2f84674 {
+  padding: 30rpx 40rpx;
+  min-height: 100vh;
+}
+.page-wrap .search-wrap.data-v-a2f84674 {
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+}
+.page-wrap .search-wrap .input.data-v-a2f84674 {
+  width: 76%;
+  background-color: #fff;
+  border-radius: 50rpx;
+  padding-left: 20rpx;
+  margin-right: 20rpx;
+}
+.page-wrap .search-wrap .input .input-box.data-v-a2f84674 {
+  width: 85%;
+}
+.page-wrap .search-wrap .search-btn.data-v-a2f84674 {
+  padding: 16rpx 40rpx;
+  background-color: #f59a23;
+  border-radius: 50rpx;
+  color: #fff;
+}
+.page-wrap .search-list.data-v-a2f84674 {
+  margin-top: 40rpx;
+}
+.page-wrap .search-list .list .item.data-v-a2f84674 {
+  padding: 8rpx 30rpx;
+  background-color: #f59a23;
+  border-radius: 50rpx;
+  color: #fff;
+  margin-right: 30rpx;
+}
+.page-wrap .search-list .circle .item.data-v-a2f84674 {
+  padding: 0;
+  background-color: transparent;
+}
+.page-wrap .search-list .circle .item .img.data-v-a2f84674 {
+  width: 100rpx;
+}
+.page-wrap .search-list .circle .item .name.data-v-a2f84674 {
+  color: #333;
+}
+

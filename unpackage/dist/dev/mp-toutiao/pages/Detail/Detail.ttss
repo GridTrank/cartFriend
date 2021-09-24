@@ -1,0 +1,85 @@
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * 使用的时候，请将下面的一行复制到您的uniapp项目根目录的uni.scss中即可
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+.page-wrap .info.data-v-428b4ca6 {
+  width: 100%;
+  height: 300rpx;
+  background-color: #f59a23;
+  position: relative;
+}
+.page-wrap .info .edit.data-v-428b4ca6 {
+  position: absolute;
+  top: 70rpx;
+  right: 40rpx;
+  padding: 10rpx 30rpx;
+  border-radius: 42rpx;
+  background-color: #fff;
+  color: #333;
+}
+.page-wrap .circle-info.data-v-428b4ca6 {
+  margin-top: -25%;
+  padding: 40rpx;
+  position: relative;
+}
+.page-wrap .circle-info .img.data-v-428b4ca6 {
+  width: 160rpx;
+  position: absolute;
+  top: -60rpx;
+  left: 80rpx;
+}
+.page-wrap .circle-info .add.data-v-428b4ca6 {
+  padding: 10rpx 30rpx;
+  border-radius: 42rpx;
+  background-color: #f59a23;
+  color: #fff;
+  width: 30%;
+  text-align: center;
+  float: right;
+}
+.page-wrap .circle-info .circle-detail.data-v-428b4ca6 {
+  clear: both;
+}
+.page-wrap .circle-info .circle-detail .is-money.data-v-428b4ca6 {
+  font-size: 28rpx;
+  color: #fff;
+  font-weight: 400;
+  margin-left: 20rpx;
+  padding: 5rpx 10rpx;
+}
+.page-wrap .circle-info .xflex-list.data-v-428b4ca6 {
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
+}
+.page-wrap .circle-info .type-list.data-v-428b4ca6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.page-wrap .circle-info .type-item.data-v-428b4ca6 {
+  margin-right: 40rpx;
+  font-size: 32rpx;
+  color: #666;
+}
+.page-wrap .circle-info .type-select.data-v-428b4ca6 {
+  color: #333;
+  font-size: 36rpx;
+  font-weight: bold;
+  position: relative;
+}
+.page-wrap .circle-info .type-select.data-v-428b4ca6::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -8rpx;
+  width: 100%;
+  height: 8rpx;
+  background-color: #f59a23;
+  border-radius: 16rpx;
+}
+

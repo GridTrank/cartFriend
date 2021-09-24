@@ -28,37 +28,14 @@ const saveLifeData = function(key, value){
 	}
 }
 const store = new Vuex.Store({
+    // state变量创建后可以直接使用
 	state: {
-		// 如果上面从本地获取的lifeData对象下有对应的属性，就赋值给state中对应的变量
-		// 加上vuex_前缀，是防止变量名冲突，也让人一目了然
-		vuex_user: lifeData.vuex_user ? lifeData.vuex_user : {name: '明月'},
-		vuex_token: lifeData.vuex_token ? lifeData.vuex_token : '',
-		// 如果vuex_version无需保存到本地永久存储，无需lifeData.vuex_version方式
-		vuex_version: '1.0.1',
-		vuex_demo: '绛紫',
-		// 自定义tabbar数据
-		vuex_tabbar: [{
-				iconPath: "/static/uview/example/component.png",
-				selectedIconPath: "/static/uview/example/component_select.png",
-				text: '组件',
-				pagePath: '/pages/example/components'
-			},
-			{
-				iconPath: "/static/uview/example/js.png",
-				selectedIconPath: "/static/uview/example/js_select.png",
-				text: '工具',
-				midButton: true,
-				pagePath: '/pages/example/js'
-			},
-			{
-				iconPath: "/static/uview/example/template.png",
-				selectedIconPath: "/static/uview/example/template_select.png",
-				text: '模板',
-				pagePath: '/pages/example/template'
-			}
-		]
+		showLoginPop:false
 	},
 	mutations: {
+        changeShowLoginPop(state,value){
+            state.showLoginPop=value
+        },
 		$uStore(state, payload) {
 			// 判断是否多层级调用，state中为对象存在的情况，诸如user.info.score = 1
 			let nameArr = payload.name.split('.');

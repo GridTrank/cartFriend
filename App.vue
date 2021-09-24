@@ -21,6 +21,6 @@
 	@import "uview-ui/index.scss";
 	@import "common/demo.scss";
 	@import "common/common.scss";
-	
+	@import '/common/iconfont.css';
 	::-webkit-scrollbar{ display:none;}
 </style>

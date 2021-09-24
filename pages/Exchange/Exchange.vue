@@ -13,7 +13,7 @@
 				<text class="m-i-t1">当前余额</text>
 				<text class="m-i-t2">￥20</text>
 				<text class="m-i-t3">赏金￥20</text>
-				<text class="m-i-t4">去充值</text>
+				<navigator url="/pages/ExchangePage/Recharge/Recharge" class="m-i-t4">去充值</navigator>
 			</view>
 			<view class="material-item">
 				<text class="m-i-t1">当前汽油</text>
@@ -30,14 +30,14 @@
 				</view>
 			</view>
 			<view class="open-list mt20">
-				<view class="open-item model-wrap">
+				<navigator url="../ExchangePage/Recharge/OpenVip?type=mounth" class="open-item model-wrap">
 					<text class="item-t1">包月</text>
 					<text class="item-t2">9.9/月</text>
-				</view>
-				<view class="open-item model-wrap">
+				</navigator>
+				<navigator url="../ExchangePage/Recharge/OpenVip?type=year" class="open-item model-wrap">
 					<text class="item-t1">包年</text>
 					<text class="item-t2">99/年</text>
-				</view>
+				</navigator>
 			</view>
 		</view>
 		
@@ -204,9 +204,9 @@
 			}
 		}
 		.open-list{
-			@include XflexBox(space-around);
+			@include XflexBox(space-between);
 			.open-item{
-				padding: 60upx;
+				padding:30upx 90upx;
 				text{
 					display: block;
 					font-size: 30upx;

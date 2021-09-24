@@ -121,7 +121,7 @@
     },
     "mp-toutiao" : {
         "usingComponents" : true,
-        "appid" : ""
+        "appid" : "tt0da97b149290b3e701"
     },
     "h5" : {
         "template" : "template.h5.html",

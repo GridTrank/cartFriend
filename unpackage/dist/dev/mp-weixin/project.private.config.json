@@ -53,6 +53,35 @@
           "pathName": "pages/InvitationDetail/InvitationDetail",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "评论列表",
+          "pathName": "pages/CommentList/CommentList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "充值付费",
+          "pathName": "pages/ExchangePage/Recharge/Recharge",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "提现",
+          "pathName": "pages/ExchangePage/Recharge/Cash",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "开通vip",
+          "pathName": "pages/ExchangePage/Recharge/OpenVip",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "购买记录",
+          "pathName": "pages/ExchangePage/Recharge/BuyList",
+          "scene": null
         }
       ]
     }

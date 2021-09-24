@@ -11,6 +11,7 @@ export const http=(url,data,method)=>{
 			data:data,
 			header:{
 				'Authorization':uni.getStorageSync('token')? 'Bearer '+uni.getStorageSync('token'): 'Basic aW90OmlvdA==',
+                'Content-Type': 'application/x-www-form-urlencoded'
 			},
 			method:method || 'get',
 			success: (res) => {
