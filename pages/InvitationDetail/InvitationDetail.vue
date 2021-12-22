@@ -57,9 +57,9 @@
 				<view class="val mt10">2021-12-12</view>
 			</view>
 			<view class="model-wrap content mt20">
-				12313213132
+				{{productInfo.content}}
 			</view>
-			<view class="imgs model-wrap mt20">
+			<view class="imgs model-wrap mt20" v-if="imageList.length>0">
 				<view class="title">
 					照片
 				</view>
@@ -325,6 +325,13 @@
 							{label:'赞同',num:0,value:4,img:'http://120.24.56.30:9000/system/xq-icon3.png'}
 						]
 					}
+					if(res.data.type==4){
+						this.toolList=[
+							{label:'转发',num:0,value:1,img:'http://120.24.56.30:9000/system/xq-icon5.png'},
+							{label:'评论',num:0,value:2,img:'http://120.24.56.30:9000/system/xq-icon4.png'},
+						]
+					}
+					
 					if(res.data.userId!==uni.getStorageSync('user_id') && this.moreList[1].label=='删除'){
 						this.moreList.splice(1,1)
 					}

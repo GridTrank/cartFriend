@@ -40,6 +40,7 @@
 								class="video"
 								:show-center-play-btn="false"
 								:controls='false'
+								objectFit="cover"
 								:src="item.productPhotos" >
 								</video>
 							</template>
