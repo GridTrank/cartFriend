@@ -1,1 +1,1 @@
-<view data-event-opts="{{[['tap',[['toPage',['$event']]]]]}}" class="release" bindtap="__e">发布</view>
+<view data-event-opts="{{[['tap',[['toPage',['$event']]]]]}}" class="release" bindtap="__e"><image src="http://120.24.56.30:9000/system/release.png" mode></image></view>

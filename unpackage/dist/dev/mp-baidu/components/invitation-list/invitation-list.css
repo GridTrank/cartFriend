@@ -1,0 +1,80 @@
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * 使用的时候，请将下面的一行复制到您的uniapp项目根目录的uni.scss中即可
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+.list-wrap.data-v-0a3398ac {
+  background-color: #f2f2f2;
+  padding-bottom: 30rpx;
+}
+.list-wrap .info.data-v-0a3398ac {
+  background-color: #fff;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+}
+.list-wrap .info .info-top.data-v-0a3398ac {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+.list-wrap .info .info-top .info-user.data-v-0a3398ac {
+  display: flex;
+  align-items: center;
+}
+.list-wrap .info .info-top .info-user .user-avatar.data-v-0a3398ac {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.list-wrap .info .info-top .reward.data-v-0a3398ac {
+  color: #f59a23;
+  display: flex;
+  align-items: center;
+}
+.list-wrap .info .info-center .info-title.data-v-0a3398ac {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.list-wrap .info .info-center .note-info.data-v-0a3398ac {
+  margin: 20rpx 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.list-wrap .info .info-center .note-info .note.data-v-0a3398ac {
+  color: #333;
+  font-size: 30rpx;
+  line-height: 46rpx;
+  margin-right: 20rpx;
+}
+.list-wrap .info .info-center .note-info .note-img.data-v-0a3398ac {
+  flex-shrink: 0;
+  width: 160rpx;
+  height: 120rpx;
+  border-radius: 18rpx;
+}
+.list-wrap .info .info-center .flex-c.data-v-0a3398ac {
+  flex-direction: column;
+  align-items: baseline;
+}
+.list-wrap .info .info-bottom.data-v-0a3398ac {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.list-wrap .info .info-bottom text.data-v-0a3398ac {
+  margin-right: 20rpx;
+  padding-right: 20rpx;
+  border-right: 2rpx solid #ddd;
+}
+.list-wrap .info .info-bottom text.data-v-0a3398ac:last-child {
+  border: none;
+}
+.list-wrap .info .video.data-v-0a3398ac {
+  width: 100%;
+  margin-bottom: 30rpx;
+}
+

@@ -5,42 +5,30 @@
  * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
  */
 .page-wrap.data-v-01671f34 {
-  min-height: 100vh;
-  overflow: hidden;
-}
-.page-wrap .image-wrap.data-v-01671f34 {
-  width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-          flex-direction: column;
-  text-align: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-          justify-content: center;
-}
-.page-wrap .image-wrap .img.data-v-01671f34 {
-  width: 200rpx;
-  border-radius: 50%;
-  margin-bottom: 20rpx;
-}
-.page-wrap .form-wrap.data-v-01671f34 {
-  width: 80%;
-  margin: auto;
+  padding: 30rpx;
+  background-image: url("http://120.24.56.30:9000/system/fb-bg1.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 .page-wrap .form-wrap.data-v-01671f34 .u-input {
   background-color: #fff;
 }
-.page-wrap .submit-btn.data-v-01671f34 {
-  width: 35%;
-  padding: 16rpx 38rpx;
+.page-wrap .image-wrap.data-v-01671f34 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   text-align: center;
-  margin: 40rpx auto;
+  align-items: center;
+  justify-content: center;
+}
+.page-wrap .image-wrap .img.data-v-01671f34 {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  margin-bottom: 20rpx;
+}
+.page-wrap .submit-btn.data-v-01671f34 {
+  text-align: center;
+  margin-top: 40rpx;
 }
 

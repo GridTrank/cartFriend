@@ -5,111 +5,136 @@
  * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
  */
 .page-wrap.data-v-758bfc34 {
-  padding: 40rpx;
+  padding: 30rpx;
+  background-image: url("http://120.24.56.30:9000/system/ch-bg.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-color: linear-gradient(180deg, #FFE5C2 0%, #F3F3FE 100%);
 }
 .page-wrap .material.data-v-758bfc34 {
+  width: 100%;
+  height: 400rpx;
   position: relative;
   margin-bottom: 40rpx;
-  margin-top: 60rpx;
+  margin-top: 40rpx;
+  background-image: url("http://120.24.56.30:9000/system/hy1.png");
+  background-size: 100% 100%;
+  padding: 30rpx;
 }
 .page-wrap .material .material-user.data-v-758bfc34 {
-  position: absolute;
-  right: 20rpx;
-  top: -75rpx;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+  position: relative;
 }
-.page-wrap .material .material-user .nick-name.data-v-758bfc34 {
+.page-wrap .material .material-user .img-wrap.data-v-758bfc34 {
+  width: 120rpx;
+  height: 120rpx;
+  background-color: #FFE2B7;
+  border-radius: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10rpx;
+}
+.page-wrap .material .material-user .img-wrap .avatar.data-v-758bfc34 {
+  width: 110rpx;
+  border-radius: 10rpx;
+}
+.page-wrap .material .material-user .user-info .nick-name.data-v-758bfc34 {
   font-size: 32rpx;
   font-weight: 600;
-}
-.page-wrap .material .material-user .avatar.data-v-758bfc34 {
-  background-color: #e2e2e2;
-  width: 100rpx;
-  border-radius: 50%;
-  margin-left: 30rpx;
-}
-.page-wrap .material .material-item.data-v-758bfc34 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
-}
-.page-wrap .material .material-item text.data-v-758bfc34 {
-  margin: 20rpx 0;
-}
-.page-wrap .material .material-item .m-i-t1.data-v-758bfc34 {
-  font-size: 32rpx;
-  font-weight: 600;
-  margin-right: 40rpx;
-}
-.page-wrap .material .material-item .m-i-t2.data-v-758bfc34 {
-  font-size: 38rpx;
-  font-weight: 600;
-  margin-right: 40rpx;
-}
-.page-wrap .material .material-item .m-i-t4.data-v-758bfc34 {
-  padding: 14rpx 20rpx;
-  background-color: #f59a23;
-  border-radius: 50rpx;
   color: #fff;
-  margin-left: 30rpx;
+}
+.page-wrap .material .material-user .user-info .days.data-v-758bfc34 {
+  color: #FE4901;
+  font-size: 28rpx;
+  padding: 4rpx;
+  border-radius: 8rpx;
+  background-color: #FFE2B7;
+}
+.page-wrap .material .material-user .to-recharge.data-v-758bfc34 {
+  position: absolute;
+  right: 0rpx;
+  top: 0rpx;
+  width: 140rpx;
+  height: 140rpx;
+}
+.page-wrap .material .list.data-v-758bfc34 {
+  justify-content: space-between;
+  margin-top: 77rpx;
+}
+.page-wrap .material .list .material-item.data-v-758bfc34 {
+  background: #FFF5E6;
+  color: #825615;
+  width: 200rpx;
+  padding: 20rpx 0;
+  border-radius: 12rpx;
+  text-align: center;
+}
+.page-wrap .material .list .material-item .top.data-v-758bfc34 {
+  font-size: 48rpx;
+  font-weight: bold;
+}
+.page-wrap .material .list .material-item .bottom.data-v-758bfc34 {
+  font-size: 24rpx;
+  margin-top: 10rpx;
 }
 .page-wrap .open.data-v-758bfc34 {
   margin-bottom: 40rpx;
-  background-color: #f59a23;
+  width: 100%;
+  height: 430rpx;
+  background-image: url("http://120.24.56.30:9000/system/hy9.png");
+  position: relative;
+  background-size: 100% 100%;
+  padding: 30rpx;
 }
 .page-wrap .open .open-vip.data-v-758bfc34 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-          justify-content: space-between;
+  color: #412815;
 }
 .page-wrap .open .open-vip .v-tit.data-v-758bfc34 {
-  color: #fff;
-  font-size: 36rpx;
+  font-size: 40rpx;
   font-weight: 600;
 }
-.page-wrap .open .open-vip .v-desc text.data-v-758bfc34 {
-  display: block;
-  color: #fff;
-  font-size: 36rpx;
-  font-weight: 600;
-}
-.page-wrap .open .open-vip .v-desc .v-d-t2.data-v-758bfc34 {
-  font-weight: 500;
+.page-wrap .open .open-vip .v-desc.data-v-758bfc34 {
   font-size: 28rpx;
 }
 .page-wrap .open .open-list.data-v-758bfc34 {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-          justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
 }
 .page-wrap .open .open-list .open-item.data-v-758bfc34 {
-  padding: 30rpx 90rpx;
+  position: relative;
+  border: 1px solid #AF9072;
+  width: 200rpx;
+  height: 260rpx;
+  justify-content: center;
+  align-items: center;
 }
-.page-wrap .open .open-list .open-item text.data-v-758bfc34 {
-  display: block;
-  font-size: 30rpx;
-  font-weight: bold;
+.page-wrap .open .open-list .open-item .item-img.data-v-758bfc34 {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.page-wrap .open .open-list .open-item .item-bg.data-v-758bfc34 {
+  background-image: url("http://120.24.56.30:9000/system/hy8.png");
+  width: 50rpx;
+  height: 40rpx;
+  background-size: 100% 100%;
   text-align: center;
+  margin-top: 70rpx;
+  color: #BB9576;
+  font-size: 24rpx;
+}
+.page-wrap .open .open-list .open-item .item-t1.data-v-758bfc34 {
+  color: #825615;
+  font-size: 28rpx;
+}
+.page-wrap .open .open-list .open-item .item-t2.data-v-758bfc34 {
+  color: #825615;
+  font-size: 58rpx;
+}
+.page-wrap .open .open-list .open-item .item-t2 text.data-v-758bfc34 {
+  font-size: 28rpx;
 }
 .page-wrap .interest .tit.data-v-758bfc34 {
   font-size: 32rpx;
@@ -117,58 +142,38 @@
   color: #333;
 }
 .page-wrap .interest .interest-list.data-v-758bfc34 {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
-  -webkit-justify-content: space-around;
-          justify-content: space-around;
-  -webkit-flex-wrap: wrap;
-          flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 .page-wrap .interest .interest-list .interest-item.data-v-758bfc34 {
   margin-top: 30rpx;
   width: 320rpx;
   height: 240rpx;
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-          flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #FFE5C2;
+}
+.page-wrap .interest .interest-list .interest-item image.data-v-758bfc34 {
+  width: 80rpx;
+  height: 80rpx;
 }
 .page-wrap .interest .interest-list .interest-item .i-t1.data-v-758bfc34 {
   text-align: center;
   font-size: 28rpx;
-  color: #333;
-}
-.page-wrap .interest .interest-list .interest-item .i-t2.data-v-758bfc34 {
-  color: #666;
-  font-size: 28rpx;
+  color: #412815;
+  font-weight: 500;
+  margin-top: 20rpx;
 }
 .page-wrap .center .list.data-v-758bfc34 {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
 .page-wrap .center .list .item.data-v-758bfc34 {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-          justify-content: space-between;
+  flex-direction: row;
+  justify-content: space-between;
   width: 100%;
   margin-bottom: 40rpx;
   position: relative;
@@ -194,15 +199,9 @@
   font-weight: bold;
   text-align: center;
   border-radius: 24rpx;
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
 .page-wrap .center .list .item .line.data-v-758bfc34 {
   width: 50%;

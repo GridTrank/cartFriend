@@ -1,0 +1,1 @@
+<view class="page-wrap"><view data-event-opts="{{[['tap',[['login',['$event']]]]]}}" class="login-btn " bindtap="__e">登录发现更多精彩</view><navigator class="login-btn back" hover-class="none" url="/pages/Index/index" open-type="switchTab">返回首页</navigator></view>

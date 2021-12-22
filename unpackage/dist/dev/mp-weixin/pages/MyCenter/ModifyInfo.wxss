@@ -1,0 +1,52 @@
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * 使用的时候，请将下面的一行复制到您的uniapp项目根目录的uni.scss中即可
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+.page-wrap.data-v-49013c4d {
+  min-height: 100vh;
+  padding: 40rpx;
+}
+.page-wrap .label .img.data-v-49013c4d {
+  margin: 0 auto;
+  display: block;
+  max-height: 600rpx;
+  border-radius: 12rpx;
+}
+.page-wrap .input.data-v-49013c4d {
+  background-color: #fff;
+  border-radius: 2rpx;
+  padding: 10rpx 30rpx;
+  margin-bottom: 30rpx;
+}
+.page-wrap .input-area.data-v-49013c4d {
+  height: 600rpx;
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 20rpx;
+}
+.page-wrap .btn.data-v-49013c4d {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: #f59a23;
+  border-radius: 50rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 36rpx;
+}
+.page-wrap .base-btn.data-v-49013c4d {
+  position: fixed;
+  bottom: 70rpx;
+  width: 88%;
+}
+.page-wrap .s-img.data-v-49013c4d {
+  background-color: #fff;
+  border: 1px solid #5FB800;
+  color: #5FB800;
+  position: fixed;
+  bottom: 200rpx;
+  width: 88%;
+}
+

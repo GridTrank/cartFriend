@@ -1,0 +1,138 @@
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * 使用的时候，请将下面的一行复制到您的uniapp项目根目录的uni.scss中即可
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+.page-wrap.data-v-19697fc6 {
+  position: relative;
+  background-color: #f2f2f2;
+  padding-bottom: 40rpx;
+}
+.page-wrap .page-top.data-v-19697fc6 {
+  background-color: #fff;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.page-wrap .page-top .search-wrap.data-v-19697fc6 {
+  justify-content: space-between;
+}
+.page-wrap .page-top .search-wrap .input.data-v-19697fc6 {
+  width: 76%;
+  background-color: #fff;
+  border-radius: 50rpx;
+  padding-left: 20rpx;
+  margin-right: 20rpx;
+}
+.page-wrap .page-top .search-wrap .input .input-box.data-v-19697fc6 {
+  width: 85%;
+}
+.page-wrap .page-top .search-wrap .search-btn.data-v-19697fc6 {
+  padding: 16rpx 40rpx;
+  background-color: #f59a23;
+  border-radius: 50rpx;
+  color: #fff;
+}
+.page-wrap .circle-info.data-v-19697fc6 {
+  padding: 40rpx 20rpx 0;
+  background-color: #f2f2f2;
+}
+.page-wrap .circle-info .my-circle-top.data-v-19697fc6 {
+  display: flex;
+  justify-content: space-between;
+}
+.page-wrap .circle-info .my-circle-top .circle-t.data-v-19697fc6 {
+  color: #000;
+  font-size: 34rpx;
+  font-weight: 600;
+}
+.page-wrap .circle-info .circle-wrap.data-v-19697fc6 {
+  margin-top: 20rpx;
+  padding: 20rpx;
+  background-color: #fff;
+  border-radius: 24rpx;
+}
+.page-wrap .circle-info .circle-wrap .title.data-v-19697fc6 {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  color: #333;
+  font-size: 32rpx;
+  margin-top: 20rpx;
+}
+.page-wrap .circle-info .circle-wrap .circle-join.data-v-19697fc6 {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.page-wrap .circle-info .circle-wrap .circle-join .join-item.data-v-19697fc6 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #f59a23;
+  color: #fff;
+  font-size: 36rpx;
+  font-weight: 600;
+  padding: 40rpx 60rpx;
+  margin: 20rpx 0;
+  border-radius: 24rpx;
+}
+.page-wrap .circle-info .circle-wrap .circle-join .join-item text.data-v-19697fc6 {
+  line-height: 60rpx;
+  display: inline-block;
+}
+.page-wrap .circle-info .xflex-list.data-v-19697fc6 {
+  background-color: #f2f2f2;
+}
+.page-wrap .circle-info .xflex-list .xflex-list-item.data-v-19697fc6 {
+  width: 223rpx;
+  height: 200rpx;
+  margin-bottom: 20rpx;
+  margin-right: 20rpx;
+}
+.page-wrap .circle-info .xflex-list .xflex-list-item.data-v-19697fc6:nth-child(3n+3) {
+  margin-right: 0;
+}
+.page-wrap .circle-info .cirlce-list.data-v-19697fc6 {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-top: 30rpx;
+  white-space: nowrap;
+}
+.page-wrap .circle-info .cirlce-list .circle-item.data-v-19697fc6 {
+  margin-right: 30rpx;
+  width: 150rpx;
+  display: inline-block;
+  text-align: center;
+}
+.page-wrap .circle-info .cirlce-list .circle-item .circle-img.data-v-19697fc6 {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background-color: #fff;
+  margin: auto;
+  border: 2rpx solid #ddd;
+}
+.page-wrap .circle-info .cirlce-list .circle-item .circle-name.data-v-19697fc6 {
+  color: #999;
+}
+.page-wrap .circle-info .cirlce-list .select-item .circle-img.data-v-19697fc6 {
+  border: 2rpx solid #f59a23;
+}
+.page-wrap .circle-info .cirlce-list .select-item .circle-name.data-v-19697fc6 {
+  color: #333;
+}
+.page-wrap .fixed.data-v-19697fc6 {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: #fff;
+  z-index: 999;
+  border-bottom: 1px solid #e2e2e2;
+}
+.page-wrap .fixed .circle-info.data-v-19697fc6 {
+  padding: 20rpx;
+}
+

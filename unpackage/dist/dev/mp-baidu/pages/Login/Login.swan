@@ -1,0 +1,1 @@
+<view class="page-wrap"><image class="login-img" src="../../static/image/avatar.png"></image><button class="login-btn" open-type="getUserInfo" data-event-opts="{{[['getuserinfo',[['getuserinfo',['$event']]]]]}}" bindgetuserinfo="__e">登录发现更多精彩</button></view>

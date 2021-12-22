@@ -15,7 +15,8 @@
 		{
 			"path": "pages/Index/index",
 			"style": {
-				"navigationBarTitleText": "首页"
+				"navigationBarTitleText": "首页",
+				"enablePullDownRefresh": true
 			}
 		}
         ,{
@@ -30,7 +31,8 @@
             "path" : "pages/Exchange/Exchange",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "兑换"
+                "navigationBarTitleText": "会员",
+				"navigationStyle":"custom"
             }
             
         }
@@ -43,7 +45,59 @@
 				"navigationStyle":"custom"
             }
             
-        }
+        },
+		{
+		    "path" : "pages/MyCenter/PersonalHome",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "个人主页",
+		        "enablePullDownRefresh": false,
+				"navigationStyle":"custom"
+		    }
+		    
+		},
+		{
+		    "path" : "pages/MyCenter/FansFollow",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": ""
+		    }
+		},
+		{
+		    "path" : "pages/MyCenter/CollectionList",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": ""
+		    }
+		},
+		{
+		    "path" : "pages/MyCenter/Message",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "消息"
+		    }
+		},
+		{
+		    "path" : "pages/MyCenter/TaskList",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "我的任务"
+		    }
+		},
+		{
+		    "path" : "pages/MyCenter/SetInfo",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "个人资料设置"
+		    }
+		},
+		{
+		    "path" : "pages/MyCenter/ModifyInfo",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": ""
+		    }
+		}
         ,{
             "path" : "pages/Search/Search",
             "style" :                                                                                    
@@ -76,6 +130,7 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "圈子详情",
+				"navigationStyle":"custom",
                 "enablePullDownRefresh": false
             }
             
@@ -85,6 +140,7 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
+				"navigationStyle":"custom",
                 "enablePullDownRefresh": false
             }
             
@@ -94,7 +150,10 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "帖子详情",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": false,
+				"app-plus": {
+					"softinputMode": "adjustResize"
+				}
             }
             
         }
@@ -112,7 +171,8 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "充值付费",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": false,
+				"navigationStyle":"custom"
             }
             
         }
@@ -129,7 +189,8 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "开通月卡",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": false,
+				"navigationStyle":"custom"
             }
         },
         {
@@ -140,6 +201,24 @@
                 "enablePullDownRefresh": false
             }
         }
+        ,{
+            "path" : "pages/Chat/Chat",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/Login/Login",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "登录",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -149,32 +228,32 @@
 	},
 	"tabBar": {
 		"color": "#909399",
-		"selectedColor": "#303133",
+		"selectedColor": "#5FB800",
 		"backgroundColor": "#FFFFFF",
 		"borderStyle": "black",
 		"list": [
 			{
 				"pagePath": "pages/Index/index",
-				"iconPath": "static/image/home.png",
-				"selectedIconPath": "static/image/home-s.png",
+				"iconPath": "static/image/icon1.png",
+				"selectedIconPath": "static/image/icon1-a.png",
 				"text": "首页"
 			},
 			{
 				"pagePath": "pages/Circle/Circle",
-				"iconPath": "static/image/quanzi.png",
-				"selectedIconPath": "static/image/quanzi-s.png",
+				"iconPath": "static/image/icon2.png",
+				"selectedIconPath": "static/image/icon2-a.png",
 				"text": "圈子"
 			},
 			{
 				"pagePath": "pages/Exchange/Exchange",
-				"iconPath": "static/image/duihuan.png",
-				"selectedIconPath": "static/image/duihuan-s.png",
-				"text": "兑换"
+				"iconPath": "static/image/icon3.png",
+				"selectedIconPath": "static/image/icon3-a.png",
+				"text": "会员"
 			},
 			{
 				"pagePath": "pages/MyCenter/MyCenter",
-				"iconPath": "static/image/my.png",
-				"selectedIconPath": "static/image/my-s.png",
+				"iconPath": "static/image/icon4.png",
+				"selectedIconPath": "static/image/icon4-a.png",
 				"text": "我的"
 			}
 		]

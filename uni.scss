@@ -6,6 +6,9 @@
 @import 'uview-ui/theme.scss';
 
 $default-color:#f59a23;
+$default-bgColor:#f2f2f2;
+$base-color:#5FB800;
+
 // 全局混入
 @mixin XflexBox ($x) {
 	display: flex;

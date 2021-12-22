@@ -1,0 +1,220 @@
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * 使用的时候，请将下面的一行复制到您的uniapp项目根目录的uni.scss中即可
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+.page-wrap {
+  padding-bottom: 130rpx;
+}
+.page-wrap .swiper-wrap {
+  position: relative;
+  min-height: 60rpx;
+  background-color: #fff;
+}
+.page-wrap .swiper-wrap .video {
+  width: 100%;
+}
+.page-wrap .swiper-wrap .more {
+  position: absolute;
+  z-index: 9999;
+  background-color: #f59a23;
+  padding: 10rpx 30rpx;
+  border-radius: 50rpx;
+  color: #fff;
+  top: 30rpx;
+  right: 64rpx;
+}
+.page-wrap .content {
+  background-color: #fff;
+  padding: 40rpx;
+}
+.page-wrap .content .user-info {
+  justify-content: space-between;
+}
+.page-wrap .content .user-info .user .user-img {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.page-wrap .content .user-info .zan .z-left {
+  padding: 6rpx 10rpx;
+  background-color: #f59a23;
+  color: #fff;
+  margin-right: 10rpx;
+  border-radius: 8rpx;
+}
+.page-wrap .content .txt {
+  font-size: 30rpx;
+  color: #000;
+  line-height: 50rpx;
+}
+.page-wrap .evaluate {
+  padding: 40rpx;
+  background-color: #fff;
+}
+.page-wrap .evaluate .top {
+  justify-content: space-between;
+}
+.page-wrap .evaluate .eva-item .eva-list {
+  align-items: flex-start;
+}
+.page-wrap .evaluate .eva-item .eva-list .eva-img {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.page-wrap .evaluate .eva-item .eva-list .eva-info {
+  width: 550rpx;
+}
+.page-wrap .evaluate .eva-item .eva-list .eva-info .eva-model {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.page-wrap .evaluate .eva-item .eva-list .eva-info .eva-model .time {
+  font-size: 24rpx;
+  color: #666;
+}
+.page-wrap .evaluate .eva-item .eva-list .eva-info .eva-model .num-s {
+  margin-right: 10rpx;
+  display: flex;
+  align-items: center;
+}
+.page-wrap .evaluate .eva-item .eva-list .eva-info .eva-model .num-s .num-t1 {
+  background-color: #f59a23;
+  padding: 4rpx 8rpx;
+  border-radius: 8rpx;
+  margin-right: 8rpx;
+  color: #fff;
+  font-size: 28rpx;
+}
+.page-wrap .evaluate .eva-item .eva-list .eva-info .eva-model .num-s .num-t2 {
+  font-size: 28rpx;
+}
+.page-wrap .evaluate .eva-item .eva-list .eva-info .detail-list {
+  padding: 30rpx;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 20rpx;
+}
+.page-wrap .evaluate .eva-item .eva-list .eva-info .detail-list .detail-item .t1 {
+  font-size: 30rpx;
+}
+.page-wrap .evaluate .eva-item .show-more {
+  color: #f59a23;
+  font-size: 32rpx;
+}
+.page-wrap .evaluate .u-input {
+  background-color: #fff;
+  width: 150rpx;
+}
+.page-wrap .more-list {
+  background-color: #fff;
+  border-radius: 8rpx;
+  padding: 40rpx 0;
+}
+.page-wrap .more-list .list {
+  flex-direction: column;
+  padding: 40rpx;
+}
+.page-wrap .more-list .list .item {
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 50rpx;
+  margin-bottom: 20rpx;
+  width: 100%;
+  background-color: #f59a23;
+  color: #fff;
+  text-align: center;
+}
+.page-wrap .foot-tool {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #f2f2f2;
+  z-index: 888;
+}
+.page-wrap .foot-tool .foot-list {
+  justify-content: space-around;
+  padding: 40rpx 0;
+}
+.page-wrap .foot-tool .foot-list .foot-item {
+  height: 80rpx;
+  line-height: 80rpx;
+  border: none;
+  background-color: #f2f2f2;
+}
+.page-wrap .foot-tool .foot-list .foot-item .u-btn {
+  border: none;
+  padding: 0 20rpx;
+}
+.page-wrap .foot-tool .foot-list .foot-item .t1 {
+  border-radius: 12rpx;
+  margin-right: 10rpx;
+}
+.page-wrap .eva-input {
+  position: fixed;
+  background-color: #f2f2f2;
+  padding: 40rpx;
+  bottom: 0;
+  z-index: 999;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.page-wrap .eva-input input {
+  background-color: #fff;
+  width: 80%;
+  height: 70rpx;
+  border-radius: 8rpx;
+  padding-left: 10rpx;
+}
+.page-wrap .eva-input .send-eva {
+  background-color: #f59a23;
+  color: #fff;
+  padding: 6rpx 20rpx;
+  border-radius: 10rpx;
+}
+.page-wrap .is-focus input, .page-wrap .is-focus .send-eva {
+  margin-bottom: 40rpx;
+}
+.page-wrap .friend-list {
+  white-space: nowrap;
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-top: 40rpx;
+}
+.page-wrap .friend-list .item {
+  width: 30%;
+  flex-shrink: 0;
+  display: inline-block;
+  flex-direction: column;
+  text-align: center;
+}
+.page-wrap .friend-list .item .avatar {
+  width: 160rpx;
+  height: 160rpx;
+}
+.page-wrap .friend-list .item .btn {
+  width: 80%;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  background-color: #f59a23;
+  color: #fff;
+  border-radius: 50rpx;
+  margin: 10rpx auto;
+}
+.page-wrap .tips {
+  width: 100%;
+  padding: 20rpx 0;
+  text-align: center;
+  color: #666;
+  font-size: 28rpx;
+}
+.page-wrap .no-da {
+  margin-top: 200rpx;
+}
+

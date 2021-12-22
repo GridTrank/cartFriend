@@ -5,61 +5,58 @@
  * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
  */
 .page-wrap.data-v-fd926412 {
-  padding: 40rpx;
+  padding: 30rpx;
 }
-.page-wrap .info.data-v-fd926412 {
-  background-color: #f59a23;
-}
-.page-wrap .info .model.data-v-fd926412 {
-  color: #333;
-}
-.page-wrap .info .m1.data-v-fd926412 {
-  font-size: 40rpx;
-  font-weight: 600;
-  color: #333;
-}
-.page-wrap .info .m2.data-v-fd926412 {
-  font-size: 50rpx;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-}
-.page-wrap .info .m2.data-v-fd926412 .u-input__input {
+.page-wrap.data-v-fd926412 .u-input__input {
   color: #333;
   font-size: 40rpx;
   margin-left: 20rpx;
   border-bottom: 2rpx solid #666;
 }
-.page-wrap .info .m3.data-v-fd926412 {
-  font-size: 36rpx;
+.page-wrap .tx-item.data-v-fd926412 {
+  background-color: #28C445;
+  width: 100%;
+  height: 160rpx;
+  align-items: center;
+  justify-content: center;
   color: #fff;
+  font-size: 24rpx;
+}
+.page-wrap .tx-item image.data-v-fd926412 {
+  width: 48rpx;
+}
+.page-wrap .info .m1.data-v-fd926412 {
+  font-size: 28rpx;
+  color: #000;
+}
+.page-wrap .info .m2.data-v-fd926412 {
+  font-size: 50rpx;
+  display: flex;
+}
+.page-wrap .info .m3.data-v-fd926412 {
+  font-size: 28rpx;
+  color: #666;
   margin-top: 40rpx;
 }
-.page-wrap .info .m3 .all.data-v-fd926412 {
+.page-wrap .info .m3 .now-m.data-v-fd926412 {
+  margin-right: 40rpx;
+}
+.page-wrap .info .all.data-v-fd926412 {
   display: inline-block;
-  width: 200rpx;
-  height: 60rpx;
   background-color: #fff;
-  text-align: center;
-  line-height: 60rpx;
-  border-radius: 24rpx;
-  color: #402424;
-  font-size: 30rpx;
-  font-weight: bold;
-  margin-left: 30rpx;
+  color: #FA6400;
+  font-size: 28rpx;
+}
+.page-wrap .info .all.left.data-v-fd926412 {
+  margin-right: 20rpx;
 }
 .page-wrap .pay-list .xflex-list.data-v-fd926412 {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
 .page-wrap .pay-list .xflex-list .xflex-list-item-row.data-v-fd926412 {
   margin-bottom: 30rpx;
   width: 100%;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-          justify-content: flex-start;
+  justify-content: flex-start;
   padding: 20rpx;
   position: relative;
 }
@@ -79,6 +76,12 @@
   border-color: #f59a23;
   background-color: #f59a23;
 }
+.page-wrap .pay-list .xflex-list .disable.data-v-fd926412 {
+  background-color: #ddd;
+}
+.page-wrap .pay-list .xflex-list .disable .is-select.data-v-fd926412 {
+  border-color: #666;
+}
 .page-wrap .pay-list .iconfont.data-v-fd926412 {
   font-size: 80rpx;
 }
@@ -87,10 +90,33 @@
   border-radius: 50rpx;
   background-color: #f59a23;
   color: #fff;
-  font-size: 48rpx;
-  font-weight: bold;
+  font-size: 40rpx;
   text-align: center;
   height: 100rpx;
   line-height: 100rpx;
+}
+.page-wrap .btns.data-v-fd926412 {
+  position: fixed;
+  bottom: 100rpx;
+  left: 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+.page-wrap .btns .btn.data-v-fd926412 {
+  width: 44%;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  border-radius: 12rpx;
+  font-size: 40rpx;
+}
+.page-wrap .btns .left.data-v-fd926412 {
+  border: 1px solid #5FB800;
+  color: #5FB800;
+}
+.page-wrap .btns .right.data-v-fd926412 {
+  background-color: #5FB800;
+  color: #fff;
 }
 

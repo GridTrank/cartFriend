@@ -51,7 +51,7 @@
         {
           "name": "帖子详情",
           "pathName": "pages/InvitationDetail/InvitationDetail",
-          "query": "",
+          "query": "productId=1443133642849890305",
           "scene": null
         },
         {
@@ -81,6 +81,67 @@
         {
           "name": "购买记录",
           "pathName": "pages/ExchangePage/Recharge/BuyList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "个人主页",
+          "pathName": "pages/MyCenter/PersonalHome",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "粉丝",
+          "pathName": "pages/MyCenter/FansFollow",
+          "query": "type=fan",
+          "scene": null
+        },
+        {
+          "name": "消息-留言",
+          "pathName": "pages/MyCenter/Message",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "资料修改",
+          "pathName": "pages/MyCenter/SetInfo",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "修改",
+          "pathName": "pages/MyCenter/ModifyInfo",
+          "query": "pageType=avatar",
+          "scene": null
+        },
+        {
+          "name": "聊天",
+          "pathName": "pages/Chat/Chat",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "圈子",
+          "pathName": "pages/Circle/Circle",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "聊天页面",
+          "pathName": "pages/Chat/Chat",
+          "query": "productId=1443133642849890305",
+          "scene": null
+        },
+        {
+          "name": "登录",
+          "pathName": "pages/Login/Login",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/Exchange/Exchange",
+          "pathName": "pages/Exchange/Exchange",
+          "query": "",
           "scene": null
         }
       ]

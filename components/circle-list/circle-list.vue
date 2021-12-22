@@ -29,7 +29,6 @@
 		</view>
 	</view>
 </template>
-
 <script>
 	export default {
 		props:{
@@ -52,7 +51,6 @@
 		}
 	}
 </script>
-
 <style lang="scss" scoped>
 .list-wrap{
 	background-color: #f2f2f2;

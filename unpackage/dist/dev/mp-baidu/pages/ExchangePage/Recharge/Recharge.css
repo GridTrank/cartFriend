@@ -1,0 +1,93 @@
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * 使用的时候，请将下面的一行复制到您的uniapp项目根目录的uni.scss中即可
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+.page-wrap.data-v-d5097d2a {
+  padding: 40rpx;
+}
+.page-wrap .info.data-v-d5097d2a {
+  background-color: #f59a23;
+}
+.page-wrap .info .model.data-v-d5097d2a {
+  color: #fff;
+  font-weight: bold;
+}
+.page-wrap .info .m1.data-v-d5097d2a {
+  background-color: #fff;
+  padding: 14rpx 36rpx;
+  border-radius: 24rpx;
+  font-size: 30rpx;
+  font-weight: 400;
+  color: #333;
+  float: right;
+}
+.page-wrap .info .m2.data-v-d5097d2a {
+  font-size: 50rpx;
+}
+.page-wrap .info .m3.data-v-d5097d2a {
+  font-size: 60rpx;
+}
+.page-wrap .list .item.data-v-d5097d2a {
+  background-color: #f59a23;
+  color: #fff;
+  width: 195rpx;
+  height: 198rpx;
+  line-height: 198rpx;
+  text-align: center;
+  border-radius: 24rpx;
+  margin-right: 40rpx;
+  font-size: 44rpx;
+  font-weight: bold;
+  margin-bottom: 30rpx;
+}
+.page-wrap .list .item.data-v-d5097d2a:nth-child(3n) {
+  margin-right: 0;
+}
+.page-wrap .list .select-item.data-v-d5097d2a {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  font-size: 50rpx;
+}
+.page-wrap .pay-list .xflex-list.data-v-d5097d2a {
+  flex-direction: column;
+}
+.page-wrap .pay-list .xflex-list .xflex-list-item-row.data-v-d5097d2a {
+  margin-bottom: 30rpx;
+  width: 100%;
+  justify-content: flex-start;
+  padding: 20rpx;
+  position: relative;
+}
+.page-wrap .pay-list .xflex-list .xflex-list-item-row .label.data-v-d5097d2a {
+  font-size: 32rpx;
+  margin-left: 40rpx;
+}
+.page-wrap .pay-list .xflex-list .xflex-list-item-row .is-select.data-v-d5097d2a {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  border: 8rpx solid #333;
+  position: absolute;
+  right: 40rpx;
+}
+.page-wrap .pay-list .xflex-list .xflex-list-item-row .select-pay.data-v-d5097d2a {
+  border-color: #f59a23;
+  background-color: #f59a23;
+}
+.page-wrap .pay-list .iconfont.data-v-d5097d2a {
+  font-size: 80rpx;
+}
+.page-wrap .to-pay.data-v-d5097d2a {
+  width: 100%;
+  border-radius: 50rpx;
+  background-color: #f59a23;
+  color: #fff;
+  font-size: 48rpx;
+  font-weight: bold;
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+

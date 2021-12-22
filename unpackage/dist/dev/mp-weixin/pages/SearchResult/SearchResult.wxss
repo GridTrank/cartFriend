@@ -5,18 +5,15 @@
  * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
  */
 .page-wrap.data-v-b9c2cfb4 {
-  min-height: 100vh;
+  padding: 30rpx;
 }
 .page-wrap .search-wrap.data-v-b9c2cfb4 {
-  padding: 30rpx 40rpx;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-          justify-content: space-between;
+  justify-content: space-between;
+  background-color: #fff;
+  border-radius: 16rpx;
 }
 .page-wrap .search-wrap .input.data-v-b9c2cfb4 {
   width: 76%;
-  background-color: #fff;
-  border-radius: 50rpx;
   padding-left: 20rpx;
   margin-right: 20rpx;
 }
@@ -24,27 +21,42 @@
   width: 85%;
 }
 .page-wrap .search-wrap .search-btn.data-v-b9c2cfb4 {
-  padding: 16rpx 40rpx;
-  background-color: #f59a23;
-  border-radius: 50rpx;
+  background-color: #5FB800;
+  border-radius: 16rpx;
   color: #fff;
+  font-size: 36rpx;
+  padding: 6rpx 20rpx;
+  margin-right: 10rpx;
+}
+.page-wrap .search-wrap.data-v-b9c2cfb4 .u-input {
+  margin-left: 20rpx;
+}
+.page-wrap .search-t.data-v-b9c2cfb4 {
+  font-size: 32rpx;
 }
 .page-wrap .model-wrap.data-v-b9c2cfb4 {
-  padding: 30rpx 40rpx;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 .page-wrap .model-wrap .img.data-v-b9c2cfb4 {
-  width: 140rpx;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
 }
-.page-wrap .model-wrap .info.data-v-b9c2cfb4 {
-  width: 50%;
+.page-wrap .model-wrap .info .row .left.data-v-b9c2cfb4 {
+  margin-right: 10rpx;
+  color: #363636;
+  font-size: 32rpx;
+}
+.page-wrap .model-wrap .info .row .right.data-v-b9c2cfb4 {
+  font-size: 24rpx;
+  padding: 4rpx 12rpx;
 }
 .page-wrap .model-wrap .join-btn.data-v-b9c2cfb4 {
-  padding: 6rpx 30rpx;
-  background-color: #f59a23;
-  border-radius: 50rpx;
-  color: #fff;
+  font-size: 36rpx;
+  width: 150rpx;
+  height: 140rpx;
+  text-align: center;
+  line-height: 140rpx;
+  padding: 0 20rpx;
 }
 

@@ -1,6 +1,9 @@
 {
-  "navigationBarTitleText": "兑换",
+  "navigationBarTitleText": "会员",
+  "navigationStyle": "custom",
   "usingComponents": {
-    "u-line-progress": "/uview-ui/components/u-line-progress/u-line-progress"
+    "page-header": "/components/page-header/page-header",
+    "u-line-progress": "/uview-ui/components/u-line-progress/u-line-progress",
+    "authorization": "/components/authorization/authorization"
   }
 }

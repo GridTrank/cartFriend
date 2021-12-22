@@ -1,0 +1,67 @@
+{
+  "pages": [
+    "pages/Index/index",
+    "pages/Circle/Circle",
+    "pages/Exchange/Exchange",
+    "pages/MyCenter/MyCenter",
+    "pages/MyCenter/PersonalHome",
+    "pages/MyCenter/FansFollow",
+    "pages/MyCenter/CollectionList",
+    "pages/MyCenter/Message",
+    "pages/MyCenter/SetInfo",
+    "pages/MyCenter/ModifyInfo",
+    "pages/Search/Search",
+    "pages/SearchResult/SearchResult",
+    "pages/Release/Release",
+    "pages/Detail/Detail",
+    "pages/EditDetail/EditDetail",
+    "pages/InvitationDetail/InvitationDetail",
+    "pages/CommentList/CommentList",
+    "pages/ExchangePage/Recharge/Recharge",
+    "pages/ExchangePage/Recharge/Cash",
+    "pages/ExchangePage/Recharge/OpenVip",
+    "pages/ExchangePage/Recharge/BuyList",
+    "pages/Chat/Chat",
+    "pages/Login/Login"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uView",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "backgroundColor": "#FFFFFF"
+  },
+  "tabBar": {
+    "color": "#909399",
+    "selectedColor": "#303133",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/Index/index",
+        "iconPath": "static/image/home.png",
+        "selectedIconPath": "static/image/home-s.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/Circle/Circle",
+        "iconPath": "static/image/quanzi.png",
+        "selectedIconPath": "static/image/quanzi-s.png",
+        "text": "圈子"
+      },
+      {
+        "pagePath": "pages/Exchange/Exchange",
+        "iconPath": "static/image/duihuan.png",
+        "selectedIconPath": "static/image/duihuan-s.png",
+        "text": "兑换"
+      },
+      {
+        "pagePath": "pages/MyCenter/MyCenter",
+        "iconPath": "static/image/my.png",
+        "selectedIconPath": "static/image/my-s.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

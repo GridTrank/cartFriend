@@ -1,0 +1,168 @@
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * 使用的时候，请将下面的一行复制到您的uniapp项目根目录的uni.scss中即可
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+.page-wrap.data-v-758bfc34 {
+  padding: 30rpx 20rpx 20rpx 20rpx;
+}
+.page-wrap .material.data-v-758bfc34 {
+  position: relative;
+  margin-bottom: 40rpx;
+  margin-top: 60rpx;
+}
+.page-wrap .material .material-user.data-v-758bfc34 {
+  position: absolute;
+  right: 20rpx;
+  top: -75rpx;
+  display: flex;
+  align-items: center;
+}
+.page-wrap .material .material-user .nick-name.data-v-758bfc34 {
+  font-size: 32rpx;
+  font-weight: 600;
+}
+.page-wrap .material .material-user .avatar.data-v-758bfc34 {
+  background-color: #e2e2e2;
+  width: 100rpx;
+  border-radius: 50%;
+  margin-left: 30rpx;
+}
+.page-wrap .material .material-item.data-v-758bfc34 {
+  display: flex;
+  align-items: center;
+}
+.page-wrap .material .material-item text.data-v-758bfc34 {
+  margin: 20rpx 0;
+}
+.page-wrap .material .material-item .m-i-t1.data-v-758bfc34 {
+  font-size: 32rpx;
+  font-weight: 600;
+  margin-right: 40rpx;
+}
+.page-wrap .material .material-item .m-i-t2.data-v-758bfc34 {
+  font-size: 38rpx;
+  font-weight: 600;
+  margin-right: 40rpx;
+}
+.page-wrap .material .material-item .m-i-t4.data-v-758bfc34 {
+  padding: 14rpx 20rpx;
+  background-color: #f59a23;
+  border-radius: 50rpx;
+  color: #fff;
+  margin-left: 30rpx;
+}
+.page-wrap .open.data-v-758bfc34 {
+  margin-bottom: 40rpx;
+  background-color: #f59a23;
+}
+.page-wrap .open .open-vip.data-v-758bfc34 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.page-wrap .open .open-vip .v-tit.data-v-758bfc34 {
+  color: #fff;
+  font-size: 36rpx;
+  font-weight: 600;
+}
+.page-wrap .open .open-vip .v-desc text.data-v-758bfc34 {
+  display: block;
+  color: #fff;
+  font-size: 36rpx;
+  font-weight: 600;
+}
+.page-wrap .open .open-vip .v-desc .v-d-t2.data-v-758bfc34 {
+  font-weight: 500;
+  font-size: 28rpx;
+}
+.page-wrap .open .open-list.data-v-758bfc34 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.page-wrap .open .open-list .open-item.data-v-758bfc34 {
+  padding: 30rpx 90rpx;
+}
+.page-wrap .open .open-list .open-item text.data-v-758bfc34 {
+  display: block;
+  font-size: 30rpx;
+  font-weight: bold;
+  text-align: center;
+}
+.page-wrap .interest .tit.data-v-758bfc34 {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+}
+.page-wrap .interest .interest-list.data-v-758bfc34 {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.page-wrap .interest .interest-list .interest-item.data-v-758bfc34 {
+  margin-top: 30rpx;
+  width: 320rpx;
+  height: 240rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.page-wrap .interest .interest-list .interest-item .i-t1.data-v-758bfc34 {
+  text-align: center;
+  font-size: 28rpx;
+  color: #333;
+}
+.page-wrap .interest .interest-list .interest-item .i-t2.data-v-758bfc34 {
+  color: #666;
+  font-size: 28rpx;
+}
+.page-wrap .center .list.data-v-758bfc34 {
+  flex-direction: column;
+}
+.page-wrap .center .list .item.data-v-758bfc34 {
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 40rpx;
+  position: relative;
+}
+.page-wrap .center .list .item.data-v-758bfc34::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -20rpx;
+  width: 100%;
+  height: 2rpx;
+  background-color: #e2e2e2;
+}
+.page-wrap .center .list .item.data-v-758bfc34:last-child::after {
+  display: none;
+}
+.page-wrap .center .list .item .label.data-v-758bfc34 {
+  width: 130rpx;
+  height: 130rpx;
+  background-color: #f59a23;
+  color: #fff;
+  font-size: 30rpx;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page-wrap .center .list .item .line.data-v-758bfc34 {
+  width: 50%;
+  margin: -45rpx 20rpx 0 10rpx;
+}
+.page-wrap .center .list .item .btn.data-v-758bfc34 {
+  padding: 10rpx 20rpx;
+  background-color: #f59a23;
+  color: #fff;
+  border-radius: 50rpx;
+}
+

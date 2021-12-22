@@ -1,0 +1,97 @@
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * 使用的时候，请将下面的一行复制到您的uniapp项目根目录的uni.scss中即可
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+.page-wrap .user-info.data-v-924d0778 {
+  background-color: #f59a23;
+  width: 100%;
+  height: 450rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.page-wrap .user-info .avatar.data-v-924d0778 {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+}
+.page-wrap .user-info .fans.data-v-924d0778 {
+  display: flex;
+}
+.page-wrap .user-info .fans .fans-d.data-v-924d0778 {
+  display: flex;
+  flex-direction: column;
+  margin: 40rpx 80rpx;
+  align-items: center;
+}
+.page-wrap .user-info .fans .fans-d .f-d-n.data-v-924d0778 {
+  color: #fff;
+  font-size: 42rpx;
+  font-weight: bold;
+}
+.page-wrap .user-info .fans .fans-d .f-d-t.data-v-924d0778 {
+  font-size: 36rpx;
+  color: #666;
+}
+.page-wrap .content.data-v-924d0778 {
+  padding: 40rpx;
+}
+.page-wrap .content .content-top.data-v-924d0778 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.page-wrap .content .content-top .top-btns.data-v-924d0778 {
+  display: flex;
+  align-items: center;
+}
+.page-wrap .content .content-top .top-btns .t-b-b.data-v-924d0778 {
+  background-color: #f59a23;
+  color: #fff;
+  border-radius: 16rpx;
+  padding: 8rpx 20rpx;
+  font-size: 24rpx;
+}
+.page-wrap .content .content-top .top-btns .b1.data-v-924d0778 {
+  margin-right: 10rpx;
+}
+.page-wrap .content .my-list.data-v-924d0778 .u-tabs {
+  background-color: #f2f2f2 !important;
+}
+.page-wrap .content .my-list .data-list .img-wrap.data-v-924d0778 {
+  display: flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+.page-wrap .content .my-list .data-list .img-wrap .img.data-v-924d0778 {
+  width: 200rpx;
+  margin-right: 30rpx;
+  display: inline-block;
+}
+.page-wrap .content .my-list .data-list .data-type.data-v-924d0778 {
+  padding: 6rpx 10rpx;
+  background-color: #f59a23;
+  font-size: 28rpx;
+  font-weight: 400;
+  color: #fff;
+  border-radius: 20rpx;
+  margin-right: 10rpx;
+}
+.page-wrap .content .my-list .data-list .video.data-v-924d0778 {
+  width: 100%;
+  margin-bottom: 30rpx;
+}
+.page-wrap .content .my-list .data-list .user-handle.data-v-924d0778 {
+  justify-content: space-between;
+}
+.page-wrap .content .my-list .data-list .user-handle .h-t-t1.data-v-924d0778 {
+  padding: 8rpx 12rpx;
+  border-radius: 16rpx;
+  background-color: #f59a23;
+  color: #fff;
+  margin-right: 8rpx;
+}
+

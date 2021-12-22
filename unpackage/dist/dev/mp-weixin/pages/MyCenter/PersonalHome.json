@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "个人主页",
+  "enablePullDownRefresh": false,
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "page-header": "/components/page-header/page-header",
+    "u-tabs": "/uview-ui/components/u-tabs/u-tabs",
+    "invitation-list": "/components/invitation-list/invitation-list"
+  }
+}

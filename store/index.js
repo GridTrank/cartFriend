@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import {http} from '@/utils/http.js'
 Vue.use(Vuex)
 
 let lifeData = {};
@@ -30,9 +31,14 @@ const saveLifeData = function(key, value){
 const store = new Vuex.Store({
     // state变量创建后可以直接使用
 	state: {
-		showLoginPop:false
+		showLoginPop:false,
+		currentMsg: null,
+		amountDetail:{}
 	},
 	mutations: {
+		SetMessages(state, msg) {
+			state.currentMsg = msg;
+		},
         changeShowLoginPop(state,value){
             state.showLoginPop=value
         },
@@ -55,6 +61,20 @@ const store = new Vuex.Store({
 			}
 			// 保存变量到本地，见顶部函数定义
 			saveLifeData(saveKey, state[saveKey])
+		},
+		getAmountDetail(state, data){
+			state.amountDetail=data
+		}
+	},
+	actions:{
+		amountDetail(state, payload){
+			uni.showLoading({
+				title:'加载中'
+			})
+			http({url:'/order/account/myAccount'}).then(res=>{
+				uni.hideLoading()
+				state.commit('getAmountDetail',res.data)
+			})
 		}
 	}
 })

@@ -1,0 +1,95 @@
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * 使用的时候，请将下面的一行复制到您的uniapp项目根目录的uni.scss中即可
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+.list-wrap.data-v-1c70c3a1 {
+  background-color: #f2f2f2;
+  min-height: 100vh;
+  padding: 30rpx 0;
+}
+.list-wrap .info.data-v-1c70c3a1 {
+  background-color: #fff;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+}
+.list-wrap .info .info-top.data-v-1c70c3a1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+.list-wrap .info .info-top .info-user.data-v-1c70c3a1 {
+  display: flex;
+  align-items: center;
+}
+.list-wrap .info .info-top .info-user .user-avatar.data-v-1c70c3a1 {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.list-wrap .info .info-center .info-title.data-v-1c70c3a1 {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.list-wrap .info .info-center .note-info.data-v-1c70c3a1 {
+  margin: 30rpx 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.list-wrap .info .info-center .note-info .note.data-v-1c70c3a1 {
+  color: #666;
+  font-size: 28rpx;
+  margin-right: 20rpx;
+}
+.list-wrap .info .info-center .note-info .note-img.data-v-1c70c3a1 {
+  flex-shrink: 0;
+  width: 160rpx;
+  height: 120rpx;
+  border-radius: 18rpx;
+}
+.list-wrap .info .info-bottom.data-v-1c70c3a1 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.list-wrap .info .info-bottom text.data-v-1c70c3a1 {
+  margin-right: 20rpx;
+  padding-right: 20rpx;
+  border-right: 2rpx solid #ddd;
+}
+.list-wrap .info .info-bottom text.data-v-1c70c3a1:last-child {
+  border: none;
+}
+.list-wrap .info .video.data-v-1c70c3a1 {
+  width: 100%;
+  margin-bottom: 30rpx;
+}
+.reward.data-v-1c70c3a1 {
+  background-color: #ddd;
+  padding: 12rpx 24rpx;
+  border-radius: 48rpx;
+  color: #666;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+}
+.del.data-v-1c70c3a1 {
+  display: inline-block;
+  float: right;
+  margin-bottom: 20rpx;
+}
+.tips.data-v-1c70c3a1 {
+  width: 100%;
+  padding: 20rpx 0;
+  text-align: center;
+  color: #666;
+  font-size: 28rpx;
+}
+.no-da.data-v-1c70c3a1 {
+  margin-top: 300rpx;
+}
+

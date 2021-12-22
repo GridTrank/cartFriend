@@ -25,7 +25,6 @@
 	</view>
 	<!--地址picker END-->
 </template>
-
 <script>
 	import {lotusAddressJson} from  "./Winglau14-lotusAddress.js";
 	export default {

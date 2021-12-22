@@ -1,51 +1,51 @@
 <template>
     <view class="page-wrap">
-        <view class="xflex-list">
-            <view class="xflex-list-item" v-for="(item,index) in list" :key="index">
-                <view class="name f32-c333 fwb">车友圈会员：{{item.name}}</view>
-                <view class="time f28-c666 mt20">充值时间：{{item.time}}</view>
+        <view class="xflex-list model-wrap ">
+            <view class="xflex-list-item" v-for="(item,index) in dataList" :key="index">
+                <view class="name f32-c333 fwb">用户名：{{userInfo.nickName}}</view>
+                <view class="time f28-c666 mt20">充值时间：{{item.paymentTime}}</view>
                 <view class="money">
-                    ¥{{item.money}}
+                    ¥{{item.actualAmount}}
                 </view>
+				<view class="status" :class="item.orderStatus==3?'success':item.orderStatus==2?'wait':'fail'">
+				    {{item.orderStatus==3?'支付成功':item.orderStatus==2?'待支付':'支付失败'}}
+				</view>
             </view>
         </view>
+		<view class="tips mt30" :class="showNoData && 'no-da'" >
+			{{isContinue?'上拉加载更多~':'暂无更多数据~'}}
+		</view>
     </view>
 </template>
 
 <script>
+	import {getData} from '@/common/mixin/getData.js'
     export default{
+		mixins:[getData],
         data(){
             return{
-                list:[
-                    {
-                        name:'月卡',
-                        time:'20201.01.01',
-                        money:'9.9'
-                    },
-                    {
-                        name:'月卡',
-                        time:'20201.01.01',
-                        money:'9.9'
-                    },
-                    {
-                        name:'年卡',
-                        time:'20201.01.01',
-                        money:'9.9'
-                    },
-                    {
-                        name:'月卡',
-                        time:'20201.01.01',
-                        money:'9.9'
-                    },
-                ]
+				userInfo:{},
+				pageType:''
             }
-        }
+        },
+		onLoad(e) {
+			this.userInfo=uni.getStorageSync('userInfo')
+			this.pageType=e.pageType
+			
+			this.url=this.pageType=='charge'?'/order/chargeRecord':'/order/cardRecord'
+			console.log(this.url,this.pageType)
+		},
+		methods:{
+		
+		},
+		
+		
     }
 </script>
 
 <style lang="scss" scoped>
 .page-wrap{
-    min-height: 100vh;
+    padding: 30upx;
     .xflex-list{
         flex-direction: column;
         width: 100%;
@@ -58,14 +58,30 @@
             padding: 30upx;
             border-radius: 0;
             position: relative;
+			&:last-child{
+				border: none;
+			}
             .money{
                 font-size: 30upx;
                 color: #333;
                 font-weight: bold;
                 position: absolute;
                 right: 30upx;
-                top: 46upx;
             }
+			.status{
+				right: 30upx;
+				position: absolute;
+				bottom: 30upx;
+			}
+			.success{
+				color: $base-color;
+			}
+			.fail{
+				color: #fa3534;
+			}
+			.wait{
+				color: #ff9900;
+			}
         }
     }
 }

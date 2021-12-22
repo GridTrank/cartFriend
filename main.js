@@ -22,8 +22,14 @@ Vue.mixin(vuexStore);
 let mpShare = require('uview-ui/libs/mixin/mpShare.js');
 Vue.mixin(mpShare);
 
+
+
+
 import {http} from '@/utils/http.js'
 Vue.prototype.$http=http
+
+import {getUserInfo} from '@/utils/util.js'
+Vue.prototype.$getUserInfo=getUserInfo
 
 const app = new Vue({
 	store,
