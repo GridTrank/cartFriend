@@ -25,19 +25,38 @@
   font-size: 24rpx;
   color: #000;
 }
+.page-wrap .user-info .user .right.data-v-924d0778 {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
 .page-wrap .user-info .avatar.data-v-924d0778 {
   width: 150rpx;
   height: 150rpx;
   border-radius: 50%;
 }
+.page-wrap .user-info .vip-avatar.data-v-924d0778 {
+  width: 65rpx;
+  height: 30rpx;
+  margin-top: -10rpx;
+}
 .page-wrap .user-info .fans.data-v-924d0778 {
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
   margin-top: 35rpx;
 }
 .page-wrap .user-info .fans .fans-d.data-v-924d0778 {
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
   width: 300rpx;
   padding: 30rpx 0;
   border-radius: 12rpx;
@@ -64,13 +83,23 @@
   background-color: rgba(247, 181, 0, 0.2);
 }
 .page-wrap .content .content-top.data-v-924d0778 {
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
 }
 .page-wrap .content .content-top .top-btns.data-v-924d0778 {
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
 }
 .page-wrap .content .content-top .top-btns .t-b-b.data-v-924d0778 {
   background-color: #f59a23;
@@ -95,8 +124,11 @@
   border: none;
 }
 .page-wrap .content .my-list .data-list .img-wrap.data-v-924d0778 {
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
-  flex-wrap: nowrap;
+  -webkit-flex-wrap: nowrap;
+          flex-wrap: nowrap;
   white-space: nowrap;
 }
 .page-wrap .content .my-list .data-list .img-wrap .img.data-v-924d0778 {

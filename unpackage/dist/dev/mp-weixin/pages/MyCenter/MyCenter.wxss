@@ -6,6 +6,7 @@
  */
 .page-wrap.data-v-42d21fa6 {
   padding: 30rpx;
+  min-height: 100vh;
   background-image: url("http://120.24.56.30:9000/system/wd_bg1.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -30,6 +31,13 @@
   top: -85rpx;
   box-shadow: 0 0 10rpx 2rpx #ddd;
 }
+.page-wrap .user-info .info .vip-avatar.data-v-42d21fa6 {
+  width: 64rpx;
+  height: 28rpx;
+  position: absolute;
+  left: 90rpx;
+  top: 34rpx;
+}
 .page-wrap .user-info .info .info-top .left .nick-name.data-v-42d21fa6 {
   color: #000;
   font-size: 34rpx;
@@ -44,11 +52,15 @@
   margin-left: 20rpx;
 }
 .page-wrap .user-info .info .list.data-v-42d21fa6 {
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
 }
 .page-wrap .user-info .info .list .item.data-v-42d21fa6 {
   width: 190rpx;
-  align-items: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
   padding: 30rpx 0;
   border-radius: 12rpx;
 }
@@ -81,12 +93,15 @@
   margin-right: 10rpx;
 }
 .page-wrap .to-page.data-v-42d21fa6 {
-  justify-content: space-around;
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
   padding: 30rpx 20rpx;
 }
 .page-wrap .to-page .column.data-v-42d21fa6 {
   text-align: center;
-  align-items: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
   color: #000;
   font-size: 32rpx;
 }
@@ -99,7 +114,9 @@
   border-bottom: 1px solid #f1f1f1;
 }
 .page-wrap .region .xflex-list.data-v-42d21fa6 {
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
 }
 .page-wrap .region .question .btns.data-v-42d21fa6 {
   width: 100%;
@@ -157,8 +174,12 @@
 }
 .page-wrap .pop-page .pop-top.data-v-42d21fa6 {
   padding: 40rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
 }
 .page-wrap .pop-page .pop-top .t1.data-v-42d21fa6 {
   font-size: 36rpx;

@@ -25,18 +25,18 @@
 		},
 		methods:{
 			toPage(){
-				if(!uni.getStorageSync('token') ){
-					uni.showToast({
-						title:'请先登录',
-						icon:'none'
-					})
-					setTimeout(()=>{
-						uni.navigateTo({
-							url:'/pages/Login/Login'
-						})
-					},1000)
-					
-				}
+				// if(!uni.getStorageSync('token') ){
+				// 	uni.showToast({
+				// 		title:'请先登录',
+				// 		icon:'none'
+				// 	})
+				// 	setTimeout(()=>{
+				// 		uni.navigateTo({
+				// 			url:'/pages/Login/Login'
+				// 		})
+				// 	},1000)
+				// 	return
+				// }
 				if(this.pageFrom=='Detail' && this.isMmember!==1){
 					uni.showToast({
 						title:'请先加入当前圈子',

@@ -8,7 +8,7 @@
 		active-color="#5FB800">
 		</u-tabs>
 		
-		<view class="content mt30 pd40-region">
+		<view class="content mt30 pd40-region"v-if="dataList.length>0">
 			<view class="read-num xflex-list">
 				<text class="n1">共{{total}}条</text>
 				<text class="n2" @click="allRead">全部已读</text>
@@ -47,11 +47,9 @@
 			</view>
 		</view>
 		
-		<view class="tips" :class="showNoData && 'mt30'">
-			{{isContinue?'上拉加载更多~':'暂无更多数据~'}}
-		</view>
-		
-			
+        <view  v-if="inviList.length<=0 && circleList.length<=0">
+        	<no-data></no-data>
+        </view>
     </view>
 </template>
 
@@ -75,6 +73,7 @@
 			}else{
 				this.url='/goods/message/myMessage'
 			}
+            this.getData()
 		},
 		onShow() {
 			this.list=[]
@@ -97,7 +96,7 @@
 			handle(val,item){
 				if(val==1){
 					uni.navigateTo({
-						url:'/pages/InvitationDetail/InvitationDetail?productId='+ item.id
+						url:'/pages/InvitationDetail/InvitationDetail?productId='+ item.productId
 					})
 				}else{
 					let info={
@@ -118,7 +117,11 @@
 					success: res => {
 						if(res.confirm){
 							let url=val==2?'/member/letter/delete/'+item.id:'/goods/message/delete/'+item.id
-							this.$http({url}).then(res=>{
+							this.$http({url}).then(r=>{
+                                uni.showToast({
+                                    'title':r.msg,
+                                    'icon':'none'
+                                })
 								this.dataList.splice(index,1)
 								this.$forceUpdate()
 							})

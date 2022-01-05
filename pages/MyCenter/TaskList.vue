@@ -7,7 +7,7 @@
 		@change="handleType" 
 		active-color="#5FB800">
 		</u-tabs>
-		<view class="list-wrap mt30">
+		<view class="list-wrap mt30" v-if="dataList.length>0">
 			<view class="con model-wrap">
 				<view class="data-list  " v-for="(item,index) in dataList" :key="index" @click="toDetail(item)">
 					<view class="detail  ">
@@ -48,10 +48,9 @@
 			
 		</view>
 		
-		
-		<view class="tips" :class="showNoData && 'mt30'">
-			{{isContinue?'上拉加载更多~':'暂无更多数据~'}}
-		</view>
+        <view v-else>
+            <no-data></no-data>
+        </view>
 	</view>
 </template>
 
@@ -82,7 +81,7 @@
 				})
 				this.dataList=[]
 				if(this.active){
-					this.url='/goods/message/myTask'
+					this.url='/goods/reply/myTask'
 				}else{
 					this.url='/goods/product/releaseTask'
 				}

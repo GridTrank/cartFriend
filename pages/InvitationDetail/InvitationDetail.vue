@@ -3,12 +3,12 @@
 		<view class="swiper-wrap" v-if="productInfo.type!==4">
 			<view v-if="imageList.length>0">
 				<template v-if="productInfo.type!==3 ">
-					<u-swiper
+					<!-- <u-swiper
 						:list="imageList" 
 						height="500"
 						imgMode='aspectFill'
 						@click="prewImage"
-					></u-swiper>
+					></u-swiper> -->
 				</template>
 				<template v-else-if="productInfo.type==3">
 					<video
@@ -31,35 +31,34 @@
 				<view class="address row">
 					<view class="left ad">
 						<view class="t1">出发地</view>
-						<view class="t2">湖南长沙</view>
+						<view class="t2">{{productInfo.origin}}</view>
 					</view>
 					<image class="jh" src="http://120.24.56.30:9000/system/jiaohuan.png" ></image>
 					<view class="right ad">
 						<view class="t1">目的地</view>
-						<view class="t2">湖南长沙</view>
+						<view class="t2">{{productInfo.destination}}</view>
 					</view>
 				</view>
 			</view>
 			<view class="phone model-wrap mt20" >
 				<view class="row jc-sb">
 					<text class="p-num">手机号码</text>
-					<view class="p-sw row" v-if="!userInfo.isEffect">联系号码/VIP可见 <image src="http://120.24.56.30:9000/system/slj-icon3.png" ></image> </view>
+					<view class="p-sw row" v-if="!userInfo.isEffect">联系号码/VIP可见 
+                    <image src="http://120.24.56.30:9000/system/slj-icon3.png" ></image> 
+                    </view>
 				</view>
 				<view class="row jc-sb mt20">
-					<text class="p-val">123456789</text>
-					<image v-if="!userInfo.isEffect" class="vip" src="http://120.24.56.30:9000/system/slj-icon2.png" ></image>
+					<text class="p-val" @click="callPhone(productInfo.mobilePhone)">{{productInfo.mobilePhone}}</text>
+					<image @click="toOpen" v-if="!userInfo.isEffect" class="vip" src="http://120.24.56.30:9000/system/slj-icon2.png" ></image>
 				</view>
 			</view>
 			<view class="time model-wrap mt20">
 				<view class="title">
-					日期时间
+					出发时间
 				</view>
-				<view class="val mt10">2021-12-12</view>
+				<view class="val mt10">{{productInfo.dateTime}}</view>
 			</view>
-			<view class="model-wrap content mt20">
-				12313213132
-			</view>
-			<view class="imgs model-wrap mt20">
+			<view class="imgs model-wrap mt20" v-if="imageList.length>0">
 				<view class="title">
 					照片
 				</view>
@@ -89,12 +88,22 @@
 					</view>
 				</view>
 				<view class="detail mt20">
-					<view class="f32-c333 fwb twoHidden">
+					<view class="f32-c333 fwb twoHidden" v-if="productInfo.title">
 						{{productInfo.title}}
 					</view>
 					<view class="mt20 txt">
+                        <!-- <u-parse :html="productInfo.content"></u-parse> -->
 						{{productInfo.content}}
 					</view>
+                    
+                    <view v-if="productInfo.type!==3 && imageList.length>0" class="img-wrap mt20">
+                       <image 
+                       v-for="(item,index) in  imageList"
+                       :key="index"
+                       :src="item" 
+                       mode="widthFix">
+                       </image> 
+                    </view>
 				</view>
 				<view class="jiesuan mt20" v-if="productInfo.type==1 && productInfo.amount>0">
 					<text class="close"  v-if="productInfo.isClose">已结算</text>
@@ -118,7 +127,7 @@
 			                    <view class="name f32-c333 fwb">{{item.memberNickName}} </view>
 			                    <view class="best bg-default1" v-if="item.isBest">最佳答案</view>
 			                </view>
-			                <view class="eva-content mt20 f28-c666">{{item.content || item.reply}} </view>
+			                <view class="eva-content mt20 f28-c666">{{item.content || item.answer}} </view>
 			                <view class="eva-model mt30">
 			                    <view class=" xflex-list">
 			                        <view class="num-s">
@@ -198,7 +207,7 @@
 		
 		<!-- 更多选择 -->
 		<u-popup v-model="showMoreList" mode="bottom">
-			<view class="foot-tool">
+			<view class="foot-tool foot-tool-more">
 				<view class="xflex-list foot-list">
 					<u-button 
 					:custom-style="customStyle"
@@ -235,9 +244,7 @@
 					</view>
 				</scroll-view>
 			</view>
-			
 		</u-popup>
-		
 		<u-select v-model="showSortType" :list="sortTypeList" @confirm="confirm"></u-select>
 	</view>
 </template>
@@ -260,8 +267,8 @@
 				imageList:[],
 				moreList:[
 					{label:'收藏',value:1,img:'http://120.24.56.30:9000/system/xq-icon1.png'},
-					{label:'删除',value:2,img:'http://120.24.56.30:9000/system/xq-icon1.png'},
-					{label:'分享',value:3,img:'http://120.24.56.30:9000/system/xq-icon5.png'},
+					{label:'删除',value:2,img:'http://120.24.56.30:9000/system/delete.png'},
+					// {label:'分享',value:3,img:'http://120.24.56.30:9000/system/xq-icon5.png'},
 					{label:'邀请好友',value:4,img:'http://120.24.56.30:9000/system/xq-icon2.png'},
 				],
 				toolList:[
@@ -274,6 +281,7 @@
 				commentList:[],
 				productId:'',
 				productInfo:{},
+                productType:'',
 				videoContext:{},
 				visitorList:[],
 				current:1,
@@ -303,38 +311,57 @@
 		onLoad(e){
 			this.productId=e.productId || '1442325109636038658'
 			this.user_id=uni.getStorageSync('user_id') || ''
-			this.userInfo=uni.getStorageSync('userInfo')
-			this.getDetail()
+			this.userInfo=uni.getStorageSync('userInfo') || {}
 		},
+        onShow() {
+            this.getDetail()
+            if(uni.getStorageSync('token')){
+                this.$getUserInfo().then(res=>{
+                	this.userInfo=res
+                })
+            }
+        },
         methods:{
 			getDetail(){
-				this.$http({url:'/goods/product/detail/'+this.productId}).then(res=>{
-					this.productInfo=res.data
-					
-					this.toolList[0].num=res.data.shareCount
-					this.toolList[1].num=res.data.commentCount
-					this.toolList[2].num=res.data.opposeCount
-					this.toolList[2].label=res.data.hasOppose?'已反对':'反对'
-					this.toolList[3].label=res.data.hasAgree?'已赞同':'赞同'
-					this.toolList[3].num=res.data.agreeCount
-					this.imageList=res.data.photos?res.data.photos.split(','):[]
-					if(res.data.type==2){
+                let url=uni.getStorageSync('token')?'/goods/product/detail2/':'/goods/product/detail/'
+				this.$http({url:url+this.productId,noVerify:true}).then(res=>{
+					if(res.data.type!==1){
 						this.toolList=[
 							{label:'转发',num:0,value:1,img:'http://120.24.56.30:9000/system/xq-icon5.png'},
 							{label:'评论',num:0,value:2,img:'http://120.24.56.30:9000/system/xq-icon4.png'},
 							{label:'赞同',num:0,value:4,img:'http://120.24.56.30:9000/system/xq-icon3.png'}
 						]
-					}
+                        this.toolList[2].label=res.data.hasAgree?'已赞同':'赞同'
+                        this.toolList[2].num=res.data.agreeCount
+					}else{
+                        this.toolList=[
+                            {label:'转发',num:0,value:1,img:'http://120.24.56.30:9000/system/xq-icon5.png'},
+                            {label:'评论',num:0,value:2,img:'http://120.24.56.30:9000/system/xq-icon4.png'},
+                            {label:'反对',num:0,value:3,img:'http://120.24.56.30:9000/system/xq-icon6.png'},
+                            {label:'赞同',num:0,value:4,img:'http://120.24.56.30:9000/system/xq-icon3.png'}
+                        ]
+                        this.toolList[2].num=res.data.opposeCount
+                        this.toolList[2].label=res.data.hasOppose?'已反对':'反对'
+                        this.toolList[3].label=res.data.hasAgree?'已赞同':'赞同'
+                        this.toolList[3].num=res.data.agreeCount
+                        this.toolList[1].label='回答'
+                    }
+                    if(!this.userInfo.isEffect && res.data.type==4){
+                        res.data.mobilePhone=res.data.mobilePhone.substr(0,3)+"****"+res.data.mobilePhone.substr(7)
+                    }
+                    this.productInfo=res.data
+                    this.productType=res.data.type
+                    this.imageList=res.data.photos?res.data.photos.split(','):[]
+                    this.toolList[0].num=res.data.shareCount
+                    this.toolList[1].num= res.data.type==1?res.data.replyCount: res.data.commentCount
 					if(res.data.userId!==uni.getStorageSync('user_id') && this.moreList[1].label=='删除'){
 						this.moreList.splice(1,1)
 					}
-					if(res.data.type==1){
-						this.toolList[1].label='回答'
-					}
+					if(uni.getStorageSync('token')){
+                        this.getMemList()
+                        this.getCommentList('one')
+                    }
 					
-					
-					this.getMemList()
-					this.getCommentList('one')
 				})
 			},
             // 预览图片
@@ -361,7 +388,7 @@
 						size:this.size,
 						current: this.current
 					}
-					url='/goods/message/replyList'
+					url='/goods/reply/replyList'
 				}
 			
 				this.$http({url,data}).then(res=>{
@@ -401,7 +428,7 @@
 						productId:this.productId,
 						action:2,
 						memberId:uni.getStorageSync('user_id'),
-						reply:this.comment
+						answer:this.comment
 					}
 				}else{
 					if(this.commentType=='first'){
@@ -429,6 +456,7 @@
 					this.current=1
 					setTimeout(()=>{
 						this.getCommentList('one')
+                        this.toolList[1].num++
 					},1500)
 				})
 			},
@@ -445,7 +473,7 @@
 						url='/goods/product/evaluate'
 						data.productId=this.productId
 					}else{
-						url='/goods/message/evaluate'
+						url='/reply/message/evaluate'
 						data.messageId=item.id
 					}
 				}else{
@@ -483,6 +511,21 @@
 					this.visitorList=this.visitorList.concat(res.data.records)
 				})
 			},
+            // 跳转开通vip
+            toOpen(){
+                uni.navigateTo({
+                    url:'/pages/ExchangePage/Recharge/OpenVip?type=mounth'
+                })
+            },
+            // 拨打电话
+            callPhone(num){
+                if(this.userInfo.isEffect){
+                    uni.makePhoneCall({
+                        phoneNumber:num
+                    })
+                }
+                
+            },
             // 选择排序
 			confirm(e){
 				this.sortType=e[0].label
@@ -500,14 +543,20 @@
             toolHandle(item,index){
                 if(index==1){
                     this.showEvaInput=true
-					this.commentType='first'
-                }else if(index==2){
-					this.remark(1,{id:this.productId,hasAgree:this.productInfo.hasAgree || '', hasOppose:this.productInfo.hasOppose || ''},'opposition')
-				}else if(index==3){
-					this.remark(1,{id:this.productId,hasAgree:this.productInfo.hasAgree || '', hasOppose:this.productInfo.hasOppose || ''},'agree')
-				}else{
-					
-				}
+                    this.commentType='first'
+                }else{
+                    if(this.productType==1){
+                        if(index==2){
+                        	this.remark(1,{id:this.productId,hasAgree:this.productInfo.hasAgree || '', hasOppose:this.productInfo.hasOppose || ''},'opposition')
+                        }else if(index==3){
+                        	this.remark(1,{id:this.productId,hasAgree:this.productInfo.hasAgree || '', hasOppose:this.productInfo.hasOppose || ''},'agree')
+                        }
+                    }else{
+                        if(index==2){
+                        	this.remark(1,{id:this.productId,hasAgree:this.productInfo.hasAgree || '', hasOppose:this.productInfo.hasOppose || ''},'agree')
+                        }
+                    }
+                }
             },
             // 更多
 			selectMore(item){
@@ -519,8 +568,21 @@
 						this.del(item)
 						break;
 					case 3:  //分享
+                        this.showMoreList=false
 						break;
 					case 4:  //邀请好友
+                        if(!uni.getStorageSync('token')){
+                            uni.showToast({
+                            	title:'请先登录',
+                            	icon:'none'
+                            })
+                            setTimeout(()=>{
+                            	uni.navigateTo({
+                            		url:'/pages/Login/Login'
+                            	})
+                            },1000)
+                            return
+                        }
 						this.invitationPop=true
 						this.showMoreList=false
 						break;
@@ -598,7 +660,7 @@
 					content: '结算后赏金会转入此用户账户',
 					success: res => {
 						if(res.confirm){
-							this.$http({url:"/goods/message/bestReply",data:{
+							this.$http({url:"/reply/message/bestReply",data:{
 								productId :this.productId,
 								memberId:item.userId,
 							},method:'POST'}).then(res=>{
@@ -635,7 +697,7 @@
 		},
 		// 上拉加载
 		onReachBottom(){
-			if(this.isContinue){
+			if(this.isContinue && uni.getStorageSync('token')){
 				if(this.size!==10){
 					this.current=this.size/10
 					this.current++
@@ -643,7 +705,6 @@
 					this.current++
 				}
 				this.size=10
-				
 				this.getCommentList('continue')
 			}
 		},
@@ -652,11 +713,12 @@
 				productId:this.productId,
 				destination:1
 			}
-			this.$http('/goods/product/share',data,'POST').then(res=>{})
+            if(uni.getStorageSync('token')){
+                this.$http({url:'/goods/product/share',data,method:'POST'}).then(res=>{})
+            }
 			return{
 				title:this.productInfo.title || '懂司圈司机经验技术路况交流',
-				content:this.productInfo.content || '懂司圈司机经验技术路况交流',
-				imageUrl:this.productInfo.type!==3?this.imageList[0]: '',
+				// imageUrl:this.productInfo.type!==3?this.imageList[0]: '',
 				path:'/pages/InvitationDetail/InvitationDetail?productId='+this.productId,
 				success:function(r){
 					
@@ -680,7 +742,7 @@
 	padding-bottom: 200upx;
 	.swiper-wrap{
 		position: relative;
-		min-height: 60upx;
+		// min-height: 60upx;
 		background-color: #fff;
 		.video{
 			width: 100%;
@@ -784,7 +846,12 @@
 		
 	}
 	.content-wrap{
-		padding: 30upx;;
+		padding: 20upx 0;
+        .img-wrap{
+            image{
+                width: 100%;
+            }
+        }
 	}
 	.content{
 		background-color: #fff;
@@ -798,6 +865,9 @@
 					border-radius: 50%;
 					margin-right: 20upx;
 				}
+                .user-name{
+                    width: 320upx;
+                }
 			}
 			.zan{
 				.z-left{
@@ -921,10 +991,10 @@
 		bottom: 0;
 		width: 100%;
 		background-color: #fff;
-		z-index: 888;
+		z-index: 999;
 		.foot-list{
 			justify-content: space-around;
-			padding: 40upx 0;
+			padding: 30upx 0;
 			.foot-item{
 				border: none;
 				background-color: #f2f2f2;
@@ -959,6 +1029,9 @@
 			}
 		}
 	}
+    .foot-tool-more{
+        position: relative;
+    }
     .eva-input{
         position: fixed;
         background-color: #f2f2f2;

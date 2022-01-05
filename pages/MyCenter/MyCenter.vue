@@ -10,8 +10,11 @@
 		<view class="user-info">
 			<image class="top_bg" src="http://120.24.56.30:9000/system/wd_bg2.png" mode="widthFix"></image>
 			<view class="info">
-				<image class="avatar" :src="userInfo.photo || userInfo.avatarUrl" ></image>
-				
+				<!-- <image class="avatar" :src="userInfo.photo || userInfo.avatarUrl" ></image> -->
+				<view class="avatar-wrap">
+					<image class="user-avatar avatar" :src="userInfo.photo || userInfo.avatarUrl"></image>
+					<image v-if="userInfo.isEffect"  class="vip-avatar" src="http://120.24.56.30:9000/system/vip.png" ></image>
+				</view>
 				<view class="info-top row jc-sb">
 					<view class="left">
 						<view class="nick-name">{{userInfo.nickName}}</view>
@@ -86,13 +89,13 @@
 			<text class="title f32-c333 fwb">访客列表</text>
 			<view class=" list">
 				<view class="row item mt30 jc-sb" v-for="(item,index) in dataList" :key="index">
-					<view class="child-list mt20 row">
+					<navigator hover-class="none" :url="'./PersonalHome?id='+item.userId" class="child-list mt20 row">
 						<image class="user-img avatar" :src="item.memberPhoto"></image>
-                        <navigator hover-class="none" :url="'/pages/MyCenter/PersonalHome?id='+item.userId" class="user column">
+                        <view  class="user column">
                             <text class="name oneHidden">{{item.memberNickName}}</text>
 							<text class="time">{{item.visitTime}}</text>
-                        </navigator>
-					</view>
+                        </view>
+					</navigator>
 					<view class="handle-btn row">
 						<view class="btn msg" @click="userHandle(1,item)">留言</view>
 						<view class="btn fol" @click="userHandle(2,item)">{{item.isAttention?'已关注':'关注'}}</view>
@@ -140,21 +143,22 @@
 				userInfo:uni.getStorageSync('userInfo'),
 				white:false,
 				isContinue:true,
-				question:{},
 				total:'',
+                current:1
 			}
 		},
 		onLoad() {
 			this.url='/member/visitList/'
+            this.getData()
 		},
 		onShow() {
-			
 			this.getCount()
 			this.getQuestion()
 			this.$getUserInfo().then(res=>{
 				this.userInfo=res
 			})
 			this.getMessageNum()
+            this.current=1
 		},
 		onPageScroll(res) {
 			if(res.scrollTop>=100){
@@ -210,7 +214,8 @@
 				}
 			},
 			getQuestion(){
-				this.$http({url:'/goods/product/recommend/',data:{size:1,current:1}}).then(res=>{
+                this.current++
+				this.$http({url:'/goods/product/recommend/',data:{size:1,current:this.current}}).then(res=>{
 					this.question=res.data.records[0]
 				})	
 			},
@@ -237,7 +242,7 @@
 					productId:this.question.id,
 					memberId:this.question.userId,
 					action:2,
-					reply:this.answerValue
+					answer:this.answerValue
 				}
 				this.$http({url,data,method:'post'}).then(res=>{
 					uni.showToast({
@@ -259,6 +264,7 @@
 <style lang="scss" scoped>
 .page-wrap{
 	padding:30upx;
+    min-height: 100vh;
 	background-image: url('http://120.24.56.30:9000/system/wd_bg1.png');
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
@@ -282,6 +288,13 @@
 				top: -85upx;
 				box-shadow: 0 0 10upx 2upx #ddd;
 			}
+            .vip-avatar{
+                width: 64upx;
+                height: 28upx;
+                position: absolute;
+                left: 90upx;
+                top: 34upx;
+            }
 			.info-top{
 				.left{
 					.nick-name{

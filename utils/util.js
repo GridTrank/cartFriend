@@ -83,9 +83,12 @@ function getCode(){
 		uni.getProvider({
 			service:'oauth',
 			success:function(res) {
+               
 				uni.login({
 					provider:res.provider[0],
 					success:function(result){
+                        // console.log(result)
+                        // return
 						resolve(result.code)
 					},
 					fail:function(err){
@@ -112,10 +115,10 @@ export const getUserProfile=()=>{
 					icon:'none'
 				})
 				setTimeout(()=>{
-					uni.switchTab({
-						url:'/pages/Index/index'
-					})
-					// uni.navigateBack()
+					// uni.switchTab({
+					// 	url:'/pages/Index/index'
+					// })
+					uni.navigateBack()
 				},1500)
 			})
         },

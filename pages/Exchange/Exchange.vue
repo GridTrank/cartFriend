@@ -1,379 +1,513 @@
 <template>
 	<view class="page-wrap">
-		<page-header
-		title="会员"
-		:showLeft='false'
-		:white='white'
-		textColor="#000"
-		></page-header>
-		<view class="material mt60" v-if="userInfo.nickName">
-			<view class="material-user row">
-				<view class="img-wrap">
-					<image class="avatar" :src="userInfo.photo" mode="widthFix"></image>
-				</view>
-				<view class="user-info">
-					<view class="nick-name">{{userInfo.nickName}}</view>
-					<view class="days mt10">
-						<text class="m-i-t1">当前月卡剩余天数</text>
-						<text class="m-i-t2">{{amountDetail.daysCount}}天</text>
-					</view>
-				</view>
-				<navigator hover-class="none" url="/pages/ExchangePage/Recharge/Recharge" class="to-recharge"></navigator>
+		<view 
+        v-if="circleList.length>0"
+        class="select-cirlce model-wrap column"
+        @click="showList=true">
+			<text class="txt">当前选择的圈子：</text>
+			<text class="circle-txt fwb" >
+				{{cirlceName}} 
+			</text>
+			<text class="txt mt10">点击切换圈子</text>
+		</view>
+
+        <view class="input-content model-wrap mt30" v-if="activeType==1 ||  activeType==2">
+			<view class="input-title">标题</view>
+			<view class="input-wrap mt20">
+				<u-input class="title"  maxlength="50" border v-model="title" placeholder="请输入标题" />
 			</view>
-			<view class="list row">
-				<view class="material-item column">
-					<text class="top">￥{{amountDetail.balanceCount}}</text>
-					<text class="bottom">当前余额</text>
-				</view>
-				<view class="material-item column">
-					<text class="top">￥{{amountDetail.bountyCount}}</text>
-					<text class="bottom">当前赏金</text>
-				</view>
-				<view class="material-item column">
-					<text class="top">{{amountDetail.gasolineCount}}ml</text>
-					<text class="bottom">当前汽油</text>
-				</view>
+        </view>
+		
+		<view class="input-content model-wrap  mt30" v-if="activeType===0">
+			<view class="input-title">有赏任务 <text>余额 {{amountDetail.balanceCount}}元</text> </view>
+			<view class="input-wrap mt20">
+				<u-input class="title"  v-model="money" placeholder="请输入悬赏金额" ></u-input>
 			</view>
 		</view>
 		
-		<view class="open ">
-			<view class="open-vip">
-				<view class="v-tit">开通会员专享4大会员权益</view>
-				<view class="v-desc">会员可免费加入圈子</view>
+        <template v-if="activeType==3">
+            <view class="shunlujia mt30">
+            	<view class="tab-wrap">
+            		<view @click="openVip" class="no_vip" v-if="!userInfo.isEffect">
+            			<view class="t1">你当前还不是会员</view>
+            			<view class="t2">开通会员可查看联系方式</view>
+            		</view>
+            		<view class="tabs row mt30">
+            			<view @click="target=1" class="tab" :class="target==1 && 'active' ">
+            				找顺路车
+            			</view>
+            			<view @click="target=2" class="tab" :class="target==2 && 'active' ">
+            				找顺路司机
+            			</view>
+            		</view>
+            		
+            		<view class="address-select model-wrap row jc-sb">
+            			<view >
+            				<view class="f32-c333">请选择</view>
+            				
+            				<u-input v-model="startRegion" placeholder="请选择出发地" @click="selectPick('region','start')" type="select" border />
+            			</view>
+            			<image src="http://120.24.56.30:9000/system/jiaohuan.png" ></image>
+            			<view >
+            				<view class="f32-c333">请选择</view>
+            				<u-input v-model="endRegion" placeholder="请选择目的地" @click="selectPick('region','end')" type="select" border />
+            			</view>
+            		</view>
+            	</view>
+            </view>
+            
+            <view class="input-content model-wrap mt30" >
+            	<view class="input-title">手机号码</view>
+            	<view class="input-wrap mt20">
+            		<u-input class="title" maxlength="11" border v-model="mobilePhone" placeholder="请输入手机号码" />
+            	</view>
+            </view>
+            <view class="input-content model-wrap mt30">
+            	<view class="input-title">日期时间</view>
+            	<view class="input-wrap mt20">
+            		<u-input 
+                    type='select' 
+                    class="title" 
+                    border 
+                    v-model="dateTime" 
+                    placeholder="请选择出发时间" 
+                    @click="selectPick('time')" />
+            	</view>
+            </view>
+        </template>
+		
+        <view class="input-content model-wrap mt30">
+			<view class="input-wrap ">
+				<u-input class="content "  height="300" border type="textarea" v-model="content" />
 			</view>
-			<view class="open-list mt20">
-				<view @click="toPage('mounth')" class="open-item model-wrap column">
-					<image class="item-img" src="http://120.24.56.30:9000/system/hy2.png" mode="widthFix"></image>
-					<text class="item-bg ">月</text>
-					<text class="item-t1 mt10">月卡</text>
-					<text class="item-t2 ">9.9 <text> /月</text></text>
-				</view>
-				<view @click="toPage('quarter')" class="open-item model-wrap column">
-					<image class="item-img" src="http://120.24.56.30:9000/system/hy2.png" mode="widthFix"></image>
-					<text class="item-bg ">季</text>
-					<text class="item-t1 mt10">季卡</text>
-					<text class="item-t2 ">29<text>/季</text></text>
-				</view>
-				<view @click="toPage('year')"  class="open-item model-wrap column">
-					<image class="item-img " src="http://120.24.56.30:9000/system/hy2.png" mode="widthFix"></image>
-					<text class="item-bg ">年</text>
-					<text class="item-t1 mt10">年卡</text>
-					<text class="item-t2 ">99<text>/年</text></text>
-				</view>
-			</view>
+        </view>
+		<view class="upload model-wrap mt30">
+			<view class="input-title">上传</view>
+			<htz-image-upload  
+			:max="maxList"  
+			v-model="fileList" 
+			:mediaType="mediaType"
+			@uploadSuccess="uploadSuccess" 
+			@imgDelete="deletFile"
+			:action="baseUrl + (mediaType=='image'?'/goods/product/upload':'/goods/product/uploadVideo ') ">
+			</htz-image-upload>
 		</view>
-		<view class="interest">
-			<view class="interest-list">
-				<view class="interest-item model-wrap ">
-					<image src="http://120.24.56.30:9000/system/hy4.png" mode="widthFix"></image>
-					<view class="i-t1">加入圈子无限制</view>
-					<view class="i-t1">创建专属圈子</view>
-				</view>
-				<view class="interest-item model-wrap ">
-					<image src="http://120.24.56.30:9000/system/hy5.png" mode="widthFix"></image>
-					<view class="i-t1">专属会员标志</view>
-				</view>
-				<view class="interest-item model-wrap ">
-					<image src="http://120.24.56.30:9000/system/hy6.png" mode="widthFix"></image>
-					<view class="i-t1">发布视频可达60s</view>
-				</view>
-				<view class="interest-item model-wrap ">
-					<image src="http://120.24.56.30:9000/system/hy7.png" mode="widthFix"></image>
-					<view class="i-t1">发布帖子无限制</view>
-				</view>
-			</view>
-		</view>
-		<view v-if="false" class="center interest mt20">
-			<text class="tit mt20">兑换中心</text>
-			<view class="list model-wrap xflex-list mt20">
-				<view class="item xflex-list-item" v-for="(item,index) in changeItem" :key="index">
-					<view class="label">
-						{{item.label}}
-					</view>
-					<view class="line">
-						<view class="title">{{item.title}}</view>
-						<u-line-progress :percent="item.value"  active-color="#f59a23"></u-line-progress>
-					</view>
-					<view class="btn">兑换</view>
-				</view>
-			</view>
-		</view>
-		<authorization></authorization>
+		
+		<view class="base-btn mt40" @click="submit">发布</view>
+		
+		<u-picker :mode="pickerModel" v-model="showPicker" :params="pickParams" @confirm="confirmTimePicker"></u-picker>
+		<u-select v-model="showList" :list="circleList" @confirm="confirm"></u-select>
 	</view>
 </template>
 <script>
+	import {baseUrl} from '@/utils/util'
 	import { mapState } from 'vuex'
+	import htzImageUpload from '@/components/htz-image-upload/htz-image-upload.vue'
 	export default {
+		components: {
+		    htzImageUpload,
+		},
 		data() {
 			return {
-				selectIndex:0,
-				detail:{},
-				userInfo:{},
-				white:false,
-				changeItem:[
+				baseUrl:baseUrl,
+				showList:false,
+				cirlceName:'当前的圈子',
+				list:[],
+				activeType:3,
+				typeList:[
 					{
-						label:'会员月卡',
-						title:'会员月卡',
-						value:50
+						name:'文章',
+						value:'article',
+						type:1,
+						img:'http://120.24.56.30:9000/system/fb_icon1.png',
+						imgActive:'http://120.24.56.30:9000/system/fb_icon1_a.png'
 					},
 					{
-						label:'会员年卡',
-						title:'会员月卡',
-						value:60
+						name:'视频',
+						value:'video',
+						type:2,
+						img:'http://120.24.56.30:9000/system/fb_icon2.png',
+						imgActive:'http://120.24.56.30:9000/system/fb_icon2_a.png'
 					},
 					{
-						label:'实物',
-						title:'汽油',
-						value:70
+						name:'提问',
+						value:'question',
+						type:0,
+						img:'http://120.24.56.30:9000/system/fb_icon3.png',
+						imgActive:'http://120.24.56.30:9000/system/fb_icon3_a.png'
 					},
 					{
-						label:'京东购物卡',
-						title:'京东购物卡',
-						value:80
+						name:'顺路驾',
+						value:'wind',
+						type:3,
+						img:'http://120.24.56.30:9000/system/fb_icon4.png',
+						imgActive:'http://120.24.56.30:9000/system/fb_icon4_a.png'
 					},
-				]
+				],
+				title:'',
+				mobilePhone:'',
+				mediaType:'image',
+				maxList:6,
+				content:'',
+				money:'',
+				circleId:'',
+				target:1,
+				fileList:[],
+				circleList:[],
+				startRegion:'',
+				endRegion:'',
+				regionType:'',
+				showPicker:false,
+				pickParams:{
+					year: true,
+					month: true,
+					day: true,
+					hour: true,
+					minute: true,
+					second: false
+				},
+				dateTime:'',
+				pickerModel:'time',
+				userInfo:uni.getStorageSync('userInfo'),
 			};
 		},
 		computed:{
 			...mapState(['amountDetail'])
 		},
-		onPageScroll(res) {
-			if(res.scrollTop>=50){
-				this.white=true
-			}else if(res.scrollTop<=30){
-				this.white=false
-			}
-		},
-		onLoad(){
-			this.userInfo=uni.getStorageSync('userInfo')
-		},
-		onShow() {
+		onLoad(e) {
 			this.$store.dispatch('amountDetail')
-		},
-		methods:{
-
-			selectCircleItem(item,index){
-				this.selectIndex=index
-			},
-			toPage(type){
-				
-				uni.navigateTo({
-					url:'../ExchangePage/Recharge/OpenVip?type='+type
-				})
+			if(e.circleId){
+				this.circleId=e.circleId
 			}
+            if(e.type){
+                this.activeType=e.type
+            }
+			this.getCircleList()
+			this.userInfo=uni.getStorageSync('userInfo')
+            this.$forceUpdate()
+		},
+        onShow() {
+            if(uni.getStorageSync('token')){
+                this.$getUserInfo().then(res=>{
+                	this.userInfo=res
+                })
+            }
+        },
+		methods:{
+			// 获取圈子列表
+			getCircleList(){
+				this.$http({url:'/goods/circle/myCircle'}).then(res=>{
+					res.data.records.forEach(item=>{
+						item.label=item.circleName
+						item.value=item.circleId
+					})
+					this.circleList=res.data.records
+					if(this.circleId){
+						this.cirlceName=res.data.records.filter((item)=>{
+							return item.circleId==this.circleId
+						})[0].circleName
+					}else{
+						this.cirlceName=res.data.records[0].circleName
+						this.circleId=res.data.records[0].circleId
+					}
+				})
+			},
+			// 确定
+			submit(){
+                if(this.circleList.length<=0){
+                    uni.showToast({
+                    	title:'请先加入圈子',
+                    	icon:'none'
+                    })
+                    return
+                }
+				if(!this.content){
+					uni.showToast({
+						title:'请输入内容',
+						icon:'none'
+					})
+					return
+				}
 			
+				if(this.activeType===3){
+                    let myreg = /^[1][3,4,5,7,8,9][0-9]{9}$/;
+					if(!this.startRegion || !this.endRegion || !this.dateTime || !this.mobilePhone){
+						uni.showToast({
+							title:'请补充完整信息',
+							icon:'none'
+						})
+						return
+					}
+                    if(!myreg.test(this.mobilePhone)){
+                        uni.showToast({
+                        	title:'请输入正确的手机号码',
+                        	icon:'none'
+                        })
+                        return
+                    }
+				}
+				let data={
+					circleId:this.circleId,
+					title:this.title,
+					content:this.content,
+					type:this.activeType+1,
+					amount:this.money,
+					photos:this.fileList.join(',')
+				}
+				if(this.activeType==3){
+					data.origin=this.startRegion;
+					data.destination=this.endRegion;
+					data.mobilePhone=this.mobilePhone;
+					data.dateTime=this.dateTime
+					data.target=this.target
+				}
+				if(this.mediaType=='video' && !data.photos){
+					uni.showToast({
+						title:'请选择视频',
+						icon:'none'
+					})
+					return
+				}
+				uni.showLoading({
+					title:'加载中'
+				})
+                let url=this.activeType==3?'/goods/product/release':'/goods/product/add'
+				this.$http({url,data,method:'post'}).then(res=>{
+					uni.hideLoading()
+					uni.showToast({
+						title:'发布成功',
+						icon:'none'
+					})
+					
+					setTimeout(()=>{
+						
+					},1500)
+				})
+			},
+            // 开通vip
+			openVip(){
+                uni.navigateTo({
+                    url:'/pages/ExchangePage/Recharge/OpenVip?type=mounth'
+                })
+            },
+			// 选择圈子
+			confirm(res){
+				this.cirlceName=res[0].label
+				this.circleId=res[0].value
+			},
+			// 上成功
+			uploadSuccess(res){
+				var _res = JSON.parse(res.data);
+				if (_res.code == 200) {
+				    this.fileList.push(_res.data);
+				}
+			},
+			
+			// 选择下拉框
+			selectPick(type,val){
+				if(type=='time'){
+					this.pickParams={
+						year: true,
+						month: true,
+						day: true,
+						hour: true,
+						minute: true,
+						second: false
+					}
+					this.pickerModel='time'
+				}else{
+					this.pickParams={
+						province: true,
+						city: true,
+						area: true
+					}
+					this.pickerModel='region'
+					this.regionType=val
+				}
+				this.showPicker=true
+			},
+			// 确认下拉框
+			confirmTimePicker(res){
+				if(this.pickerModel=='time'){
+					this.dateTime=res.year+'-'+res.month+'-'+res.day+'  '+res.hour+':'+res.minute
+				}else{
+					
+					if(this.regionType=='start'){
+						this.startRegion= (res.city.label=='市辖区'?'': res.city.label ) +res.area.label
+					}else{
+						this.endRegion=(res.city.label=='市辖区'?'':res.city.label ) +res.area.label
+					}
+				}
+			},
+			// 删除文件
+			deletFile(url,res){},
+			// 选择发布类型
+			selectType(item,index){
+				this.activeType=item.type
+				if(item.type!==2){
+					this.mediaType='image'
+					this.maxList=6
+				}else{
+					this.mediaType='video'
+					this.maxList=1
+				}
+				
+				this.fileList=[]
+				this.content=''
+				this.title=''
+			}
 		}
 	}
 </script>
+
 <style lang="scss" scoped>
 .page-wrap{
+	min-height: 100vh;
 	padding:30upx;
-	background-image: url('http://120.24.56.30:9000/system/ch-bg.png');
-	background-repeat: no-repeat;
-	background-size: 100% 100%;
-	background-color: linear-gradient(180deg, #FFE5C2 0%, #F3F3FE 100%);
-	.material{
-		width: 100%;
-		height: 400upx;
-		position: relative;
-		margin-bottom: 40upx;
-		margin-top: 40upx;
-		background-image: url('http://120.24.56.30:9000/system/hy1.png');
-		background-size: 100% 100%;
-		padding: 30upx;
-		.material-user{
-			position: relative;
-			.img-wrap{
-				width: 120upx;
-				height: 120upx;
-				background-color: #FFE2B7;
-				border-radius: 10upx;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				margin-right: 10upx;
-				.avatar{
-					width: 110upx;
-					border-radius: 10upx;
-				}
-			}
-			.user-info{
-				.nick-name{
-					font-size: 32upx;
-					font-weight: 600;
-					color: #fff;
-				}
-				.days{
-					color: #FE4901;
-					font-size: 28upx;
-					padding: 4upx;
-					border-radius: 8upx;
-					background-color: #FFE2B7;
-				}
-			}
-			.to-recharge{
-				position: absolute;
-				right: 0upx;
-				top: 0upx;
-				width: 140upx;
-				height: 140upx;
-			}
-		}
-		.list{
-			justify-content: space-between;
-			margin-top: 77upx;
-			.material-item{
-				background: #FFF5E6;
-				color: #825615;
-				width: 200upx;
-				padding: 20upx 0;
-				border-radius: 12upx;
-				text-align: center;
-				.top{
-					font-size: 48upx;
-					font-weight: bold;
-				}
-				.bottom{
-					font-size: 24upx;
-					margin-top: 10upx;
-				}
-			}
-		}
-		
-	}
-	.open{
-		margin-bottom: 40upx;
-		width: 100%;
-		height: 430upx;
-		background-image: url('http://120.24.56.30:9000/system/hy9.png');
-		position: relative;
-		background-size: 100% 100%;
-		padding: 30upx;
-		.open-vip{
+	.select-cirlce{
+		background: linear-gradient(359deg, #DFAD76 0%, #FFECD8 100%);
+		.txt{
+			font-size: 28upx;
 			color: #412815;
-			.v-tit{
-				font-size: 40upx;
-				font-weight: 600;
-			}
-			.v-desc{
-				font-size: 28upx;
-			}
 		}
-		.open-list{
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			.open-item{
-				position: relative;
-				border: 1px solid #AF9072;
-				width: 200upx;
-				height: 260upx;
-				justify-content: center;
-				align-items: center;
-				.item-img{
-					width: 100%;
-					position: absolute;
-					top: 0;
-					left: 0;
-				}
-				.item-bg{
-					background-image: url('http://120.24.56.30:9000/system/hy8.png');
-					width: 50upx;
-					height: 40upx;
-					background-size: 100% 100%;
-					text-align: center;
-					margin-top: 70upx;
-					color: #BB9576;
-					font-size: 24upx;
-				}
-				.item-t1{
-					color: #825615;
-					font-size: 28upx;
-				}
-				.item-t2{
-					color: #825615;
-					font-size: 58upx;
-					text{
-						font-size: 28upx;
-					}
-				}
-			}
+		.circle-txt{
+			display: inline-block;
+			padding: 10upx 0upx;
+			color:#412815;
+			font-size: 48upx;
 		}
 	}
-	.interest{
-		.tit{
-			font-size: 32upx;
-			font-weight: 600;
-			color: #333;
-		}
-		.interest-list{
-			@include XflexBox(space-around); 
-			flex-wrap: wrap;
-			.interest-item{
-				margin-top: 30upx;
-				width: 320upx;
-				height: 240upx;
-				@include XflexBox(center); 
-				flex-direction: column;
-				background-color: #FFE5C2;
-				image{
-					width: 80upx;
-					height: 80upx;
-				}
-				.i-t1{
-					text-align: center;
-					font-size: 28upx;
-					color: #412815;
-					font-weight: 500;
-					margin-top: 20upx;
-				}
-				
+	.type-list{
+		padding: 30upx;
+		.type-item{
+			padding: 30upx 0;
+			border-radius: 16upx;
+			width: 140upx;
+			text-align: center;
+			font-size: 28upx;
+			color: #0D1722;
+			justify-content: center;
+			.type-img{
+				width: 32upx;
+				margin-right: 10upx;
 			}
 		}
+		.s1{
+			background-color: rgba(0, 145, 255, 0.2);
+		}
+		.s2{
+			background-color: rgba(109, 212, 0, 0.2);
+		}
+		.s3{
+			background-color:rgba(247, 181, 0, 0.2) ;
+		}
+		.s4{
+			background-color: rgba(98, 54, 255, 0.2);
+		}
+		.select-item{color: #fff;}
+		.select-item.s1{
+			background-color: #0091FF;
+		}
+		.select-item.s2{
+			background-color: #6DD400;
+		}
+		.select-item.s3{
+			background-color: #F7B500;
+		}
+		.select-item.s4{
+			background-color:#6236FF;
+		}
 	}
-	.center{
-		.list{
-			flex-direction: column;
-			.item{
-				flex-direction: row;
-				justify-content: space-between;
+    .input-wrap {
+        background-color: #fff;
+        border-radius: 16upx;
+        padding: 4upx 0;
+		.fh{
+			font-size: 40upx;
+			font-weight: bold;
+		}
+    }
+	.foot-btn{
+		width: 100%;
+		.submit{
+			width: 25%;
+			text-align: center;
+			padding: 10upx 30upx;
+			background-color: $default-color;
+			border-radius: 32upx;
+			float: right;
+			color: #fff;
+		}
+	}
+    .title{
+		background-color: #fff;
+		border-radius: 16upx;
+	}
+	.content{
+		background-color: #fff;
+		min-height: 600upx;
+		border-radius: 16upx;
+	}
+	.shunlujia{
+		.tab-wrap{
+			.no_vip{
+				background-image: url('http://120.24.56.30:9000/system/qz-bg2.png');
+				background-size: cover;
 				width: 100%;
-				margin-bottom: 40upx;
-				position: relative;
-				&::after{
-					content: '';
-					display: block;
-					position: absolute;
-					bottom: -20upx;
-					width: 100%;
-					height: 2upx;
-					background-color: #e2e2e2;
+				height: 170upx;
+				color: #412815;
+				padding: 30upx;
+				border-radius: 12upx;
+				.t1{
+					font-size: 28upx;
 				}
-				&:last-child{
+				.t2{
+					margin-top: 10upx;
+					font-size: 48upx;
+				}
+			}
+			.tabs{
+				background-color: #F7D5B0;
+				width: 90%;
+				color: #412815;
+				justify-content: space-around;
+				font-size: 32upx;
+				margin: auto;
+				margin-top: 30upx;
+				border-top-left-radius: 12upx;
+				border-top-right-radius: 12upx;
+				padding: 26upx 0;
+				.tab.active{
+					position: relative;
 					&::after{
-						display: none;
+						content: "";
+						display: block;
+						position: absolute;
+						bottom: -10upx;
+						left: 50%;
+						transform: translateX(-50%);
+						height: 4upx;
+						background-color: #412815;
+						width: 60upx;
+						
 					}
 				}
-				.label{
-					width: 130upx;
-					height: 130upx;
-					background-color: $default-color;
-					color: #fff;
-					font-size: 30upx;
-					font-weight: bold;
+			}
+			.address-select{
+				.f32-c333{
 					text-align: center;
-					border-radius: 24upx;
-					@include XflexBox(center)
+					margin-bottom: 14upx;
 				}
-				.line{
-					width: 50%;
-					margin: -45upx 20upx 0 10upx;
+				image{
+					width: 56upx;
+					height: 40upx;
+					display: blcok;
+					margin: 50upx 30upx 2upx 30upx;
 				}
-				.btn{
-					padding: 10upx 20upx;
-					background-color: $default-color;
-					color: #fff;
-					border-radius: 50upx;
+				/deep/ .u-input{
+					.u-input__input{
+						font-size: 24upx;
+					}
 				}
 			}
 		}

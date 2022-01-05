@@ -14,9 +14,8 @@ export const getData = {
 		}
 	},
 	onShow(){
-		
-		this.dataList=[]
-		this.getData()
+		// this.dataList=[]
+		// this.getData()
 	},
 	methods:{
 		getData(){
@@ -38,6 +37,7 @@ export const getData = {
 				}else{
 					this.isContinue=false
 				}
+                // console.log(123123,this.url,this.dataList)
 				this.total=res.data.total
 				this.$forceUpdate()
 			})

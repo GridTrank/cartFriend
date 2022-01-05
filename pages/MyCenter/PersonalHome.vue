@@ -11,14 +11,16 @@
 					<view class="name">用户昵称：{{userInfo.nickName}}</view>
 					<view class="autograph mt20">个性签名：{{userInfo.description || ''}}</view>
 				</view>
-				<image class="avatar" :src="userInfo.photo "></image>
+                <view class="right column">
+                    <image class="avatar" :src="userInfo.photo "></image>
+                    <!-- <image class="vip-avatar" src="http://120.24.56.30:9000/system/vip.png" ></image> -->
+                </view>
 			</view>
-			
 			<view class="fans row jc-sb" v-if="isNowUser">
 				<navigator hover-class="none" url="./FansFollow?pageType=follow" class="fans-d f1">
 					<image class="f-img" src="http://120.24.56.30:9000/system/wd_gz.png"></image>
 					<view class="row">
-						<text class="f-d-n">{{userInfo.attentionCount}}</text>
+						<text class="f-d-n">{{userInfo.attentionCount }}</text>
 						<text class="f-d-t">关注</text>
 					</view>
 				</navigator>
@@ -56,12 +58,22 @@
 					active-color="#5FB800">
 					</u-tabs>
 				</view>
-				<invitation-list pageType='PersonalHome' ref='list' :item="dataList"></invitation-list>
+                <template v-if="dataList.length>0">
+                    <invitation-list
+                    pageType='PersonalHome' 
+                    ref='list' 
+                    :item="dataList">
+                    </invitation-list>
+                </template>
+                <template v-else>
+                    <no-data></no-data>
+                </template>
+				
 			</view>
 		</view>
-		<view class="tips mt30" :class="showNoData && 'no-da'" >
+		<!-- <view class="tips mt30" :class="showNoData && 'no-da'" >
 			{{isContinue?'上拉加载更多~':'暂无更多数据~'}}
-		</view>
+		</view> -->
 		
     </view>
 </template>
@@ -156,10 +168,6 @@
 			}
 			
 		},
-	
-		onShow() {
-			this.getDetail()
-		},
 		onLoad(e) {
 			this.userId=e.id || uni.getStorageSync('user_id')
 			if(!e.id || e.id==uni.getStorageSync('user_id')){
@@ -176,7 +184,11 @@
 				this.url='/goods/product/homePage'
 				this.queryData.userId=this.userId
 			}
-		}
+            this.getData()
+		},
+        onShow() {
+            this.getDetail()
+        }
 	}
 </script>
 
@@ -201,12 +213,20 @@
 						color: #000;
 					}
 				}
+                .right{
+                    align-items: center;
+                }
 			}
 			.avatar{
 				width: 150upx;
 				height: 150upx;
 				border-radius: 50%;
 			}
+            .vip-avatar{
+                width: 65upx;
+                height: 30upx;
+                margin-top: -10upx;
+            }
 			.fans{
 				display: flex;
 				margin-top: 35upx;

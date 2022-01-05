@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "我的任务",
   "usingComponents": {
-    "u-tabs": "/uview-ui/components/u-tabs/u-tabs"
+    "u-tabs": "/uview-ui/components/u-tabs/u-tabs",
+    "no-data": "/components/no-data/no-data"
   }
 }

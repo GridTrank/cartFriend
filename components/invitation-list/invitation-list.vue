@@ -5,12 +5,16 @@
 				<view @click.stop="toCenter(item)" class="info-user row">
 					<view class="avatar-wrap">
 						<image class="user-avatar" :src="item.memberPhoto"></image>
-						<!-- <image  class="vip-img-avatar" src="http://120.24.56.30:9000/system/vip.png" ></image> -->
+						<image v-if="item.isEffect"  class="vip-img-avatar" src="http://120.24.56.30:9000/system/vip.png" ></image>
 					</view>
 					
 					<view class="right column" >
-						<view class="nick-name">{{item.nickName ||item.memberNickName }}</view>
-						<view class="bg-b" v-if="item.userId!==user_id">关注</view>
+						<view class="nick-name oneHidden">{{item.nickName ||item.memberNickName }}</view>
+						<view class="bg-b" 
+                        @click.stop="cancelAttention(item)" 
+                        v-if="item.userId!==user_id && pageType=='Index'">
+                            {{item.isAttention?'已关注':'关注'}}
+                        </view>
 					</view>
 				</view>
 				
@@ -25,24 +29,24 @@
 					src="http://120.24.56.30:9000/system/iscose.png" mode="widthFix">
 					</image>
 					
-					<view class="c-name">
+					<view @click.stop="toCircleDetail(item)" v-if="item.circleName" class="c-name">
 						{{item.circleName}}
 					</view>
 				</view>
 			</view>
 			<view class="shunlujia" v-if="item.type==4">
 				<view class="top row jc-sb">
-					<text class="left">找顺路司机</text>
-					<text class="right">2021-12-22 12:23</text>
+					<text class="left">{{item.target==1?'找顺路车':'找顺路司机'}}</text>
+					<text class="right">出发时间 {{item.dateTime}}</text>
 				</view>
 				<view class="address row">
-					<text>湖南长沙</text>
+					<text>{{item.origin}}</text>
 					<image src="http://120.24.56.30:9000/system/slj-icon1.png" ></image>
-					<text>广州</text>
+					<text>{{item.destination}}</text>
 				</view>
 			</view>
 			<view class="info-center">
-				<view class="info-title twoHidden" >
+				<view class="info-title twoHidden" v-if="item.title">
 					<!-- <text class="type t2" v-if="item.type==2">文章</text> -->
 					<text class="type t3" v-if="item.type==3">视频</text>
 					{{item.title }}
@@ -51,7 +55,8 @@
 					<view class="note threeHidden">
 						<text class="type t1" v-if="item.type==1">提问</text>
 						<text class="type t4" v-else-if="item.type==4">顺路驾</text>
-						{{item.content }}
+                        <!-- <u-parse :html="item.content"></u-parse> -->
+                        {{item.content}}
 					</view>
 					<template v-if="(item.type==1 || item.type==2) && item.photos">
 						<scroll-view scroll-x="true" class="img-wrap mt20">
@@ -85,8 +90,10 @@
 				</template>
 				<template v-else> 
 					<text>{{item.shareCount}}转发</text>
-					<text>{{(item.type==1 || !item.type)?item.replyCount:item.commentCount}} {{(item.type==1 || !item.type)?'回答':'评论'}}</text>
-					<text >{{item.opposeCount}}反对</text>
+					<text>
+                        {{(item.type==1 || !item.type)?item.replyCount:item.commentCount}} {{(item.type==1 || !item.type)?'回答':'评论'}}
+                    </text>
+					<!-- <text >{{item.opposeCount}}反对</text> -->
 				</template>
 				
 			</view>
@@ -99,12 +106,18 @@
 		props:{
 			item:{
 				type:Array,
-				default:[]
+				default:()=>{
+                    return []
+                }
 			},
 			pageType:{
 				type:String,
 				default:''
-			}
+			},
+            pageFrom:{
+               type:String,
+               default:'' 
+            }
 		},
 		data() {
 			return {
@@ -117,22 +130,31 @@
 		},
 		methods:{
 			toDetail(item){
-				if(!uni.getStorageSync('token') ){
-					uni.showToast({
-						title:'请先登录',
-						icon:'none'
-					})
-					setTimeout(()=>{
-						uni.navigateTo({
-							url:'/pages/Login/Login'
-						})
-					},1000)
-					return
-				}
+				// if(!uni.getStorageSync('token') ){
+				// 	uni.showToast({
+				// 		title:'请先登录',
+				// 		icon:'none'
+				// 	})
+				// 	setTimeout(()=>{
+				// 		uni.navigateTo({
+				// 			url:'/pages/Login/Login'
+				// 		})
+				// 	},1000)
+				// 	return
+				// }
 				uni.navigateTo({
 					url:'/pages/InvitationDetail/InvitationDetail?productId='+item.id
 				})
 			},
+            toCircleDetail(item){
+               uni.navigateTo({
+               	url:'/pages/Detail/Detail?id='+item.circleId
+               }) 
+            },
+            // 关注
+            cancelAttention(item){
+                this.$emit('attentionHandle',item)
+            },
 			toCenter(item){
 				if(!uni.getStorageSync('token') ){
 					uni.showToast({
@@ -216,6 +238,7 @@
 						color: #040404;
 						font-size: 28upx;
 						margin-bottom: 10upx;
+                        width: 300upx;
 					}
 				}
 			}
@@ -253,6 +276,8 @@
 			}
 			.note-info{
 				margin: 20upx 0;
+                // max-height: 260upx;
+                // overflow: hidden;
 				.note{
 					color: #333;
 					font-size: 30upx;
@@ -302,7 +327,8 @@
 		}
 		.shunlujia{
 			background-image: url('http://120.24.56.30:9000/system/slj-bg1.png');
-			background-size: cover;
+			background-size: 100%;
+            background-repeat: no-repeat;
 			height: 170upx;
 			width: 100%;
 			padding: 30upx;
@@ -322,13 +348,18 @@
 			.address{
 				// justify-content: center;
 				color: #0D1722;
-				font-size: 40upx;
+				font-size: 34upx;
 				margin-top: 20upx;
 				image{
 					margin: 0 30upx;
 					width:60upx ;
 					height: 60upx;
 				}
+                text{
+                    min-width: 200upx;
+                    display: block;
+                    text-align: center;
+                }
 			}
 		}
 		.info-bottom{

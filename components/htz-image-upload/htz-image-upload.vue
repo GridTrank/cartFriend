@@ -15,9 +15,14 @@
 
 			<view class="htz-image-upload-Item-del" v-if="remove" @click="imgDel(index)">×</view>
 		</view>
-		<view class="htz-image-upload-Item htz-image-upload-Item-add" v-if="uploadLists.length<max" @click="chooseFile">
+		<view 
+        class="htz-image-upload-Item htz-image-upload-Item-add" 
+        v-if="uploadLists.length<max " @click="chooseFile">
 			+
 		</view>
+        <!-- <view v-if="mediaType=='image'" class="uolpad-image" @click="chooseFile">
+            添加图片
+        </view> -->
 		<view class="preview-full" v-if="previewVideoSrc!=''">
 			<video :autoplay="true" :src="previewVideoSrc" :show-fullscreen-btn="false">
 				<cover-view class="preview-full-close" @click="previewVideoClose"> ×
@@ -210,14 +215,8 @@
 						this.imgAdd();
 						break;
 				}
-
-
-				//if(this.mediaType=='image'){
-
-
 			},
 			videoAdd() {
-				console.log('videoAdd')
 				let nowNum = Math.abs(this.uploadLists.length - this.max);
 				let thisNum = (this.chooseNum > nowNum ? nowNum : this.chooseNum) //可选数量
 				uni.chooseVideo({
@@ -226,28 +225,56 @@
 					camera: this.camera,
 					maxDuration: this.maxDuration,
 					success: (res) => {
-						if(res.duration>90){
+                        let size=res.size
+						if(res.size>100*1024*1024){
 							uni.showToast({
-								title:'上传视频时长不能超过90秒',
+								title:'上传视频大小不能超过100M',
 								icon:'none'
 							})
 							return
 						}
-						this.chooseSuccessMethod([res.tempFilePath], 1,'video')
-						//this.imgUpload([res.tempFilePath]);
-						//console.log('tempFiles', res)
-						// if (this.action == '') { //未配置上传路径
-						// 	this.$emit("chooseSuccess", res.tempFilePaths);
-						// } else {
-						// 	if (this.compress && (res.tempFiles[0].size / 1024 > 1025)) { //设置了需要压缩 并且 文件大于1M，进行压缩上传
-						// 		this.imgCompress(res.tempFilePaths);
-						// 	} else {
-						// 		this.imgUpload(res.tempFilePaths);
-						// 	}
-						// }
+                        
+                        this.videoCompress(res.tempFilePath)
+                        this.getVideoInfo(res.tempFilePath)
+						// this.chooseSuccessMethod([res.tempFilePath], 1,'video')
 					}
 				});
 			},
+            getVideoInfo(src){
+                console.log(src)
+                uni.getVideoInfo({
+                    src:src,
+                    success: (res) => {
+                        console.log(res)
+                    },
+                    fail: (err) => {
+                       console.log(err) 
+                    }
+                })
+            },
+            videoCompress(src){
+                uni.showLoading({
+                    title:'视频正在压缩'
+                })
+                uni.compressVideo({
+                    src:src,
+                    // quality:'medium',
+                    bitrate:7000,
+                    fps:32,
+                    resolution:0.8,
+                    success:(res)=> {
+                        console.log(res)
+                        uni.hideLoading()
+                        uni.showToast({
+                            title:res.tempFilePath
+                        })
+                        this.chooseSuccessMethod([res.tempFilePath], 1,'video')
+                    },
+                    fail:function(err){
+                        console.log(err)
+                    }
+                })
+            },
 			imgAdd() {
 				let nowNum = Math.abs(this.uploadLists.length - this.max);
 				let thisNum = (this.chooseNum > nowNum ? nowNum : this.chooseNum) //可选数量
@@ -607,6 +634,12 @@
 		border: 1px dashed #d9d9d9;
 		color: #d9d9d9;
 	}
+    .uolpad-image{
+        text-align: center;
+        color: #5FB800;
+        width: 100%;
+        font-size: 32upx;
+    }
 
 	.htz-image-upload-Item-del {
 		background-color: #f5222d;

@@ -1,9 +1,9 @@
 {
-  "navigationBarTitleText": "会员",
-  "navigationStyle": "custom",
+  "navigationBarTitleText": "顺路驾",
   "usingComponents": {
-    "page-header": "/components/page-header/page-header",
-    "u-line-progress": "/uview-ui/components/u-line-progress/u-line-progress",
-    "authorization": "/components/authorization/authorization"
+    "u-input": "/uview-ui/components/u-input/u-input",
+    "htz-image-upload": "/components/htz-image-upload/htz-image-upload",
+    "u-picker": "/uview-ui/components/u-picker/u-picker",
+    "u-select": "/uview-ui/components/u-select/u-select"
   }
 }

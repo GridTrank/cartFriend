@@ -9,6 +9,7 @@
   padding: 30rpx;
 }
 .page-wrap .select-cirlce.data-v-ab2bd254 {
+  background: -webkit-linear-gradient(91deg, #DFAD76 0%, #FFECD8 100%);
   background: linear-gradient(359deg, #DFAD76 0%, #FFECD8 100%);
 }
 .page-wrap .select-cirlce .txt.data-v-ab2bd254 {
@@ -31,7 +32,9 @@
   text-align: center;
   font-size: 28rpx;
   color: #0D1722;
-  justify-content: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
 }
 .page-wrap .type-list .type-item .type-img.data-v-ab2bd254 {
   width: 32rpx;
@@ -114,7 +117,8 @@
   background-color: #F7D5B0;
   width: 90%;
   color: #412815;
-  justify-content: space-around;
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
   font-size: 32rpx;
   margin: auto;
   margin-top: 30rpx;

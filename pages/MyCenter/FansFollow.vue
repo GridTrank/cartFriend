@@ -5,7 +5,7 @@
         		<image @click="toCenter(item)" class="img avatar" :src="item.memberPhoto"></image>
 				<view class="name column">
 					<text class="f28-c333 mt10">{{item.memberNickName}}</text>
-					<text class="f24-c666 mt10">关注了你</text>
+					<text class="f24-c666 mt10">{{pageType=='follow'?'已关注':'关注了你'}}</text>
 				</view>
 				<view class="is-fol" @click="attention(item)"> 
 					<text v-if="pageType=='follow'">取消关注</text>
@@ -13,9 +13,10 @@
 				</view>
         	</view>
         </view>
-		<view class="tips" :class="showNoData && 'mt30'">
-			{{isContinue?'上拉加载更多~':'暂无更多数据~'}}
-		</view>
+        <view  v-else>
+        	<no-data></no-data>
+        </view>
+	
     </view>
 </template>
 <script>
@@ -38,6 +39,7 @@
 			}else{
 				this.url='/member/myAttention'
 			}
+            this.getData()
 		},
 		
 		methods:{

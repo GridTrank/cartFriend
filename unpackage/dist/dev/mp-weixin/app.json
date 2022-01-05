@@ -54,7 +54,7 @@
         "pagePath": "pages/Exchange/Exchange",
         "iconPath": "static/image/icon3.png",
         "selectedIconPath": "static/image/icon3-a.png",
-        "text": "会员"
+        "text": "顺路驾"
       },
       {
         "pagePath": "pages/MyCenter/MyCenter",

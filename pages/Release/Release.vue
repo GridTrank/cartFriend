@@ -34,57 +34,73 @@
 			</view>
 		</view>
 		
-		<view class="shunlujia mt30" v-if="activeType===3">
-			<view class="tab-wrap">
-				<view class="no_vip" v-if="!userInfo.isEffect">
-					<view class="t1">你当前还不是会员</view>
-					<view class="t2">开通会员专享 4 大会员权益</view>
-				</view>
-				<view class="tabs row mt30">
-					<view @click="target=1" class="tab" :class="target==1 && 'active' ">
-						找顺路车
-					</view>
-					<view @click="target=2" class="tab" :class="target==2 && 'active' ">
-						找顺路司机
-					</view>
-				</view>
-				
-				<view class="address-select model-wrap row jc-sb">
-					<view >
-						<view class="f32-c333">请选择</view>
-						
-						<u-input v-model="startRegion" placeholder="请选择出发地" @click="selectPick('region','start')" type="select" border />
-					</view>
-					<image src="http://120.24.56.30:9000/system/jiaohuan.png" ></image>
-					<view >
-						<view class="f32-c333">请选择</view>
-						<u-input v-model="endRegion" placeholder="请选择目的地" @click="selectPick('region','end')" type="select" border />
-					</view>
-				</view>
-			</view>
-		</view>
-		
-		<view class="input-content model-wrap mt30" v-if="activeType==3">
-			<view class="input-title">手机号码</view>
-			<view class="input-wrap mt20">
-				<u-input class="title" maxlength="11" border v-model="mobilePhone" placeholder="请输入手机号码" />
-			</view>
-		</view>
-		
-		<view class="input-content model-wrap mt30" v-if="activeType==3">
-			<view class="input-title">日期时间</view>
-			<view class="input-wrap mt20">
-				<u-input type='select' class="title"border v-model="dateTime" placeholder="请选择出发时间" @click="selectPick('time')" />
-			</view>
-		</view>
+        <template v-if="activeType==3">
+            <view class="shunlujia mt30">
+            	<view class="tab-wrap">
+            		<view class="no_vip" v-if="!userInfo.isEffect">
+            			<view class="t1">你当前还不是会员</view>
+            			<view class="t2">开通会员专享 4 大会员权益</view>
+            		</view>
+            		<view class="tabs row mt30">
+            			<view @click="target=1" class="tab" :class="target==1 && 'active' ">
+            				找顺路车
+            			</view>
+            			<view @click="target=2" class="tab" :class="target==2 && 'active' ">
+            				找顺路司机
+            			</view>
+            		</view>
+            		
+            		<view class="address-select model-wrap row jc-sb">
+            			<view >
+            				<view class="f32-c333">请选择</view>
+            				
+            				<u-input v-model="startRegion" placeholder="请选择出发地" @click="selectPick('region','start')" type="select" border />
+            			</view>
+            			<image src="http://120.24.56.30:9000/system/jiaohuan.png" ></image>
+            			<view >
+            				<view class="f32-c333">请选择</view>
+            				<u-input v-model="endRegion" placeholder="请选择目的地" @click="selectPick('region','end')" type="select" border />
+            			</view>
+            		</view>
+            	</view>
+            </view>
+            
+            <view class="input-content model-wrap mt30" >
+            	<view class="input-title">手机号码</view>
+            	<view class="input-wrap mt20">
+            		<u-input class="title" maxlength="11" border v-model="mobilePhone" placeholder="请输入手机号码" />
+            	</view>
+            </view>
+            <view class="input-content model-wrap mt30">
+            	<view class="input-title">日期时间</view>
+            	<view class="input-wrap mt20">
+            		<u-input 
+                    type='select' 
+                    class="title" 
+                    border 
+                    v-model="dateTime" 
+                    placeholder="请选择出发时间" 
+                    @click="selectPick('time')" />
+            	</view>
+            </view>
+        </template>
 		
         <view class="input-content model-wrap mt30">
 			<view class="input-wrap ">
-				<u-input class="content "  height="300" border type="textarea" v-model="content" />
+                <u-input class="content" maxlength="9999999999"  height="300" border type="textarea" v-model="content" />
+                <!-- <template v-else>
+                    <editor
+                    @input="getEditorContent"
+                    @ready="onEditorReady"
+                    id="editor"
+                    placeholder="请输入内容" v-model="content">
+                    </editor>
+                </template> -->
 			</view>
         </view>
+        
 		<view class="upload model-wrap mt30">
-			<view class="input-title">上传</view>
+			<view class="input-title" >上传</view>
 			<htz-image-upload  
 			:max="maxList"  
 			v-model="fileList" 
@@ -116,6 +132,7 @@
 				cirlceName:'当前的圈子',
 				list:[],
 				activeType:1,
+                editorCtx:'',
 				typeList:[
 					{
 						name:'文章',
@@ -149,7 +166,7 @@
 				title:'',
 				mobilePhone:'',
 				mediaType:'image',
-				maxList:6,
+				maxList:99,
 				content:'',
 				money:'',
 				circleId:'',
@@ -177,17 +194,26 @@
 			...mapState(['amountDetail'])
 		},
 		onLoad(e) {
-			this.$store.dispatch('amountDetail')
 			if(e.circleId){
 				this.circleId=e.circleId
 			}
-			this.getCircleList()
+            if(e.type){
+                this.activeType=e.type
+            }
 			this.userInfo=uni.getStorageSync('userInfo')
 		},
+        onShow() {
+            this.$store.dispatch('amountDetail')
+            this.getCircleList()
+        },
 		methods:{
 			// 获取圈子列表
 			getCircleList(){
-				this.$http({url:'/goods/circle/myCircle'}).then(res=>{
+                let data={
+                    size:999,
+                    current:1
+                }
+				this.$http({url:'/goods/circle/myCircle',data}).then(res=>{
 					if(res.data.records.length<=0){
 						uni.showToast({
 							title:'您还未加入任何圈子，请先加入圈子',
@@ -215,6 +241,7 @@
 			},
 			// 确定
 			submit(){
+                console.log(this.content)
 				if(!this.content){
 					uni.showToast({
 						title:'请输入内容',
@@ -244,14 +271,22 @@
 					})
 					return
 				}
-				if(this.activeType===4){
-					if(!this.startRegion || !this.this.endRegion || !this.this.dateTime || !this.this.mobilePhone){
+				if(this.activeType===3){
+                    let myreg = /^[1][3,4,5,7,8,9][0-9]{9}$/;
+					if(!this.startRegion || !this.endRegion || !this.dateTime || !this.mobilePhone){
 						uni.showToast({
-							title:'清补充完整信息',
+							title:'请补充完整信息',
 							icon:'none'
 						})
 						return
 					}
+                    if(!myreg.test(this.mobilePhone)){
+                        uni.showToast({
+                        	title:'请输入正确的手机号码',
+                        	icon:'none'
+                        })
+                        return
+                    }
 				}
 				let data={
 					circleId:this.circleId,
@@ -278,7 +313,8 @@
 				uni.showLoading({
 					title:'加载中'
 				})
-				this.$http({url:"/goods/product/add",data,method:'post'}).then(res=>{
+                let url=this.activeType==3?'/goods/product/release':'/goods/product/add'
+				this.$http({url,data,method:'post'}).then(res=>{
 					uni.hideLoading()
 					uni.showToast({
 						title:'发布成功',
@@ -304,7 +340,17 @@
 				    this.fileList.push(_res.data);
 				}
 			},
-			
+            // 富文本初始化
+            onEditorReady() {
+                uni.createSelectorQuery().select('#editor').context((res) => {
+                    this.editorCtx = res.context
+                }).exec()
+            },
+			getEditorContent(e) {
+			    this.content = e.detail.html;
+			    this.contentText = e.detail.text;
+			},
+            
 			// 选择下拉框
 			selectPick(type,val){
 				if(type=='time'){
@@ -348,7 +394,7 @@
 				this.activeType=item.type
 				if(item.type!==2){
 					this.mediaType='image'
-					this.maxList=6
+					this.maxList=99
 				}else{
 					this.mediaType='video'
 					this.maxList=1

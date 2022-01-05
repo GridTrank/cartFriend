@@ -57,7 +57,8 @@
 		<release
 		pageFrom='Detail'
 		:isMmember="circleInfo.isMember"
-		:circleId="circleId"></release>
+		:circleId="circleId">
+        </release>
 	</view>
 </template>
 
@@ -68,7 +69,7 @@
 			return {
 				toolList:[
 					{label:'今日发帖',value:'',img:'http://120.24.56.30:9000/system/fatie.png'},
-					{label:'帖子总数',value:'',img:'http://120.24.56.30:9000/system/sc.png'},
+					{label:'帖子总数',value:'',img:'http://120.24.56.30:9000/system/tiezizs.png'},
 					{label:'成员数',value:'',img:'http://120.24.56.30:9000/system/fatie.png'},
 				],
 				active:0,
@@ -117,6 +118,7 @@
 					this.toolList[0].count=res.data.todayCount
 					this.toolList[1].count=res.data.totalCount
 					this.toolList[2].count=res.data.memberCount
+                    this.item=[]
 					this.getList()
 				})
 			},
@@ -318,6 +320,7 @@
 		.info{
 			border-bottom: 2upx solid #f1f1f1;
 			border-radius: 0;
+            padding: 30upx 0;
 			&:last-child{
 				border: none;
 			}

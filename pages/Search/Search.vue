@@ -55,9 +55,10 @@
 		},
 		onLoad(e) {
 			this.pageType=e.pageType || 'invitation'
-			
 			this.getSearchList()
-			this.getCircleList()
+            if(uni.getStorageSync('token')){
+                this.getCircleList()
+            }
 		},
 		methods:{
 			search(item){

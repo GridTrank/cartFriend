@@ -54,9 +54,10 @@ export const http=(queryData)=>{
 			'/goods/circle/list',
 			'/goods/product/getList',
 			'/goods/circle/product',
-			'/goods/search/recommendSearch'
-			]
-		if(!uni.getStorageSync('token') && cancelUrl.indexOf(queryData.url)==-1 ){
+			'/goods/search/recommendSearch',
+            '/goods/product/detail/',
+		]
+		if(!uni.getStorageSync('token') && cancelUrl.indexOf(queryData.url)==-1 && !queryData.noVerify ){
 			uni.showToast({
 				title:'请先登录',
 				icon:'none'
@@ -80,11 +81,16 @@ export const http=(queryData)=>{
 					if(res.data.code==200 ){
 						resolve(res.data)
 					}else if(res.data.code==401){
-						uni.navigateTo({
-							url:'/pages/Login/Login'
-						})
-						uni.clearStorageSync()
-						// store.state.showLoginPop=true
+                        uni.showToast({
+                        	title:'登录已过期',
+                        	icon:'none'
+                        })
+                        uni.clearStorageSync()
+                        setTimeout(()=>{
+                            uni.switchTab({
+                                url:'/pages/Index/index'
+                            })
+                        },1000)
 					}else{
 						uni.showToast({
 							title:res.data.msg,

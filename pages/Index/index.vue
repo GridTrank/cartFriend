@@ -6,9 +6,9 @@
 					<image src="http://120.24.56.30:9000/system/search.png" mode="widthFix"></image>
 					<text  class="s-txt">请输入关键词搜索</text>
 				</view>
-				<view class="right" @click.stop="toMessage">
+				<view  class="right" @click.stop="toMessage">
 					<image src="http://120.24.56.30:9000/system/message.png" mode="widthFix"></image>
-					<text>{{total}}</text>
+					<text  v-if="total>0">{{total}}</text>
 				</view>
 			</navigator>
 		</view>
@@ -40,10 +40,15 @@
 		</view>
 
 		
-		<invitation-list ref='list' :item="item"></invitation-list>
+		<invitation-list 
+        @attentionHandle="attentionHandle" 
+        ref='list' 
+        pageType="Index"
+        :item="item">
+        </invitation-list>
 
 		<view class="tips" :class="showNoData && 'no-da'" >       
-			{{isContinue?'上拉加载更多~':'暂无更多数据~'}}
+			{{isContinue?'正在加载中~':'暂无更多数据~'}}
 		</view>
 		
 		<release :circleId="selectCircleId"></release>
@@ -92,14 +97,15 @@
 			
 		},
 		onLoad() {
+            this.searchList()
 		},
 		onShow() {
-			this.searchList()
+            // this.item=[]
+			// this.searchList()
 			if(uni.getStorageSync('token')){
 				this.getAllList()
 				this.getMessageNum()
 			}
-			
 		},
 		// 下拉刷新
 		onPullDownRefresh(){
@@ -122,7 +128,6 @@
 		},
 		watch:{
 			playIndex(newVal){
-				
 				for (let item of this.item) {
 					item.flag = false
 				}
@@ -183,6 +188,10 @@
 						if(item.type==3){
 							item.flag=false
 						}
+                        // item.imageData=[]
+                        // let href=item.content.replace(/<img [^>]*src=['"]([^'"]+)[^>]*>/gi, function (match, capture) {
+                        //     item.imageData.push(capture)
+                        // });
 					})
 					this.item=this.item.concat(res.data.records)
 					if(res.data.records.length>=1){
@@ -227,6 +236,27 @@
 					url:'/pages/InvitationDetail/InvitationDetail?productId='+item.id
 				})
 			},
+            attentionHandle(item){
+                let data={
+                	memberId: item.userId,
+                	isAttention:item.isAttention==1?0:1
+                }
+                this.$http({url:'/member/attention',data,method:'POST'}).then(res=>{
+                	uni.showToast({
+                		title:res.msg,
+                		icon:'none'
+                	})
+                	setTimeout(()=>{
+                		if(res.code==200 ){
+                            this.item.forEach(el=>{
+                                if(el.userId==item.userId){
+                                    el.isAttention=el.isAttention===0?1:0
+                                }
+                            })
+                		}
+                	},1500)
+                })
+            },
 			toMessage(){
 				uni.navigateTo({
 					url:'/pages/MyCenter/Message'
@@ -277,7 +307,7 @@
 					type:1,
 					isEvaluate:(item.hasAgree || item.hasOppose)?0:1,
 				}
-				this.$http({url:'/goods/product/evaluate',data,method:'POST'}).then(res=>{
+				this.$http({url:'/reply/product/evaluate',data,method:'POST'}).then(res=>{
 					uni.showToast({
 						title:res.msg,
 						icon:'none'
@@ -340,11 +370,10 @@
 					font-size: 20upx;
 					color: #fff;
 					display: block;
-					width: 25upx;
-					height: 25upx;
 					background-color: #EF0303;
 					border-radius: 50%;
 					text-align: center;
+                    padding: 8upx;
 				}
 			}
 		}

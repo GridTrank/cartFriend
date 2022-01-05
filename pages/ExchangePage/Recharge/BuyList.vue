@@ -33,7 +33,7 @@
 			this.pageType=e.pageType
 			
 			this.url=this.pageType=='charge'?'/order/chargeRecord':'/order/cardRecord'
-			console.log(this.url,this.pageType)
+            this.getData()
 		},
 		methods:{
 		

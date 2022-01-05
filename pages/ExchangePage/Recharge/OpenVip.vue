@@ -86,7 +86,7 @@
 			...mapState(['amountDetail'])
 		},
         onLoad(e){
-            this.pageType=e.type
+            this.pageType=e.type || 'mounth'
 			this.title=e.type=='mounth'?'开通月卡':e.type=='quarter'?'开通季卡':'开通年卡'
 			
 			uni.request({
@@ -95,6 +95,7 @@
 					this.ip=e.data.query
 				}
 			})
+           
 			this.money=this.typeList.filter(item=>{
 				return this.pageType==item.type
 			})[0].value

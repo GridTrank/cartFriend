@@ -1,6 +1,6 @@
 <template>
 	<view class="page-wrap">
-		<view class="list-wrap model-wrap">
+		<view class="list-wrap model-wrap" v-if="dataList.length>0">
 			<template v-if="pageType!=='recommend'">
 				<view class="info " v-for="(item,index) in dataList" :key="index" @click="toDetail(item)">
 					<!-- 收藏 浏览 我的提问-->
@@ -13,8 +13,21 @@
 							{{pageType=='collect'?'取消收藏':pageType=='browse'?'删除':''}}
 						</view>
 					</view>
+                    
+                    <view class="shunlujia" v-if="item.productType==4">
+                    	<view class="top row jc-sb">
+                    		<text class="left">{{item.productTarget==1?'找顺路车':'找顺路司机'}}</text>
+                    		<text class="right">出发时间 {{item.productDateTime}}</text>
+                    	</view>
+                    	<view class="address row">
+                    		<text>{{item.productOrigin}}</text>
+                    		<image src="http://120.24.56.30:9000/system/slj-icon1.png" ></image>
+                    		<text>{{item.productDestination}}</text>
+                    	</view>
+                    </view>
+                    
 					<view class="info-center">
-						<view class="info-title twoHidden"  v-if="pageType!=='question'">
+						<view class="info-title twoHidden"  v-if="pageType!=='question' && item.productTitle">
 							{{item.productTitle}}
 						</view>
 						<view class="note-info">
@@ -22,9 +35,7 @@
 								{{ item.productContent || item.content}}
 							</view>
 						
-							<template 
-								v-if="(item.productType!==3 && item.productPhotos) || (pageType=='question' && item.photos)"
-							>
+							<template v-if="(item.productType!==3 && item.productType!==4 && item.productPhotos) || (pageType=='question' && item.photos)">
 								<scroll-view scroll-x="true" class="img-wrap mt20">
 									<image 
 									v-for="(img,i) in (item.productPhotos || item.photos).split(',') "
@@ -40,6 +51,7 @@
 								class="video"
 								:show-center-play-btn="false"
 								:controls='false'
+                                objectFit="cover"
 								:src="item.productPhotos" >
 								</video>
 							</template>
@@ -76,6 +88,7 @@
 							<scroll-view v-if="item.photos" scroll-x="true" class="img-wrap mt20">
 								<image 
 								v-for="(img,i) in item.photos.split(',') "
+                                :key="i"
 								class="note-img"  
 								:src="img" >
 								</image>
@@ -92,11 +105,10 @@
 				
 			</template>
 		</view>
-		<view class="tips" :class="showNoData && 'no-da'">
-			{{isContinue?'上拉加载更多~':'暂无更多数据~'}}
-		</view>
+        <view v-else>
+            <no-data></no-data>
+        </view>
 	</view>
-    
 </template>
 
 <script>
@@ -129,6 +141,7 @@
 			}else{
 				this.url='/goods/product/myView'
 			}
+            this.getData()
 		},
 		
 		methods:{
@@ -211,7 +224,7 @@
 	.list-wrap{
 		.info{
 			background-color: #fff;
-			padding: 30upx;
+			padding: 30upx 0;
 			border-bottom: 1px solid #f1f1f1;
 			&:last-child{
 				border: none;
@@ -233,6 +246,37 @@
 				}
 				
 			}
+            .shunlujia{
+            	background-image: url('http://120.24.56.30:9000/system/slj-bg1.png');
+            	background-size: cover;
+            	height: 170upx;
+            	width: 100%;
+            	padding: 30upx;
+            	.top{
+            		.left{
+            			background-color: #FF7D41;
+            			padding: 4upx 12upx;
+            			border-radius: 20upx;
+            			font-size: 24upx;
+            			color: #fff;
+            		}
+            		.right{
+            			color: #4B2F12;
+            			font-size: 28upx;
+            		}
+            	}
+            	.address{
+            		// justify-content: center;
+            		color: #0D1722;
+            		font-size: 34upx;
+            		margin-top: 20upx;
+            		image{
+            			margin: 0 30upx;
+            			width:60upx ;
+            			height: 60upx;
+            		}
+            	}
+            }
 			.info-center{
 				.info-title{
 					font-size: 30upx;

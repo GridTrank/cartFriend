@@ -21,7 +21,7 @@
 						@click="selectCircleItem(item,index)"
 					>
 						<image class="circle-img" :src="item.photo"></image>
-						<view class="circle-name ">
+						<view class="circle-name oneHidden">
 							{{item.name}}
 						</view>
 					</view>
@@ -41,7 +41,7 @@
 						@click="selectCircleItem(item,index)"
 					>
 						<image class="circle-img" :src="item.circlePhoto"></image>
-						<view class="circle-name ">
+						<view class="circle-name oneHidden">
 							{{item.circleName}}
 						</view>
 					</view>
@@ -49,8 +49,7 @@
 			</view>
 		</view>
 		
-		
-		<view class="creat-title mt30" @click="create">
+		<view v-if="false" class="creat-title mt30" @click="create">
 			创建新圈子
 		</view>
 		
@@ -66,7 +65,7 @@
 					<view class="name">
 						<text class="n">{{item.name}}</text>
 						<text class="bg-default type">{{item.type==1?'公开制':item.type==2?'邀请制':item.type==3?'付费制':'公开制'}}</text>
-						<text class="bg-default">9890/成员数</text>
+						<text class="bg-default">{{item.memberCount || 0}}/成员数</text>
 					</view>
 					<view class="desc mt20">
 						{{item.description || '描述描述描述描述描述描述描述'}}
@@ -111,8 +110,12 @@
 				this.getMyCircle()
 				this.getMyJoin()
 			}
+            this.current=1
+            this.currentCircle=1
+            this.currentJoin=1
 			this.myCircleList=[]
 			this.myJoinList=[]
+            this.circleList=[]
 			this.getList()
 		},
 		// 上拉加载
@@ -155,9 +158,10 @@
 			getList(){
 				let data={
 					size:10,
-					current:this.currentJoin
+					current:this.currentCircle
 				}
-				this.$http({url:'/goods/circle/recommendCircle',data}).then(res=>{
+                let url=!uni.getStorageSync('token')?'/goods/circle/list':'/goods/circle/recommendCircle'
+				this.$http({url,data}).then(res=>{
 					this.circleList=this.circleList.concat(res.data.records)
 					if(res.data.records.length>=10 ){
 						this.isContinueCircle=true
