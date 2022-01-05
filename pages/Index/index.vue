@@ -373,7 +373,7 @@
 					background-color: #EF0303;
 					border-radius: 50%;
 					text-align: center;
-                    padding: 8upx;
+                    padding: 6upx 12upx ;
 				}
 			}
 		}

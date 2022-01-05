@@ -10,9 +10,7 @@
   min-height: 100vh;
 }
 .page-wrap .search-wrap.data-v-a2f84674 {
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-          justify-content: space-between;
+  justify-content: space-between;
   padding-bottom: 10rpx;
   border-bottom: 4rpx solid #000000;
 }

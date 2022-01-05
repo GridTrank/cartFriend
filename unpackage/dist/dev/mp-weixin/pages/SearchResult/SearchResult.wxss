@@ -8,9 +8,7 @@
   padding: 30rpx;
 }
 .page-wrap .search-wrap.data-v-b9c2cfb4 {
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-          justify-content: space-between;
+  justify-content: space-between;
   background-color: #fff;
   border-radius: 16rpx;
 }
@@ -37,9 +35,7 @@
   font-size: 32rpx;
 }
 .page-wrap .model-wrap.data-v-b9c2cfb4 {
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 .page-wrap .model-wrap .img.data-v-b9c2cfb4 {
   width: 80rpx;

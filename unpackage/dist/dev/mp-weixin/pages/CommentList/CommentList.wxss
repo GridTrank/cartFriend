@@ -5,9 +5,7 @@
  * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
  */
 .eva-item .eva-list {
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-          align-items: flex-start;
+  align-items: flex-start;
   padding: 40rpx;
   border-radius: 0;
 }
@@ -21,15 +19,9 @@
   width: 550rpx;
 }
 .eva-item .eva-list .eva-info .eva-model {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-          justify-content: space-between;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
 }
 .eva-item .eva-list .eva-info .eva-model .time {
   font-size: 24rpx;
@@ -37,12 +29,8 @@
 }
 .eva-item .eva-list .eva-info .eva-model .num-s {
   margin-right: 10rpx;
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+  align-items: center;
 }
 .eva-item .eva-list .eva-info .eva-model .num-s .num-t1 {
   background-color: #f59a23;
@@ -78,15 +66,9 @@
   bottom: 0;
   z-index: 999;
   width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-          justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
 }
 .eva-input input {
   background-color: #fff;

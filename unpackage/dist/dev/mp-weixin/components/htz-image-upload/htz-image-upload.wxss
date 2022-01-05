@@ -68,11 +68,8 @@
 
 	} */
 .htz-image-upload-list {
-		display: -webkit-box;
-		display: -webkit-flex;
 		display: flex;
-		-webkit-flex-wrap: wrap;
-		        flex-wrap: wrap;
+		flex-wrap: wrap;
 }
 .htz-image-upload-Item {
 		width: 160rpx;

@@ -10,8 +10,6 @@
   position: fixed;
   z-index: 999;
   top: 0;
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
   left: 0;
 }
@@ -22,9 +20,7 @@
   z-index: 95;
   width: 100%;
   background-color: transparent;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-          justify-content: center;
+  justify-content: center;
 }
 .btn.data-v-11c6961c {
   padding: 5px 12px;
@@ -38,12 +34,8 @@
   font-size: 40rpx;
   color: #fff;
   border-radius: 100px;
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+  align-items: center;
 }
 .white.data-v-11c6961c {
   background-color: #fff;

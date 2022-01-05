@@ -19,11 +19,8 @@
   font-size: 32rpx;
 }
 .data-list .img-wrap.data-v-5e5f8d70 {
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-flex-wrap: nowrap;
-          flex-wrap: nowrap;
+  flex-wrap: nowrap;
   white-space: nowrap;
 }
 .data-list .img-wrap .img.data-v-5e5f8d70 {
