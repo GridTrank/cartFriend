@@ -2,8 +2,9 @@
   "navigationBarTitleText": "发布",
   "enablePullDownRefresh": false,
   "usingComponents": {
-    "u-icon": "/uview-ui/components/u-icon/u-icon",
     "u-input": "/uview-ui/components/u-input/u-input",
+    "htz-image-upload": "/components/htz-image-upload/htz-image-upload",
+    "u-picker": "/uview-ui/components/u-picker/u-picker",
     "u-select": "/uview-ui/components/u-select/u-select"
   }
 }

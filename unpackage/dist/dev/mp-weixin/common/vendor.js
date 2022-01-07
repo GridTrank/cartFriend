@@ -941,7 +941,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"project","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_NAME":"project","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -2146,6 +2146,7 @@ var http = function http(queryData) {
     var cancelUrl = [
     '/member/openId',
     '/auth/mobile/wechatLogin',
+    '/auth/mobile/login',
     '/goods/circle/list',
     '/goods/product/getList',
     '/goods/circle/product',
@@ -2172,7 +2173,7 @@ var http = function http(queryData) {
 
       method: queryData.method || 'GET',
       success: function success(res) {
-        if (queryData.url != '/auth/mobile/wechatLogin') {
+        if (queryData.url != '/auth/mobile/login') {
           if (res.data.code == 200) {
             resolve(res.data);
           } else if (res.data.code == 401) {
@@ -11738,7 +11739,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_NAME":"project","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_NAME":"project","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -11759,14 +11760,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"project","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_NAME":"project","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"project","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_NAME":"project","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -11852,7 +11853,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"project","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_NAME":"project","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -12694,7 +12695,7 @@ randomArray;exports.default = _default;
 var formatRegExp = /%[sdj%]/g;
 var warning = function warning() {}; // don't print warning message when in production env or node runtime
 
-if (typeof process !== 'undefined' && Object({"NODE_ENV":"development","VUE_APP_NAME":"project","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}) && "development" !== 'production' && typeof window !==
+if (typeof process !== 'undefined' && Object({"VUE_APP_NAME":"project","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}) && "development" !== 'production' && typeof window !==
 'undefined' && typeof document !== 'undefined') {
   warning = function warning(type, errors) {
     if (typeof console !== 'undefined' && console.warn) {
@@ -15430,9 +15431,30 @@ module.exports = {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.newDate = newDate;exports.latelyDate = latelyDate;exports.richText = richText;exports.replaceEmoji = replaceEmoji;exports.setPicSize = setPicSize;exports.previewImage = exports.uploadFile = exports.getUserProfile = exports.getUserInfo = exports.getToken = exports.Login = exports.baseUrl = void 0;
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.newDate = newDate;exports.latelyDate = latelyDate;exports.richText = richText;exports.replaceEmoji = replaceEmoji;exports.setPicSize = setPicSize;exports.previewImage = exports.uploadFile = exports.ttLogin = exports.getUserProfile = exports.getUserInfo = exports.getToken = exports.Login = exports.baseUrl = void 0;
 var _http = __webpack_require__(/*! @/utils/http.js */ 10);
 var _store = _interopRequireDefault(__webpack_require__(/*! @/store */ 11));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -15623,18 +15645,18 @@ var _emojiList = _interopRequireDefault(__webpack_require__(/*! ../common/emojiL
 var _onlineEmoji = _interopRequireDefault(__webpack_require__(/*! ../common/onlineEmoji.js */ 14));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var baseUrl = 'https://dongsiquan.com/api'; // export const baseUrl='http://8.134.100.47/api/'
 // 登录
 exports.baseUrl = baseUrl;var Login = function Login() {uni.showLoading({ title: '加载中' });return new Promise(function (resolve, reject) {getCode().then(function (code) {getToken(code).then(function (r) {resolve(r);});}).catch(function (err) {reject(err);});});}; // 获取token
-exports.Login = Login;var getToken = function getToken(id) {return new Promise(function (resolve, reject) {var query = { url: '/auth/mobile/wechatLogin', data: { code: id, tenantId: 2 } };(0, _http.http)(query).then(function (res) {uni.hideLoading();uni.setStorageSync('token', res.access_token);uni.setStorageSync('user_id', res.user_id);getUserInfo(res.user_id).then(function (r) {resolve(r);}).catch(function (err) {reject(err);});}).catch(function (err) {console.log(err);reject(err);});});}; // 获取系统用户信息
+exports.Login = Login;var getToken = function getToken(id) {return new Promise(function (resolve, reject) {var query = { url: '/auth/mobile/login', data: { code: id, tenantId: 2 } };(0, _http.http)(query).then(function (res) {console.log('登录', res);uni.hideLoading();uni.setStorageSync('token', res.access_token);uni.setStorageSync('user_id', res.user_id);getUserInfo(res.user_id).then(function (r) {resolve(r);}).catch(function (err) {reject(err);});}).catch(function (err) {console.log('登陆失败', err);reject(err);});});}; // 获取系统用户信息
 exports.getToken = getToken;var getUserInfo = function getUserInfo(userId) {return new Promise(function (resolve, reject) {(0, _http.http)({ url: "/member/info" }).then(function (res) {if (res) {if (!res.data.nickName || !res.data.photo) {var data = {};if (!res.data.nickName) {data.nickName = uni.getStorageSync("userInfo").nickName;}if (!res.data.photo) {data.photo = uni.getStorageSync("userInfo").avatarUrl;}(0, _http.http)({ url: '/member/update', data: data, method: 'post' }).then(function (res) {});}var info = Object.assign({}, uni.getStorageSync("userInfo"), res.data);uni.setStorageSync("userInfo", info);resolve(res.data);}}).catch(function (err) {console.log(err);reject(err);});});}; // 获取code
-exports.getUserInfo = getUserInfo;function getCode() {return new Promise(function (resolve, reject) {uni.getProvider({ service: 'oauth', success: function success(res) {uni.login({ provider: res.provider[0], success: function success(result) {// console.log(result)
+exports.getUserInfo = getUserInfo;function getCode() {return new Promise(function (resolve, reject) {uni.getProvider({ service: 'oauth', success: function success(res) {console.log('获取code', res);uni.login({ provider: res.provider[0], success: function success(result) {// console.log(result)
             // return
             resolve(result.code);}, fail: function fail(err) {reject('获取code失败', err);} });} });});} // 授权后的用户信息
 var getUserProfile = function getUserProfile() {uni.getUserProfile({ desc: '登陆', success: function success(res) {console.log('授权后的用户信息', res);uni.setStorageSync('userInfo', res.userInfo);Login().then(function (res) {uni.showToast({ title: '登录成功', icon: 'none' });setTimeout(function () {// uni.switchTab({
           // 	url:'/pages/Index/index'
           // })
-          uni.navigateBack();}, 1500);});}, fail: function fail(err) {console.log(222, err);} });}; // 上传
-exports.getUserProfile = getUserProfile;var uploadFile = function uploadFile(url, fileKey, data) {return new Promise(function (resolve, reject) {uni.chooseImage({ success: function success(chooseImageRes) {var tempFilePaths = chooseImageRes.tempFilePaths;uni.uploadFile({ url: baseUrl + url, filePath: tempFilePaths[0], name: 'photo', header: { 'Authorization': 'Bearer ' + uni.getStorageSync('token'), 'Content-Type': 'multipart/form-data' }, formData: _objectSpread({ 'userId': uni.getStorageSync('user_id') }, data), success: function success(uploadFileRes) {var data = JSON.parse(uploadFileRes.data);if (data.code == 200) {resolve(data.data);} else {reject(data);}}, fail: function fail(err) {reject('上传失败', err);} });} });});}; // 图片预览
-exports.uploadFile = uploadFile;var previewImage = function previewImage(res) {console.log(res);var urls = [];res.forEach(function (item) {urls.push(item.image || item);});uni.previewImage({ urls: urls, longPressActions: { itemList: ['发送给朋友', '保存图片', '收藏'], success: function success(data) {console.log('选中了第' + (data.tapIndex + 1) + '个按钮,第' + (data.index + 1) + '张图片');}, fail: function fail(err) {console.log(err.errMsg);} } });};exports.previewImage = previewImage;function newDate() {var data = new Date();var y = data.getFullYear();var m = data.getMonth() + 1;m = m < 10 ? '0' + m : m;var d = data.getDate();d = d < 10 ? '0' + d : d;var h = data.getHours();h = h < 10 ? '0' + h : h;var minute = data.getMinutes();minute = minute < 10 ? '0' + minute : minute;var second = data.getSeconds();
-  second = second < 10 ? '0' + second : second;
+          uni.navigateBack();}, 1500);});}, fail: function fail(err) {console.log(222, err);} });}; // 头条小程序登录
+exports.getUserProfile = getUserProfile;var ttLogin = function ttLogin() {uni.getProvider({ service: 'oauth', success: function success(res) {uni.login({ provider: res.provider[0], success: function success(result) {console.log('获取code', result);getToken(result.code);}, fail: function fail(err) {reject('获取code失败', err);} });} });}; // 上传
+exports.ttLogin = ttLogin;var uploadFile = function uploadFile(url, fileKey, data) {return new Promise(function (resolve, reject) {uni.chooseImage({ success: function success(chooseImageRes) {var tempFilePaths = chooseImageRes.tempFilePaths;uni.uploadFile({ url: baseUrl + url, filePath: tempFilePaths[0], name: 'photo', header: { 'Authorization': 'Bearer ' + uni.getStorageSync('token'), 'Content-Type': 'multipart/form-data' }, formData: _objectSpread({ 'userId': uni.getStorageSync('user_id') }, data), success: function success(uploadFileRes) {var data = JSON.parse(uploadFileRes.data);if (data.code == 200) {resolve(data.data);} else {reject(data);}}, fail: function fail(err) {reject('上传失败', err);} });} });});}; // 图片预览
+exports.uploadFile = uploadFile;var previewImage = function previewImage(res) {console.log(res);var urls = [];res.forEach(function (item) {urls.push(item.image || item);});uni.previewImage({ urls: urls, longPressActions: { itemList: ['发送给朋友', '保存图片', '收藏'], success: function success(data) {console.log('选中了第' + (data.tapIndex + 1) + '个按钮,第' + (data.index + 1) + '张图片');}, fail: function fail(err) {console.log(err.errMsg);} } });};exports.previewImage = previewImage;function newDate() {var data = new Date();var y = data.getFullYear();var m = data.getMonth() + 1;m = m < 10 ? '0' + m : m;var d = data.getDate();d = d < 10 ? '0' + d : d;var h = data.getHours();h = h < 10 ? '0' + h : h;var minute = data.getMinutes();minute = minute < 10 ? '0' + minute : minute;var second = data.getSeconds();second = second < 10 ? '0' + second : second;
   return y + '-' + m + '-' + d + ' ' + h + ':' + minute + ':' + second;
 }
 function latelyDate(time) {

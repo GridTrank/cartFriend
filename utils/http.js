@@ -51,6 +51,7 @@ export const http=(queryData)=>{
 		let cancelUrl=[
 			'/member/openId',
 			'/auth/mobile/wechatLogin',
+            '/auth/mobile/login',
 			'/goods/circle/list',
 			'/goods/product/getList',
 			'/goods/circle/product',
@@ -77,7 +78,7 @@ export const http=(queryData)=>{
 			},
 			method:queryData.method || 'GET',
 			success: (res) => {
-				if(queryData.url!='/auth/mobile/wechatLogin'){
+				if(queryData.url!='/auth/mobile/login'){
 					if(res.data.code==200 ){
 						resolve(res.data)
 					}else if(res.data.code==401){

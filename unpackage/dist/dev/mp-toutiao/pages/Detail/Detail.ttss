@@ -4,10 +4,15 @@
  * 使用的时候，请将下面的一行复制到您的uniapp项目根目录的uni.scss中即可
  * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
  */
+.page-wrap.data-v-428b4ca6 {
+  background-image: url("http://120.24.56.30:9000/system/bg1.png");
+  background-repeat: no-repeat;
+  background-size: 100% 500rpx;
+  padding: 30rpx;
+}
 .page-wrap .info.data-v-428b4ca6 {
   width: 100%;
   height: 300rpx;
-  background-color: #f59a23;
   position: relative;
 }
 .page-wrap .info .edit.data-v-428b4ca6 {
@@ -20,66 +25,124 @@
   color: #333;
 }
 .page-wrap .circle-info.data-v-428b4ca6 {
-  margin-top: -25%;
+  margin-top: 60rpx;
   padding: 40rpx;
   position: relative;
 }
 .page-wrap .circle-info .img.data-v-428b4ca6 {
-  width: 160rpx;
-  position: absolute;
-  top: -60rpx;
-  left: 80rpx;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  box-shadow: 0 0 10rpx 2rpx #ddd;
 }
 .page-wrap .circle-info .add.data-v-428b4ca6 {
-  padding: 10rpx 30rpx;
-  border-radius: 42rpx;
-  background-color: #f59a23;
-  color: #fff;
-  width: 30%;
   text-align: center;
-  float: right;
 }
-.page-wrap .circle-info .circle-detail.data-v-428b4ca6 {
-  clear: both;
+.page-wrap .circle-info .is-add.data-v-428b4ca6 {
+  background-color: #ddd;
+  color: #fff;
 }
 .page-wrap .circle-info .circle-detail .is-money.data-v-428b4ca6 {
   font-size: 28rpx;
-  color: #fff;
-  font-weight: 400;
-  margin-left: 20rpx;
+  margin: 0 20rpx;
   padding: 5rpx 10rpx;
+  background-color: #F7D8B6;
+  font-size: #8F5E29;
+  border-radius: 10rpx;
+}
+.page-wrap .circle-info .circle-detail .edit.data-v-428b4ca6 {
+  font-size: 28rpx;
+  border-radius: 10rpx;
+}
+.page-wrap .circle-info .circle-detail .edit-img.data-v-428b4ca6 {
+  width: 100rpx;
+}
+.page-wrap .circle-info .circle-detail .ffbz.data-v-428b4ca6 {
+  padding: 5rpx 10rpx;
+  background-color: #F7D8B6;
+  font-size: #8F5E29;
+  width: 248rpx;
+  text-align: center;
+  border-radius: 12rpx;
 }
 .page-wrap .circle-info .xflex-list.data-v-428b4ca6 {
-  -webkit-justify-content: space-around;
-          justify-content: space-around;
+  justify-content: space-around;
 }
-.page-wrap .circle-info .type-list.data-v-428b4ca6 {
-  display: -webkit-box;
-  display: -webkit-flex;
+.page-wrap .circle-info .tool-list .item.data-v-428b4ca6 {
+  border-radius: 16rpx;
+  padding: 20rpx 0rpx;
+  width: 187rpx;
   display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
 }
-.page-wrap .circle-info .type-item.data-v-428b4ca6 {
+.page-wrap .circle-info .tool-list .item .tool-img.data-v-428b4ca6 {
+  width: 36rpx;
+  margin: auto;
+  display: block;
+}
+.page-wrap .circle-info .tool-list .item .num.data-v-428b4ca6 {
+  margin-right: 8rpx;
+}
+.page-wrap .circle-info .tool-list .bg1.data-v-428b4ca6 {
+  background: rgba(0, 145, 255, 0.2);
+}
+.page-wrap .circle-info .tool-list .bg2.data-v-428b4ca6 {
+  background: rgba(109, 212, 0, 0.2);
+}
+.page-wrap .circle-info .tool-list .bg3.data-v-428b4ca6 {
+  background: rgba(247, 181, 0, 0.2);
+}
+.page-wrap.data-v-428b4ca6 .list-wrap {
+  background-color: #fff;
+}
+.page-wrap.data-v-428b4ca6 .list-wrap .info {
+  border-bottom: 2rpx solid #f1f1f1;
+  border-radius: 0;
+  padding: 30rpx 0;
+}
+.page-wrap.data-v-428b4ca6 .list-wrap .info:last-child {
+  border: none;
+}
+.page-wrap .type-list.data-v-428b4ca6 {
+  display: flex;
+  align-items: center;
+  padding-bottom: 20rpx;
+  border-bottom: 2rpx solid #f1f1f1;
+}
+.page-wrap .type-list .type-item.data-v-428b4ca6 {
   margin-right: 40rpx;
-  font-size: 32rpx;
-  color: #666;
+  font-size: 28rpx;
+  color: #8E9394;
 }
-.page-wrap .circle-info .type-select.data-v-428b4ca6 {
-  color: #333;
-  font-size: 36rpx;
-  font-weight: bold;
+.page-wrap .type-list.data-v-428b4ca6 .list-wrap .info {
+  padding: 30rpx 0;
+}
+.page-wrap .type-list .type-select.data-v-428b4ca6 {
+  color: #5FB800;
   position: relative;
 }
-.page-wrap .circle-info .type-select.data-v-428b4ca6::after {
+.page-wrap .type-list .type-select.data-v-428b4ca6::after {
   content: '';
   display: block;
   position: absolute;
-  bottom: -8rpx;
+  bottom: -20rpx;
   width: 100%;
-  height: 8rpx;
-  background-color: #f59a23;
-  border-radius: 16rpx;
+  height: 4rpx;
+  background-color: #5FB800;
+  border-radius: 6rpx;
+}
+.page-wrap .tips.data-v-428b4ca6 {
+  width: 100%;
+  padding-bottom: 50rpx;
+  text-align: center;
+  color: #666;
+  font-size: 28rpx;
+  align-items: center;
+  margin-top: 100rpx;
+}
+.page-wrap .tips image.data-v-428b4ca6 {
+  width: 280rpx;
+  display: block;
 }
 

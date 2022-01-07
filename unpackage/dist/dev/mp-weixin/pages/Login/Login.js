@@ -153,6 +153,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
 var _util = __webpack_require__(/*! @/utils/util.js */ 9); //
 //
 //
@@ -175,7 +179,13 @@ var _util = __webpack_require__(/*! @/utils/util.js */ 9); //
 //
 //
 //
-var _default = { data: function data() {return {};}, methods: { login: function login() {(0, _util.getUserProfile)();}, getuserinfo: function getuserinfo(res) {uni.setStorageSync('userInfo', res.userInfo);(0, _util.Login)().then(function (res) {uni.showToast({ title: '登录成功', icon: 'none' });setTimeout(function () {uni.switchTab({ url: '/pages/Index/index' });}, 1500);
+//
+//
+//
+//
+var _default = { data: function data() {return {};}, methods: { login: function login() {(0, _util.getUserProfile)();}, getuserinfo: function getuserinfo(res) {console.log(123, res);uni.setStorageSync('userInfo', res.userInfo);(0, _util.Login)().then(function (res) {uni.showToast({ title: '登录成功', icon: 'none' });setTimeout(function () {uni.switchTab({ url: '/pages/Index/index' });
+
+        }, 1500);
       });
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

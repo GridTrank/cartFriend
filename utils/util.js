@@ -26,13 +26,19 @@ export const Login=()=>{
 export const  getToken=(id)=>{
 	return new Promise((resolve,reject)=>{
 		let query={
-			url:'/auth/mobile/wechatLogin',
+			url:'/auth/mobile/login',
 			data:{
 				code:id,
-				tenantId:2
+                // #ifdef MP-WEIXIN
+				tenantId:2,
+                // #endif
+                // #ifdef MP-TOUTIAO
+                tenantId:3,
+                // #endif
 			}
 		}
 		http(query).then(res=>{
+            console.log('登录',res)
 			uni.hideLoading()
 			uni.setStorageSync('token',res.access_token)
 			uni.setStorageSync('user_id',res.user_id)
@@ -42,7 +48,7 @@ export const  getToken=(id)=>{
 				reject(err)
 			})
 		}).catch(err=>{
-			console.log(err)
+			console.log('登陆失败',err)
 			reject(err)
 		})
 	})
@@ -83,7 +89,7 @@ function getCode(){
 		uni.getProvider({
 			service:'oauth',
 			success:function(res) {
-               
+                console.log('获取code',res)
 				uni.login({
 					provider:res.provider[0],
 					success:function(result){
@@ -98,7 +104,6 @@ function getCode(){
 			}
 		})
 	})
-	
 }
 
 // 授权后的用户信息
@@ -108,16 +113,12 @@ export const getUserProfile=()=>{
         success:(res)=>{
             console.log('授权后的用户信息',res)
             uni.setStorageSync('userInfo',res.userInfo)
-			
             Login().then(res=>{
 				uni.showToast({
 					title:'登录成功',
 					icon:'none'
 				})
 				setTimeout(()=>{
-					// uni.switchTab({
-					// 	url:'/pages/Index/index'
-					// })
 					uni.navigateBack()
 				},1500)
 			})
@@ -128,7 +129,25 @@ export const getUserProfile=()=>{
     })
 }
 
-
+// 头条小程序登录
+export const ttLogin=()=>{
+    uni.getProvider({
+    	service:'oauth',
+    	success:function(res) {
+            console.log(1111,res.provider[0])
+    		uni.login({
+    			provider:res.provider[0],
+    			success:function(result){
+    				console.log('获取code',result)
+                    getToken(result.code)
+    			},
+    			fail:function(err){
+    				reject('获取code失败',err)
+    			}
+    		})
+    	}
+    })
+}
 // 上传
 export const uploadFile=(url,fileKey,data)=>{
 	return new Promise((resolve,reject)=>{

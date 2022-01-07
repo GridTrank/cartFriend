@@ -6,22 +6,29 @@
 		<view class="login-btn " @click="login">
 			登录发现更多精彩
 		</view> 
+        <!-- #endif -->
+        
+        <!-- #ifdef MP-TOUTIAO -->
+        <button class="login-btn"  @click="getuserinfo">
+        	登录发现更多精彩
+        </button>
+        <!-- <view class="login-btn " @click="login">
+        	登录发现更多精彩
+        </view> -->
+        <!-- #endif -->
+        
 		<navigator hover-class="none" url="/pages/Index/index"  open-type="switchTab" class="login-btn back" >
 			返回首页
 		</navigator>
-		<!-- #endif -->
 		
-		<!-- #ifdef MP-BAIDU -->
-		<button class="login-btn" open-type="getUserInfo" @getuserinfo="getuserinfo">
-			登录发现更多精彩
-		</button>
-		<!-- #endif -->
+		
+		
 		
 	</view>
 </template>
 
 <script>
-	import {getUserProfile,Login} from '@/utils/util.js'
+	import {getUserProfile,Login,ttLogin} from '@/utils/util.js'
 	export default {
 		data() {
 			return {
@@ -30,21 +37,37 @@
 		},
 		methods:{
 			login(){
+                // #ifdef MP-WEIXIN
 				getUserProfile()
+                // #endif
+                // #ifdef MP-TOUTIAO
+                ttLogin()
+                // #endif 
 			},
 			getuserinfo(res){
-				uni.setStorageSync('userInfo',res.userInfo)
-				Login().then(res=>{
-					uni.showToast({
-						title:'登录成功',
-						icon:'none'
-					})
-					setTimeout(()=>{
-						uni.switchTab({
-							url:'/pages/Index/index'
-						})
-					},1500)
-				})
+                tt.getUserProfile({
+                    desc:'获取你的昵称、头像、地区及性别',
+                    success:(user)=>{
+                        console.log('授权后的用户信息',user)
+                        uni.setStorageSync('userInfo',user.userInfo)
+                       ttLogin()
+                    },
+                    fail:(err)=>{
+                        console.log(222,err)
+                    }
+                })
+				// uni.setStorageSync('userInfo',res.userInfo)
+				// Login().then(res=>{
+				// 	uni.showToast({
+				// 		title:'登录成功',
+				// 		icon:'none'
+				// 	})
+				// 	setTimeout(()=>{
+				// 		uni.switchTab({
+				// 			url:'/pages/Index/index'
+				// 		})
+				// 	},1500)
+				// })
 			}
 		}
 	}

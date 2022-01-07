@@ -6,47 +6,75 @@
  */
 .page-wrap.data-v-a2f84674 {
   padding: 30rpx 40rpx;
+  background-color: #fff;
   min-height: 100vh;
 }
 .page-wrap .search-wrap.data-v-a2f84674 {
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-          justify-content: space-between;
+  justify-content: space-between;
+  padding-bottom: 10rpx;
+  border-bottom: 4rpx solid #000000;
 }
 .page-wrap .search-wrap .input.data-v-a2f84674 {
-  width: 76%;
+  width: 100%;
   background-color: #fff;
   border-radius: 50rpx;
   padding-left: 20rpx;
   margin-right: 20rpx;
 }
 .page-wrap .search-wrap .input .input-box.data-v-a2f84674 {
-  width: 85%;
+  width: 90%;
 }
-.page-wrap .search-wrap .search-btn.data-v-a2f84674 {
-  padding: 16rpx 40rpx;
-  background-color: #f59a23;
-  border-radius: 50rpx;
-  color: #fff;
+.page-wrap .search-wrap .input .search-img.data-v-a2f84674 {
+  width: 40rpx;
+  margin-right: 20rpx;
 }
 .page-wrap .search-list.data-v-a2f84674 {
-  margin-top: 40rpx;
+  margin-top: 50rpx;
 }
 .page-wrap .search-list .list .item.data-v-a2f84674 {
   padding: 8rpx 30rpx;
-  background-color: #f59a23;
-  border-radius: 50rpx;
-  color: #fff;
+  background-color: #F7F8F9;
+  border-radius: 8rpx;
+  color: #000;
   margin-right: 30rpx;
 }
 .page-wrap .search-list .circle .item.data-v-a2f84674 {
-  padding: 0;
+  padding: 30rpx 0;
   background-color: transparent;
+  margin: 20rpx 0;
+  border-bottom: 1px solid #f1f1f1;
 }
-.page-wrap .search-list .circle .item .img.data-v-a2f84674 {
-  width: 100rpx;
+.page-wrap .search-list .circle .item.data-v-a2f84674:last-child {
+  border: none;
 }
-.page-wrap .search-list .circle .item .name.data-v-a2f84674 {
-  color: #333;
+.page-wrap .search-list .circle .item .left.data-v-a2f84674 {
+  color: #000;
+}
+.page-wrap .search-list .circle .item .left .index.data-v-a2f84674 {
+  font-size: 28rpx;
+  width: 40rpx;
+  height: 50rpx;
+  background-image: url("http://120.24.56.30:9000/system/ss-icon1.png");
+  background-size: cover;
+  line-height: 50rpx;
+  text-align: center;
+  color: #000;
+  margin-right: 10rpx;
+}
+.page-wrap .search-list .circle .item .left .top.data-v-a2f84674 {
+  background-image: url("http://120.24.56.30:9000/system/ss-icon2.png");
+  color: #fff;
+}
+.page-wrap .search-list .circle .item .left .name.data-v-a2f84674 {
+  font-size: 32rpx;
+}
+.page-wrap .search-list .circle .item .right.data-v-a2f84674 {
+  color: #666;
+  font-size: 28rpx;
+}
+.page-wrap .search-list .circle .item .right .huo.data-v-a2f84674 {
+  width: 28rpx;
+  height: 28rpx;
+  margin-right: 10rpx;
 }
 

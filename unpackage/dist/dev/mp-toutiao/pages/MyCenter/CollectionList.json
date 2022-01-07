@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "no-data": "/components/no-data/no-data",
+    "invitation-list": "/components/invitation-list/invitation-list"
+  }
+}

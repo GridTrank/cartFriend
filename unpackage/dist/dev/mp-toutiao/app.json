@@ -4,6 +4,13 @@
     "pages/Circle/Circle",
     "pages/Exchange/Exchange",
     "pages/MyCenter/MyCenter",
+    "pages/MyCenter/PersonalHome",
+    "pages/MyCenter/FansFollow",
+    "pages/MyCenter/CollectionList",
+    "pages/MyCenter/Message",
+    "pages/MyCenter/TaskList",
+    "pages/MyCenter/SetInfo",
+    "pages/MyCenter/ModifyInfo",
     "pages/Search/Search",
     "pages/SearchResult/SearchResult",
     "pages/Release/Release",
@@ -11,7 +18,12 @@
     "pages/EditDetail/EditDetail",
     "pages/InvitationDetail/InvitationDetail",
     "pages/CommentList/CommentList",
-    "pages/ExchangePage/Recharge/Recharge"
+    "pages/ExchangePage/Recharge/Recharge",
+    "pages/ExchangePage/Recharge/Cash",
+    "pages/ExchangePage/Recharge/OpenVip",
+    "pages/ExchangePage/Recharge/BuyList",
+    "pages/Chat/Chat",
+    "pages/Login/Login"
   ],
   "subPackages": [],
   "window": {
@@ -22,32 +34,32 @@
   },
   "tabBar": {
     "color": "#909399",
-    "selectedColor": "#303133",
+    "selectedColor": "#5FB800",
     "backgroundColor": "#FFFFFF",
     "borderStyle": "black",
     "list": [
       {
         "pagePath": "pages/Index/index",
-        "iconPath": "static/image/home.png",
-        "selectedIconPath": "static/image/home-s.png",
+        "iconPath": "static/image/icon1.png",
+        "selectedIconPath": "static/image/icon1-a.png",
         "text": "首页"
       },
       {
         "pagePath": "pages/Circle/Circle",
-        "iconPath": "static/image/quanzi.png",
-        "selectedIconPath": "static/image/quanzi-s.png",
+        "iconPath": "static/image/icon2.png",
+        "selectedIconPath": "static/image/icon2-a.png",
         "text": "圈子"
       },
       {
         "pagePath": "pages/Exchange/Exchange",
-        "iconPath": "static/image/duihuan.png",
-        "selectedIconPath": "static/image/duihuan-s.png",
-        "text": "兑换"
+        "iconPath": "static/image/icon3.png",
+        "selectedIconPath": "static/image/icon3-a.png",
+        "text": "顺路驾"
       },
       {
         "pagePath": "pages/MyCenter/MyCenter",
-        "iconPath": "static/image/my.png",
-        "selectedIconPath": "static/image/my-s.png",
+        "iconPath": "static/image/icon4.png",
+        "selectedIconPath": "static/image/icon4-a.png",
         "text": "我的"
       }
     ]

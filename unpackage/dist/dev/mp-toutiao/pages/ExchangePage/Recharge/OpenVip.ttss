@@ -1,0 +1,164 @@
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * 使用的时候，请将下面的一行复制到您的uniapp项目根目录的uni.scss中即可
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+.page-wrap.data-v-d6b42542 {
+  padding: 30rpx;
+  background-image: url("http://120.24.56.30:9000/system/ch-bg.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-color: linear-gradient(180deg, #FFE5C2 0%, #F3F3FE 100%);
+}
+.page-wrap .material.data-v-d6b42542 {
+  width: 100%;
+  height: 200rpx;
+  position: relative;
+  margin-bottom: 40rpx;
+  background-image: url("http://120.24.56.30:9000/system/hy3.png");
+  background-size: 100% 100%;
+  padding: 30rpx;
+}
+.page-wrap .material .material-user.data-v-d6b42542 {
+  height: 140rpx;
+  background-image: url("http://120.24.56.30:9000/system/vip-bg1.png");
+  background-size: 100% 100%;
+  position: relative;
+}
+.page-wrap .material .material-user .user-info.data-v-d6b42542 {
+  color: #FE4901;
+  margin-left: 40rpx;
+}
+.page-wrap .material .material-user .user-info .vip-img.data-v-d6b42542 {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+}
+.page-wrap .material .material-user .user-info .days.data-v-d6b42542 {
+  color: #FE4901;
+  font-size: 28rpx;
+  padding: 4rpx;
+  border-radius: 8rpx;
+  background-color: #FFE2B7;
+}
+.page-wrap .material .material-user .m-i-t2.data-v-d6b42542 {
+  color: #FE4901;
+  position: absolute;
+  right: 30rpx;
+  font-size: 78rpx;
+}
+.page-wrap .material .material-user .m-i-t2 .txt.data-v-d6b42542 {
+  font-size: 36rpx;
+}
+.page-wrap .material .material-user .to-recharge.data-v-d6b42542 {
+  position: absolute;
+  right: 0rpx;
+  top: 0rpx;
+  width: 140rpx;
+  height: 140rpx;
+}
+.page-wrap .open.data-v-d6b42542 {
+  margin-bottom: 40rpx;
+  width: 100%;
+  height: 430rpx;
+  background-image: url("http://120.24.56.30:9000/system/hy9.png");
+  position: relative;
+  background-size: 100% 100%;
+  padding: 30rpx;
+}
+.page-wrap .open .open-vip.data-v-d6b42542 {
+  color: #412815;
+}
+.page-wrap .open .open-vip .v-tit.data-v-d6b42542 {
+  font-size: 40rpx;
+  font-weight: 600;
+}
+.page-wrap .open .open-vip .v-desc.data-v-d6b42542 {
+  font-size: 28rpx;
+}
+.page-wrap .open .open-list.data-v-d6b42542 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.page-wrap .open .open-list .open-item.data-v-d6b42542 {
+  position: relative;
+  border: 1px solid #AF9072;
+  width: 200rpx;
+  height: 260rpx;
+  justify-content: center;
+  align-items: center;
+}
+.page-wrap .open .open-list .open-item .item-img.data-v-d6b42542 {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.page-wrap .open .open-list .open-item .item-bg.data-v-d6b42542 {
+  background-image: url("http://120.24.56.30:9000/system/hy8.png");
+  width: 50rpx;
+  height: 40rpx;
+  background-size: 100% 100%;
+  text-align: center;
+  margin-top: 70rpx;
+  color: #BB9576;
+  font-size: 24rpx;
+}
+.page-wrap .open .open-list .open-item .item-t1.data-v-d6b42542 {
+  color: #825615;
+  font-size: 28rpx;
+}
+.page-wrap .open .open-list .open-item .item-t2.data-v-d6b42542 {
+  color: #825615;
+  font-size: 58rpx;
+}
+.page-wrap .open .open-list .open-item .item-t2 text.data-v-d6b42542 {
+  font-size: 28rpx;
+}
+.page-wrap .open .open-list .select-type.data-v-d6b42542 {
+  background-color: #EBD8BA;
+}
+.page-wrap .tip.data-v-d6b42542 {
+  display: flex;
+  flex-direction: column;
+  color: #A3A3A3;
+  font-size: 28rpx;
+}
+.page-wrap .tip text.data-v-d6b42542 {
+  line-height: 50rpx;
+}
+.page-wrap .pay-list .xflex-list.data-v-d6b42542 {
+  flex-direction: column;
+  padding: 20rpx;
+  background-color: #fff;
+  border-radius: 12rpx;
+}
+.page-wrap .pay-list .xflex-list .xflex-list-item-row.data-v-d6b42542 {
+  width: 100%;
+  justify-content: flex-start;
+  padding: 20rpx;
+  position: relative;
+  background-color: rgba(40, 196, 69, 0.09);
+  border-radius: 12rpx;
+}
+.page-wrap .pay-list .xflex-list .xflex-list-item-row .avatar.data-v-d6b42542 {
+  width: 50rpx;
+}
+.page-wrap .pay-list .xflex-list .xflex-list-item-row .label.data-v-d6b42542 {
+  font-size: 28rpx;
+  margin-left: 30rpx;
+  color: #5FB800;
+}
+.page-wrap .pay-list .xflex-list .xflex-list-item-row .is-select.data-v-d6b42542 {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  position: absolute;
+  right: 40rpx;
+}
+.page-wrap .pay-list .iconfont.data-v-d6b42542 {
+  font-size: 80rpx;
+}
+

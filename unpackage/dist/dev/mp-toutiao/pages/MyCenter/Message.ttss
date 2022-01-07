@@ -1,0 +1,51 @@
+@charset "UTF-8";
+/**
+ * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些"u-"开头的自定义变量
+ * 使用的时候，请将下面的一行复制到您的uniapp项目根目录的uni.scss中即可
+ * uView自定义的css类名和scss变量，均以"u-"开头，不会造成冲突，请放心使用 
+ */
+.page-wrap.data-v-17b1f5dc {
+  min-height: 100vh;
+}
+.page-wrap .content .read-num.data-v-17b1f5dc {
+  justify-content: space-between;
+}
+.page-wrap .content .item.data-v-17b1f5dc {
+  border-bottom: 2rpx solid #f1f1f1;
+  padding-bottom: 20rpx;
+  margin-bottom: 20rpx;
+}
+.page-wrap .content .item.data-v-17b1f5dc:last-child {
+  border: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.page-wrap .content .item-info.data-v-17b1f5dc {
+  position: relative;
+}
+.page-wrap .content .item-info .close.data-v-17b1f5dc {
+  position: absolute;
+  top: 34rpx;
+  right: 0;
+}
+.page-wrap .content .item-info .close .del-img.data-v-17b1f5dc {
+  width: 36rpx;
+  height: 38rpx;
+}
+.page-wrap .content .item-info .fc-def.data-v-17b1f5dc {
+  color: #5FB800;
+}
+.page-wrap .content .item-info.xflex-list.data-v-17b1f5dc {
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.page-wrap .content .item-info.xflex-list .avatar.data-v-17b1f5dc {
+  width: 80rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+.page-wrap .content .item-info.xflex-list .info.data-v-17b1f5dc {
+  width: 70%;
+}
+

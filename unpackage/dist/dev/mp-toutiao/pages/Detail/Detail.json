@@ -1,7 +1,9 @@
 {
   "navigationBarTitleText": "圈子详情",
+  "navigationStyle": "custom",
   "enablePullDownRefresh": false,
   "usingComponents": {
+    "page-header": "/components/page-header/page-header",
     "invitation-list": "/components/invitation-list/invitation-list",
     "release": "/components/release/release"
   }

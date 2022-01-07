@@ -1,16 +1,40 @@
 {
     "setting": {
-        "urlCheck": true,
+        "urlCheck": false,
         "es6": false,
+        "newFeature": false,
         "postcss": false,
+        "mockUpdate": false,
         "minified": false,
-        "newFeature": true
+        "autoPush": false,
+        "scripts": false,
+        "mockLogin": false
     },
     "appid": "tt0da97b149290b3e701",
     "projectname": "project",
     "condition": {
         "miniprogram": {
-            "current": -1
+            "list": [
+                {
+                    "id": 1641479365669,
+                    "name": "懂司圈司机经验技术路况交流",
+                    "pathName": "pages/InvitationDetail/InvitationDetail",
+                    "query": "productId=1478369054608011266",
+                    "scene": "",
+                    "launchFrom": "",
+                    "location": ""
+                },
+                {
+                    "id": 1641480228217,
+                    "name": "登录",
+                    "pathName": "pages/Login/Login",
+                    "query": "",
+                    "scene": "990001",
+                    "launchFrom": "scan",
+                    "location": "qr_code"
+                }
+            ],
+            "current": 1641480228217
         }
     }
 }
